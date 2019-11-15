@@ -1,5 +1,4 @@
 # java-ladder
-사다리타기 미션 저장소
+요구사항: https://techcourse.woowahan.com/s/1aKh56So/ls/vmCHBvEj
 
-## 우아한테크코스 코드리뷰
-* [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
+제출 마감일: 10월 24일 일요일 10시
