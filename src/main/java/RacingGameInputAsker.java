@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class RacingGameInputAsker implements InputAsker {
     private static final Scanner READER = new Scanner(System.in);
-    private static final String DELIMITER = "%&*";
+    public static final String DELIMITER = "%&*";
+    public static final int FIRST_INEXT = 0;
 
     @Override
     public String askInitialUserInput() {
