@@ -2,6 +2,7 @@ package game;
 
 import domain.Cars;
 import domain.RacingRounds;
+import domain.RandomMovementInstruction;
 import input.InputAsker;
 
 public class RacingGame implements Game {
@@ -21,5 +22,8 @@ public class RacingGame implements Game {
             cars = new Cars(userInput);
             racingRounds = new RacingRounds(userInput);
         } while(cars.isNotSucessfullyMade() || racingRounds.isNotSuccesfullyMade());
+
+        RandomMovementInstruction movementInstruction = new RandomMovementInstruction();
+        GameResult gameResult = racingRounds.doRounds(cars, movementInstruction);
     }
 }

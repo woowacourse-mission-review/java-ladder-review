@@ -1,8 +1,13 @@
 package domain;
 
 import domain.RacingRounds;
+import game.GameResult;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,5 +33,26 @@ public class RacingRoundsTests {
         String userInput = "ffc,abc,cda%&%";
         RacingRounds racingRounds = new RacingRounds(userInput);
         assertThat(racingRounds.isNotSuccesfullyMade()).isTrue();
+    }
+
+    @Test
+    void do_rounds_test() {
+        String userInput = "abc,bbc,abf%&%2";
+        Cars cars = new Cars(userInput);
+        RacingRounds racingRounds = new RacingRounds(userInput);
+        SimpleMovementInstruction movementInstructions = new SimpleMovementInstruction();
+
+        GameResult gameResult = racingRounds.doRounds(cars, movementInstructions);
+
+        List<CarStatusSnapShot> snapShots = new ArrayList<>();
+        CarStatusSnapShot carStatusSnapShot1 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(0,0,0));
+        CarStatusSnapShot carStatusSnapShot2 = new CarStatusSnapShot(Arrays.asList("abc","bbc","abf"), Arrays.asList(0,0,0));
+        snapShots.add(carStatusSnapShot1);
+        snapShots.add(carStatusSnapShot2);
+
+        GameResult checkGameResult = new GameResult(snapShots);
+
+        assertThat(gameResult.getSnapShots().size()).isEqualTo(2);
+        assertThat(gameResult).isEqualTo(checkGameResult);
     }
 }

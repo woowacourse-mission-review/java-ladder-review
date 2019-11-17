@@ -13,7 +13,7 @@ public class CarsTests {
         Cars cars = new Cars(userInput);
 
         assertThat(cars.size()).isEqualTo(3);
-        assertThat(cars.getCarWithName("abc").getCarName()).isEqualTo("abc");
+        assertThat(cars.getCarAt(0).getCarName()).isEqualTo("cda");
     }
 
     @Test

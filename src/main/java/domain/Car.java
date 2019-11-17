@@ -27,6 +27,12 @@ public class Car {
         return !carName.matches("^[a-zA-Z0-9]*$");
     }
 
+    public void move(int instruction) {
+        if (instruction >= 4) {
+            this.position ++;
+        }
+    }
+
     public String getCarName() {
         return carName;
     }

@@ -8,13 +8,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private Optional<Map<String, Car>> cars;
+    private Optional<List<Car>> cars;
     public Cars(String userInput) {
         try {
             List<String> carNames = parse(userInput);
             checkValidCarNames(carNames);
-            Map<String, Car> cars = carNames.stream()
-                    .collect(Collectors.toMap(carName->carName, carName -> new Car(carName)));
+            List<Car> cars = carNames.stream()
+                    .map(carName -> new Car(carName))
+                    .collect(Collectors.toList());
             this.cars = Optional.of(cars);
         } catch (InvalidCarNameException e) {
             this.cars = Optional.empty();
@@ -41,14 +42,38 @@ public class Cars {
         throw new MethodNotAllowedException();
     }
 
-    public Car getCarWithName(String carName) {
+    public Car getCarAt(int index) {
         if (cars.isPresent()) {
-            return cars.get().get(carName);
+            return cars.get().get(index);
         }
         throw new MethodNotAllowedException();
     }
 
     public boolean isNotSucessfullyMade() {
         return !cars.isPresent();
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars.get());
+    }
+
+    public void movePosition(List<Integer> instructions) {
+        List<Car> cars = this.cars.get();
+        for (int index = 0, max = cars.size(); index < max; index++ ) {
+            cars.get(index).move(instructions.get(index));
+        }
+    }
+
+    public CarStatusSnapShot makeSnapShotsOfCars() {
+        List<String> carNames = new ArrayList<>();
+        List<Integer> carPositions = new ArrayList();
+
+        List<Car> cars = this.cars.get();
+        for (Car car : cars) {
+            carNames.add(car.getCarName());
+            carPositions.add(car.getPosition());
+        }
+
+        return new CarStatusSnapShot(carNames, carPositions);
     }
 }
