@@ -55,4 +55,24 @@ public class RacingRoundsTests {
         assertThat(gameResult.getSnapShots().size()).isEqualTo(2);
         assertThat(gameResult).isEqualTo(checkGameResult);
     }
+
+    @Test
+    void do_rounds_test2() {
+        String userInput = "abc,bbc,abf%&%2";
+        Cars cars = new Cars(userInput);
+        RacingRounds racingRounds = new RacingRounds(userInput);
+
+        GameResult gameResult = racingRounds.doRounds(cars, () -> 9);
+
+        List<CarStatusSnapShot> snapShots = new ArrayList<>();
+        CarStatusSnapShot carStatusSnapShot1 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(1,1,1));
+        CarStatusSnapShot carStatusSnapShot2 = new CarStatusSnapShot(Arrays.asList("abc","bbc","abf"), Arrays.asList(2,2,2));
+        snapShots.add(carStatusSnapShot1);
+        snapShots.add(carStatusSnapShot2);
+
+        GameResult checkGameResult = new GameResult(snapShots);
+
+        assertThat(gameResult.getSnapShots().size()).isEqualTo(2);
+        assertThat(gameResult).isEqualTo(checkGameResult);
+    }
 }

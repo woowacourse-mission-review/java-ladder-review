@@ -17,6 +17,11 @@ public class GameResult {
         return Collections.unmodifiableList(snapShots);
     }
 
+    public List<String> findWinners() {
+        CarStatusSnapShot lastSnapShot = snapShots.get(snapShots.size() - 1);
+        return lastSnapShot.findWinners();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

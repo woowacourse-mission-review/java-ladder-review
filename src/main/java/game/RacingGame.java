@@ -4,12 +4,15 @@ import domain.Cars;
 import domain.RacingRounds;
 import domain.instructions.RandomMovementInstruction;
 import input.InputAsker;
+import output.OutputView;
 
 public class RacingGame implements Game {
     private InputAsker inputAsker;
+    private OutputView outputView;
 
-    public RacingGame(InputAsker inputAsker) {
+    public RacingGame(InputAsker inputAsker, OutputView outputView) {
         this.inputAsker = inputAsker;
+        this.outputView = outputView;
     }
 
     @Override
@@ -25,5 +28,6 @@ public class RacingGame implements Game {
 
         RandomMovementInstruction movementInstruction = new RandomMovementInstruction();
         GameResult gameResult = racingRounds.doRounds(cars, movementInstruction);
+        outputView.view(gameResult);
     }
 }
