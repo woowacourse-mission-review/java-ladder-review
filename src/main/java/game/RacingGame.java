@@ -2,7 +2,7 @@ package game;
 
 import domain.Cars;
 import domain.RacingRounds;
-import domain.RandomMovementInstruction;
+import domain.instructions.RandomMovementInstruction;
 import input.InputAsker;
 
 public class RacingGame implements Game {

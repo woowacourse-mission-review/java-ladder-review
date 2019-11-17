@@ -1,5 +1,6 @@
 package domain;
 
+import domain.instructions.MovementInstruction;
 import game.GameResult;
 import input.RacingGameInputAsker;
 

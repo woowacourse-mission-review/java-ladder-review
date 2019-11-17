@@ -1,4 +1,4 @@
-package domain;
+package domain.instructions;
 
 public class RandomMovementInstruction implements MovementInstruction {
     @Override

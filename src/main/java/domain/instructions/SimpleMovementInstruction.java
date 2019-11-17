@@ -1,4 +1,4 @@
-package domain;
+package domain.instructions;
 
 public class SimpleMovementInstruction implements MovementInstruction {
     @Override

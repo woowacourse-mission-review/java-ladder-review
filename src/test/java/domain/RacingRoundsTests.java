@@ -1,6 +1,6 @@
 package domain;
 
-import domain.RacingRounds;
+import domain.instructions.SimpleMovementInstruction;
 import game.GameResult;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
