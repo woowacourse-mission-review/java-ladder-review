@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class RacingGameInputAsker implements InputAsker {
     private static final Scanner READER = new Scanner(System.in);
-    public static final String DELIMITER = "%&*";
-    public static final int FIRST_INEXT = 0;
+    public static final String DELIMITER = "%&%";
+    public static final int FIRST_INDEX = 0;
+    public static final int LAST_INDEX = 1;
 
     @Override
     public String askInitialUserInput() {

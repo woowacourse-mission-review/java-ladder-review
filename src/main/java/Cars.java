@@ -24,7 +24,7 @@ public class Cars {
     }
 
     private List<String> parse(String userInput) {
-        String preParseCarNames = userInput.split(RacingGameInputAsker.DELIMITER)[RacingGameInputAsker.FIRST_INEXT];
+        String preParseCarNames = userInput.split(RacingGameInputAsker.DELIMITER)[RacingGameInputAsker.FIRST_INDEX];
         return new ArrayList<>(Arrays.asList(preParseCarNames.split(",")));
     }
 

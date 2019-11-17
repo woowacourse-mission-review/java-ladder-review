@@ -10,14 +10,12 @@ public class RacingGame implements Game {
     @Override
     public void start() {
         Cars cars;
-        RacingRounds racingRounds = null;
+        RacingRounds racingRounds;
 
         do {
             String userInput = inputAsker.askInitialUserInput();
             cars = new Cars(userInput);
-//            RacingRounds racingRounds = new RacingRounds(userInput);
-        } while(cars.isNotSucessfullyMade());
-
-
+            racingRounds = new RacingRounds(userInput);
+        } while(cars.isNotSucessfullyMade() || racingRounds.isNotSuccesfullyMade());
     }
 }
