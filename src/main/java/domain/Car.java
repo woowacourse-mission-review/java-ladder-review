@@ -1,3 +1,8 @@
+package domain;
+
+
+import exception.InvalidCarNameException;
+
 public class Car {
     private final String carName;
     private int position;

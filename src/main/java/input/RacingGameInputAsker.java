@@ -1,3 +1,7 @@
+package input;
+
+import input.InputAsker;
+
 import java.util.Scanner;
 
 public class RacingGameInputAsker implements InputAsker {
