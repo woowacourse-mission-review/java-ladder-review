@@ -1,15 +1,20 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
     private Map<String, Car> cars;
     public Cars(String userInput) {
         List<String> carNames = parse(userInput);
+        checkValidCarNames(carNames);
         this.cars = carNames.stream()
                 .collect(Collectors.toMap(carName->carName, carName -> new Car(carName)));
+    }
+
+    private void checkValidCarNames(List<String> carNames) {
+        Set<String> uniqueCarNames = new HashSet<>(carNames);
+        if (uniqueCarNames.size() != carNames.size()) {
+            throw new InvalidCarNameException();
+        }
     }
 
     private List<String> parse(String userInput) {
