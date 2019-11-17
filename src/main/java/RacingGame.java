@@ -1,3 +1,5 @@
+import java.util.Optional;
+
 public class RacingGame implements Game {
     private InputAsker inputAsker;
 
@@ -7,8 +9,15 @@ public class RacingGame implements Game {
 
     @Override
     public void start() {
-        String userInput = inputAsker.askInitialUserInput();
-        Cars cars = new Cars(userInput);
-//        RacingRounds racingRounds = new RacingRounds(userInput);
+        Cars cars;
+        RacingRounds racingRounds = null;
+
+        do {
+            String userInput = inputAsker.askInitialUserInput();
+            cars = new Cars(userInput);
+//            RacingRounds racingRounds = new RacingRounds(userInput);
+        } while(cars.isNotSucessfullyMade());
+
+
     }
 }

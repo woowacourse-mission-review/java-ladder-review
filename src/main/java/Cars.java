@@ -2,12 +2,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private Map<String, Car> cars;
+    private Optional<Map<String, Car>> cars;
     public Cars(String userInput) {
-        List<String> carNames = parse(userInput);
-        checkValidCarNames(carNames);
-        this.cars = carNames.stream()
-                .collect(Collectors.toMap(carName->carName, carName -> new Car(carName)));
+        try {
+            List<String> carNames = parse(userInput);
+            checkValidCarNames(carNames);
+            Map<String, Car> cars = carNames.stream()
+                    .collect(Collectors.toMap(carName->carName, carName -> new Car(carName)));
+            this.cars = Optional.of(cars);
+        } catch (InvalidCarNameException e) {
+            this.cars = Optional.empty();
+        }
+
     }
 
     private void checkValidCarNames(List<String> carNames) {
@@ -23,10 +29,20 @@ public class Cars {
     }
 
     public int size() {
-        return cars.size();
+        if (cars.isPresent()) {
+            return cars.get().size();
+        }
+        throw new MethodNotAllowedException();
     }
 
     public Car getCarWithName(String carName) {
-        return cars.get(carName);
+        if (cars.isPresent()) {
+            return cars.get().get(carName);
+        }
+        throw new MethodNotAllowedException();
+    }
+
+    public boolean isNotSucessfullyMade() {
+        return !cars.isPresent();
     }
 }
