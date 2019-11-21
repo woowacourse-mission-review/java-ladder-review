@@ -4,6 +4,7 @@ import games.racinggame.domain.instructions.MovementInstruction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingRounds {
     private static final int GAME_BOUNDARY = 0;
@@ -39,14 +40,16 @@ public class RacingRounds {
         List<CarStatusSnapShot> snapShots = new ArrayList<>();
 
         while (currentRound < racingRounds) {
-            List<Integer> instructions = new ArrayList<>();
-            for (Car car : cars.getCars()) {
-                instructions.add(movementInstruction.provideInstructionForCars());
-            }
-            cars.movePosition(instructions);
+            cars.movePosition(generateInstructions(cars, movementInstruction));
             snapShots.add(cars.makeSnapShotsOfCars());
             currentRound++;
         }
         return new GameResult(snapShots, cars.getWinners());
+    }
+
+    private List<Integer> generateInstructions(Cars cars, MovementInstruction movementInstruction) {
+        return cars.getCars().stream()
+                .map(car -> movementInstruction.provideInstructionForCars())
+                .collect(Collectors.toList());
     }
 }
