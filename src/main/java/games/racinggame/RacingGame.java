@@ -30,7 +30,7 @@ public class RacingGame implements Game {
         RandomMovementInstruction movementInstruction = new RandomMovementInstruction();
 
         GameResult gameResult = racingRounds.doRounds(cars, movementInstruction);
-        outputView.view(gameResult);
+        outputView.printGameResult(gameResult);
     }
 
     private RacingRounds registerRacingRounds() {
