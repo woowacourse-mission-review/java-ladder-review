@@ -14,7 +14,6 @@ public class OutputView {
             printEach(snapShot);
         }
         System.out.println("우승자입니다");
-        snapShots.get(snapShots.size() - 1);
 
         printWinners(gameResult.findWinners());
     }

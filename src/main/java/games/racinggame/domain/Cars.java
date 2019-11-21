@@ -51,7 +51,8 @@ public class Cars {
     }
 
     public void movePosition(List<Integer> instructions) {
-        for (int index = 0, max = cars.size(); index < max; index++) {
+        int max = cars.size();
+        for (int index = 0; index < max; index++) {
             cars.get(index).move(instructions.get(index));
         }
     }
