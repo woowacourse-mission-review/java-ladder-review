@@ -1,4 +1,4 @@
-package domain.instructions;
+package games.racinggame.domain.instructions;
 
 public class SimpleMovementInstruction implements MovementInstruction {
     @Override

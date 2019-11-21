@@ -1,6 +1,5 @@
-package domain;
+package games.racinggame.domain;
 
-import domain.Cars;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

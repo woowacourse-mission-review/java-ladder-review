@@ -1,8 +1,7 @@
-package domain;
+package games.racinggame.domain;
 
-import domain.instructions.MovementInstruction;
-import game.GameResult;
-import input.RacingGameInputAsker;
+import games.racinggame.domain.instructions.MovementInstruction;
+import games.racinggame.input.RacingGameInputAsker;
 
 import java.util.ArrayList;
 import java.util.List;

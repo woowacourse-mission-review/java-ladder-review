@@ -1,8 +1,8 @@
-package domain;
+package games.racinggame.domain;
 
-import exception.InvalidCarNameException;
-import exception.MethodNotAllowedException;
-import input.RacingGameInputAsker;
+import games.racinggame.exception.InvalidCarNameException;
+import games.racinggame.exception.MethodNotAllowedException;
+import games.racinggame.input.RacingGameInputAsker;
 
 import java.util.*;
 import java.util.stream.Collectors;

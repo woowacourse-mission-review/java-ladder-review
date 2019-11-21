@@ -1,4 +1,4 @@
-package domain;
+package games.racinggame.domain;
 
 import java.util.*;
 

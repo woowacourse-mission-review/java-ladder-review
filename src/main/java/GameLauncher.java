@@ -1,6 +1,6 @@
-import output.OutputView;
-import game.RacingGame;
-import input.RacingGameInputAsker;
+import games.racinggame.output.OutputView;
+import games.racinggame.RacingGame;
+import games.racinggame.input.RacingGameInputAsker;
 
 public class GameLauncher {
     public static void main(String[] args) {

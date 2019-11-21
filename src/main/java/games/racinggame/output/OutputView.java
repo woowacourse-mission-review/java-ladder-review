@@ -1,7 +1,7 @@
-package output;
+package games.racinggame.output;
 
-import domain.CarStatusSnapShot;
-import game.GameResult;
+import games.racinggame.domain.CarStatusSnapShot;
+import games.racinggame.domain.GameResult;
 
 import java.util.List;
 

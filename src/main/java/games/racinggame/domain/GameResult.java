@@ -1,6 +1,4 @@
-package game;
-
-import domain.CarStatusSnapShot;
+package games.racinggame.domain;
 
 import java.util.Collections;
 import java.util.List;

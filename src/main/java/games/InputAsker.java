@@ -1,4 +1,4 @@
-package input;
+package games;
 
 public interface InputAsker {
     String askInitialUserInput();

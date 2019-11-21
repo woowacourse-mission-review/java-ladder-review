@@ -1,7 +1,7 @@
-package domain;
+package games.racinggame.domain;
 
 
-import exception.InvalidCarNameException;
+import games.racinggame.exception.InvalidCarNameException;
 
 public class Car {
     private final String carName;

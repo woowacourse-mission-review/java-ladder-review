@@ -1,10 +1,12 @@
-package game;
+package games.racinggame;
 
-import domain.Cars;
-import domain.RacingRounds;
-import domain.instructions.RandomMovementInstruction;
-import input.InputAsker;
-import output.OutputView;
+import games.InputAsker;
+import games.racinggame.domain.Cars;
+import games.racinggame.domain.GameResult;
+import games.racinggame.domain.RacingRounds;
+import games.racinggame.domain.instructions.RandomMovementInstruction;
+import games.Game;
+import games.racinggame.output.OutputView;
 
 public class RacingGame implements Game {
     private InputAsker inputAsker;

@@ -1,6 +1,6 @@
-package input;
+package games.racinggame.input;
 
-import input.InputAsker;
+import games.InputAsker;
 
 import java.util.Scanner;
 
