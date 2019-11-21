@@ -1,24 +1,25 @@
 package games.racinggame.domain;
 
 import games.racinggame.exception.InvalidCarNameException;
-import games.racinggame.exception.MethodNotAllowedException;
-import games.racinggame.input.RacingGameInputAsker;
+import games.racinggame.view.InputView;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private Optional<List<Car>> cars;
-    public Cars(String userInput) {
+
+    private List<Car> cars;
+
+    public Cars(String carNames) {
         try {
-            List<String> carNames = parse(userInput);
-            checkValidCarNames(carNames);
-            List<Car> cars = carNames.stream()
-                    .map(carName -> new Car(carName))
+            List<String> parsedCarNames = parse(carNames);
+            checkValidCarNames(parsedCarNames);
+            cars = parsedCarNames.stream()
+                    .map(Car::new)
                     .collect(Collectors.toList());
-            this.cars = Optional.of(cars);
         } catch (InvalidCarNameException e) {
-            this.cars = Optional.empty();
+            System.out.println(e.getMessage());
+            this.cars = null;
         }
 
     }
@@ -30,35 +31,27 @@ public class Cars {
         }
     }
 
-    private List<String> parse(String userInput) {
-        String preParseCarNames = userInput.split(RacingGameInputAsker.DELIMITER)[RacingGameInputAsker.FIRST_INDEX];
-        return new ArrayList<>(Arrays.asList(preParseCarNames.split(",")));
+    private List<String> parse(String carNames) {
+        return new ArrayList<>(Arrays.asList(carNames.split(InputView.DELIMITER)));
     }
 
     public int size() {
-        if (cars.isPresent()) {
-            return cars.get().size();
-        }
-        throw new MethodNotAllowedException();
+        return cars.size();
     }
 
     public Car getCarAt(int index) {
-        if (cars.isPresent()) {
-            return cars.get().get(index);
-        }
-        throw new MethodNotAllowedException();
+        return cars.get(index);
     }
 
-    public boolean isNotSucessfullyMade() {
-        return !cars.isPresent();
+    public boolean isNotSuccessfullyMade() {
+        return cars == null;
     }
 
     public List<Car> getCars() {
-        return Collections.unmodifiableList(cars.get());
+        return Collections.unmodifiableList(cars);
     }
 
     public void movePosition(List<Integer> instructions) {
-        List<Car> cars = this.cars.get();
         for (int index = 0, max = cars.size(); index < max; index++ ) {
             cars.get(index).move(instructions.get(index));
         }
@@ -66,9 +59,8 @@ public class Cars {
 
     public CarStatusSnapShot makeSnapShotsOfCars() {
         List<String> carNames = new ArrayList<>();
-        List<Integer> carPositions = new ArrayList();
+        List<Integer> carPositions = new ArrayList<>();
 
-        List<Car> cars = this.cars.get();
         for (Car car : cars) {
             carNames.add(car.getCarName());
             carPositions.add(car.getPosition());

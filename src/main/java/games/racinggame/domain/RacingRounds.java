@@ -1,42 +1,43 @@
 package games.racinggame.domain;
 
 import games.racinggame.domain.instructions.MovementInstruction;
-import games.racinggame.input.RacingGameInputAsker;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class RacingRounds {
-    private Optional<Integer> racingRounds;
+    private int racingRounds;
 
-    public RacingRounds(String userInput) {
+    public RacingRounds(String rawRacingRounds) {
         try {
-            String racingRounds = parse(userInput);
-            int rounds = Integer.parseInt(racingRounds);
-            this.racingRounds = Optional.of(rounds);
-        } catch(NumberFormatException | IndexOutOfBoundsException e) {
-            this.racingRounds = Optional.empty();
+            int racingRounds = Integer.parseInt(rawRacingRounds);
+            checkValidRacingRounds(racingRounds);
+            this.racingRounds =racingRounds;
+        } catch(Exception e) {
+            System.out.println("경기횟수는 0이상의 정수만 허용합니다 정수만 허용합니다!");
+            this.racingRounds = 0;
         }
     }
 
-    private String parse(String userInput) {
-        return userInput.split(RacingGameInputAsker.DELIMITER)[RacingGameInputAsker.LAST_INDEX];
+    private void checkValidRacingRounds(int racingRounds) {
+        if (racingRounds <= 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public int getRounds() {
-        return racingRounds.get();
+        return racingRounds;
     }
 
-    public boolean isNotSuccesfullyMade() {
-        return !racingRounds.isPresent();
+    public boolean isNotSuccessfullyMade() {
+        return racingRounds == 0;
     }
 
     public GameResult doRounds(Cars cars, MovementInstruction movementInstruction) {
         int currentRound = 0;
         List<CarStatusSnapShot> snapShots = new ArrayList<>();
 
-        while (currentRound != racingRounds.get()) {
+        while (currentRound <= racingRounds) {
             List<Integer> instructions = new ArrayList<>();
             for (Car car : cars.getCars()) {
                 instructions.add(movementInstruction.provideInstructionForCars());
