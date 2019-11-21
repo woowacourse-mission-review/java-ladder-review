@@ -1,4 +1,3 @@
-import games.Game;
 import games.exception.NoSuchGameException;
 import games.racinggame.RacingGame;
 
