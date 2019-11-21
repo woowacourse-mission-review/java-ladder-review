@@ -35,7 +35,7 @@ public class Car {
 
     public void move(int instruction) {
         if (instruction >= MOVEMENT_BOUNDARY) {
-            this.position ++;
+            this.position++;
         }
     }
 

@@ -13,8 +13,8 @@ public class RacingRounds {
         try {
             int racingRounds = Integer.parseInt(rawRacingRounds);
             checkValidRacingRounds(racingRounds);
-            this.racingRounds =racingRounds;
-        } catch(Exception e) {
+            this.racingRounds = racingRounds;
+        } catch (Exception e) {
             System.out.println("경기횟수는 0이상의 정수만 허용합니다 정수만 허용합니다!");
             this.racingRounds = GAME_BOUNDARY;
         }

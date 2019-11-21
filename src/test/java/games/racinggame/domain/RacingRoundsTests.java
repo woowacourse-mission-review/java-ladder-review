@@ -44,8 +44,8 @@ public class RacingRoundsTests {
         GameResult gameResult = racingRounds.doRounds(cars, movementInstructions);
 
         List<CarStatusSnapShot> snapShots = new ArrayList<>();
-        CarStatusSnapShot carStatusSnapShot1 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(0,0,0));
-        CarStatusSnapShot carStatusSnapShot2 = new CarStatusSnapShot(Arrays.asList("abc","bbc","abf"), Arrays.asList(0,0,0));
+        CarStatusSnapShot carStatusSnapShot1 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(0, 0, 0));
+        CarStatusSnapShot carStatusSnapShot2 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(0, 0, 0));
         snapShots.add(carStatusSnapShot1);
         snapShots.add(carStatusSnapShot2);
 
@@ -64,8 +64,8 @@ public class RacingRoundsTests {
         GameResult gameResult = racingRounds.doRounds(cars, () -> 9);
 
         List<CarStatusSnapShot> snapShots = new ArrayList<>();
-        CarStatusSnapShot carStatusSnapShot1 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(1,1,1));
-        CarStatusSnapShot carStatusSnapShot2 = new CarStatusSnapShot(Arrays.asList("abc","bbc","abf"), Arrays.asList(2,2,2));
+        CarStatusSnapShot carStatusSnapShot1 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(1, 1, 1));
+        CarStatusSnapShot carStatusSnapShot2 = new CarStatusSnapShot(Arrays.asList("abc", "bbc", "abf"), Arrays.asList(2, 2, 2));
         snapShots.add(carStatusSnapShot1);
         snapShots.add(carStatusSnapShot2);
 
