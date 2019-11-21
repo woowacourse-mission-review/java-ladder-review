@@ -21,7 +21,6 @@ public class Cars {
             System.out.println(e.getMessage());
             this.cars = null;
         }
-
     }
 
     private void checkValidCarNames(List<String> carNames) {
