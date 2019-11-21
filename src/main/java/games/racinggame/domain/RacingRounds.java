@@ -47,6 +47,6 @@ public class RacingRounds {
             snapShots.add(cars.makeSnapShotsOfCars());
             currentRound++;
         }
-        return new GameResult(snapShots);
+        return new GameResult(snapShots, cars.getWinners());
     }
 }

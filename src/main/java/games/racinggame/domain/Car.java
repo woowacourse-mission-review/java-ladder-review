@@ -3,7 +3,7 @@ package games.racinggame.domain;
 
 import games.racinggame.exception.InvalidCarNameException;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int INITIAL_POSITION = 0;
     private static final int MOVEMENT_BOUNDARY = 4;
     private static final int CARNAME_LOWERBOUNDARY = 1;
@@ -45,5 +45,14 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isWinner(int position) {
+        return position == this.position;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return Integer.compare(position, o.position);
     }
 }

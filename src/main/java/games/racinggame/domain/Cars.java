@@ -7,13 +7,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-
     private List<Car> cars;
 
     public Cars(String carNames) {
         try {
             List<String> parsedCarNames = parse(carNames);
             checkValidCarNames(parsedCarNames);
+
             cars = parsedCarNames.stream()
                     .map(Car::new)
                     .collect(Collectors.toList());
@@ -66,5 +66,13 @@ public class Cars {
         }
 
         return new CarStatusSnapShot(carNames, carPositions);
+    }
+
+    public List<String> getWinners() {
+        Car winner = Collections.max(cars);
+        return cars.stream()
+                .filter(car -> car.isWinner(winner.getPosition()))
+                .map(car -> car.getCarName())
+                .collect(Collectors.toList());
     }
 }

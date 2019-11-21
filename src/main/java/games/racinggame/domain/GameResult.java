@@ -6,9 +6,11 @@ import java.util.Objects;
 
 public class GameResult {
     private List<CarStatusSnapShot> snapShots;
+    private List<String> winners;
 
-    public GameResult(List<CarStatusSnapShot> snapShots) {
+    public GameResult(List<CarStatusSnapShot> snapShots, List<String> winners) {
         this.snapShots = snapShots;
+        this.winners = winners;
     }
 
     public List<CarStatusSnapShot> getSnapShots() {
@@ -16,8 +18,7 @@ public class GameResult {
     }
 
     public List<String> findWinners() {
-        CarStatusSnapShot lastSnapShot = snapShots.get(snapShots.size() - 1);
-        return lastSnapShot.findWinners();
+        return Collections.unmodifiableList(winners);
     }
 
     @Override

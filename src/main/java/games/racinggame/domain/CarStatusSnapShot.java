@@ -22,28 +22,6 @@ public class CarStatusSnapShot {
         return Collections.unmodifiableList(carPositions);
     }
 
-    public List<String> findWinners() {
-        List<String> winners = new ArrayList<>();
-        List<Integer> indexOfWinners = new ArrayList<>();
-        int max = findMax(carPositions);
-        for (int index = 0, length = carNames.size(); index < length; index++) {
-            if (carPositions.get(index) == max) {
-                winners.add(carNames.get(index));
-            }
-        }
-        return winners;
-    }
-
-    private int findMax(List<Integer> carPositions) {
-        int max = 0;
-        for (Integer carPosition : carPositions) {
-            if (carPosition > max) {
-                max = carPosition;
-            }
-        }
-        return max;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
