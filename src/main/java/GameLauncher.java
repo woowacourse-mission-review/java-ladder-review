@@ -1,18 +1,22 @@
 import games.Game;
-import games.racinggame.output.OutputView;
+import games.exception.NoSuchGameException;
 import games.racinggame.RacingGame;
-import games.racinggame.input.RacingGameInputAsker;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class GameLauncher {
-    private List<Game> games = Arrays.asList(new RacingGame());
+    private static List<Game> games = Arrays.asList(new RacingGame());
 
     public static void main(String[] args) {
-        RacingGameInputAsker inputAsker = new RacingGameInputAsker();
-        OutputView outputView = new OutputView();
-        RacingGame racingGame = new RacingGame(inputAsker, outputView);
-        GameStarter.start(racingGame);
+        Game game = selectGame("CAR");
+        game.start();
+    }
+
+    private static Game selectGame(String gameName) {
+        return games.stream()
+                .filter(game -> game.isPlayable(gameName))
+                .findAny()
+                .orElseThrow(NoSuchGameException::new);
     }
 }

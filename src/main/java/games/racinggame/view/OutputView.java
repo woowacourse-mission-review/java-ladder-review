@@ -1,4 +1,4 @@
-package games.racinggame.output;
+package games.racinggame.view;
 
 import games.racinggame.domain.CarStatusSnapShot;
 import games.racinggame.domain.GameResult;

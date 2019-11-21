@@ -1,21 +1,26 @@
 package games.racinggame;
 
-import games.InputAsker;
+import games.Game;
 import games.racinggame.domain.Cars;
 import games.racinggame.domain.GameResult;
 import games.racinggame.domain.RacingRounds;
 import games.racinggame.domain.instructions.RandomMovementInstruction;
-import games.Game;
-import games.racinggame.output.OutputView;
+import games.racinggame.view.OutputView;
 import games.racinggame.view.InputView;
 
 public class RacingGame implements Game {
+    private static final String GAME_NAME = "CAR";
     private InputView inputView;
     private OutputView outputView;
 
     public RacingGame() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
+    }
+
+    @Override
+    public boolean isPlayable(String gameName) {
+        return GAME_NAME.equals(gameName);
     }
 
     @Override
