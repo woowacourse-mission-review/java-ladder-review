@@ -11,19 +11,23 @@ public class Players {
     private List<Player> players;
     private static int STARTING_POSITION = 0;
 
-    public Players(String rawPlayersNames) {
-        try {
-            List<String> playersNames = CommaParser.parse(rawPlayersNames);
-            BaseGameValidityChecker.checkDuplicateCarNames(playersNames);
+//    public Players(String rawPlayersNames) {
+//        try {
+//            List<String> playersNames = CommaParser.parse(rawPlayersNames);
+//            BaseGameValidityChecker.checkDuplicateCarNames(playersNames);
+//
+//            int lastPosition = playersNames.size() - 1;
+//            this.players = IntStream.rangeClosed(STARTING_POSITION, lastPosition)
+//                    .mapToObj(index -> new Player(playersNames.get(index), index))
+//                    .collect(Collectors.toList());
+//        } catch(Exception e) {
+//            System.out.println(e.getMessage());
+//            this.players = null;
+//        }
+//    }
 
-            int lastPosition = playersNames.size() - 1;
-            this.players = IntStream.rangeClosed(STARTING_POSITION, lastPosition)
-                    .mapToObj(index -> new Player(playersNames.get(index), index))
-                    .collect(Collectors.toList());
-        } catch(Exception e) {
-            System.out.println(e.getMessage());
-            this.players = null;
-        }
+    public Players(List<Player> players) {
+        this.players = players;
     }
 
     public boolean isNotSuccessfullyMade() {
