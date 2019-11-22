@@ -88,7 +88,7 @@ public class CarsTests {
 
         Cars cars = new Cars(Arrays.asList(car1, car2));
 
-        CarStatusSnapShot checkCarStatusSnapShot = new CarStatusSnapShot(Arrays.asList("jm", "im"), Arrays.asList(10,11));
+        CarStatusSnapShot checkCarStatusSnapShot = new CarStatusSnapShot(Arrays.asList("jm", "im"), Arrays.asList(10, 11));
 
         assertThat(cars.makeSnapShotsOfCars()).isEqualTo(checkCarStatusSnapShot);
     }
@@ -100,10 +100,10 @@ public class CarsTests {
         Car car2 = new Car("im", 11);
 
         Cars cars = new Cars(Arrays.asList(car1, car2));
-        List<Integer> instructions = Arrays.asList(10,11);
+        List<Integer> instructions = Arrays.asList(10, 11);
         cars.movePosition(instructions);
 
-        CarStatusSnapShot checkCarStatusSnapShot = new CarStatusSnapShot(Arrays.asList("jm", "im"), Arrays.asList(11,12));
+        CarStatusSnapShot checkCarStatusSnapShot = new CarStatusSnapShot(Arrays.asList("jm", "im"), Arrays.asList(11, 12));
 
         assertThat(cars.makeSnapShotsOfCars()).isEqualTo(checkCarStatusSnapShot);
     }
@@ -115,7 +115,7 @@ public class CarsTests {
         Car car2 = new Car("im", 11);
 
         Cars cars = new Cars(Arrays.asList(car1, car2));
-        List<Integer> instructions = Arrays.asList(10,11);
+        List<Integer> instructions = Arrays.asList(10, 11);
         cars.movePosition(instructions);
 
         assertThat(cars.getWinners()).isEqualTo(Arrays.asList("im"));
@@ -128,9 +128,9 @@ public class CarsTests {
         Car car2 = new Car("im", 11);
 
         Cars cars = new Cars(Arrays.asList(car1, car2));
-        List<Integer> instructions = Arrays.asList(10,11);
+        List<Integer> instructions = Arrays.asList(10, 11);
         cars.movePosition(instructions);
 
-        assertThat(cars.getWinners()).isEqualTo(Arrays.asList("jm","im"));
+        assertThat(cars.getWinners()).isEqualTo(Arrays.asList("jm", "im"));
     }
 }

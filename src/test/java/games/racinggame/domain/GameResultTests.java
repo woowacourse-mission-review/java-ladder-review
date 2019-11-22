@@ -27,7 +27,7 @@ public class GameResultTests {
         snapShots.add(carStatusSnapShot1);
         snapShots.add(carStatusSnapShot2);
 
-        List<String> winners = new ArrayList<>(Arrays.asList("abc","bbc","abf"));
+        List<String> winners = new ArrayList<>(Arrays.asList("abc", "bbc", "abf"));
 
         GameResult checkGameResult = new GameResult(snapShots, winners);
 
@@ -50,7 +50,7 @@ public class GameResultTests {
         snapShots.add(carStatusSnapShot1);
         snapShots.add(carStatusSnapShot2);
 
-        List<String> winners = new ArrayList<>(Arrays.asList("abc","bbc","abf"));
+        List<String> winners = new ArrayList<>(Arrays.asList("abc", "bbc", "abf"));
 
         GameResult checkGameResult = new GameResult(snapShots, winners);
 
@@ -63,7 +63,7 @@ public class GameResultTests {
         Car car1 = new Car("jm", 100);
         Car car2 = new Car("im", 50);
         Car car3 = new Car("gm", 5);
-        Cars cars = new Cars(Arrays.asList(car1,car2,car3));
+        Cars cars = new Cars(Arrays.asList(car1, car2, car3));
         String rawRacingRounds = "2";
         RacingRounds racingRounds = new RacingRounds(rawRacingRounds);
 
