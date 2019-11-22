@@ -6,7 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class BaseGameUnitNameChecker {
+public class BaseGameValidityChecker {
+    private static final int GAME_BOUNDARY = 0;
     private static final int NAME_LOWERBOUNDARY = 1;
     private static final int NAME_UPPERBOUNDARY = 5;
     private static final String ALLOWED_PATTERNS = "^[a-zA-Z0-9]*$";
@@ -27,6 +28,12 @@ public class BaseGameUnitNameChecker {
         Set<String> uniqueCarNames = new HashSet<>(carNames);
         if (uniqueCarNames.size() != carNames.size()) {
             throw new InvalidCarNameException();
+        }
+    }
+
+    public static void checkValidRacingRounds(int racingRounds) {
+        if (racingRounds <= GAME_BOUNDARY) {
+            throw new IllegalArgumentException();
         }
     }
 }

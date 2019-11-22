@@ -1,6 +1,6 @@
 package games.laddergame.domain;
 
-import games.utility.BaseGameUnitNameChecker;
+import games.utility.BaseGameValidityChecker;
 import games.utility.CommaParser;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class Players {
     public Players(String rawPlayersNames) {
         try {
             List<String> playersNames = CommaParser.parse(rawPlayersNames);
-            BaseGameUnitNameChecker.checkDuplicateCarNames(playersNames);
+            BaseGameValidityChecker.checkDuplicateCarNames(playersNames);
 
             int lastPosition = playersNames.size() - 1;
             this.players = IntStream.rangeClosed(STARTING_POSITION, lastPosition)

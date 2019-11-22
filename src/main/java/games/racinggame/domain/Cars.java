@@ -1,7 +1,7 @@
 package games.racinggame.domain;
 
 import games.racinggame.exception.InvalidCarNameException;
-import games.utility.BaseGameUnitNameChecker;
+import games.utility.BaseGameValidityChecker;
 import games.utility.CommaParser;
 
 import java.util.*;
@@ -17,7 +17,7 @@ public class Cars {
     public Cars(String carNames) {
         try {
             List<String> parsedCarNames = CommaParser.parse(carNames);
-            BaseGameUnitNameChecker.checkDuplicateCarNames(parsedCarNames);
+            BaseGameValidityChecker.checkDuplicateCarNames(parsedCarNames);
 
             cars = parsedCarNames.stream()
                     .map(Car::new)

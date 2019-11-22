@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static games.utility.BaseGameValidityChecker.checkValidRacingRounds;
+
 public class RacingRounds {
-    private static final int GAME_BOUNDARY = 0;
+    private static int WRONG_ROUNDS = 0;
     private int racingRounds;
 
     public RacingRounds(String rawRacingRounds) {
@@ -17,13 +19,7 @@ public class RacingRounds {
             this.racingRounds = racingRounds;
         } catch (Exception e) {
             System.out.println("경기횟수는 0이상의 정수만 허용합니다!");
-            this.racingRounds = GAME_BOUNDARY;
-        }
-    }
-
-    private void checkValidRacingRounds(int racingRounds) {
-        if (racingRounds <= GAME_BOUNDARY) {
-            throw new IllegalArgumentException();
+            this.racingRounds = WRONG_ROUNDS;
         }
     }
 
@@ -32,7 +28,7 @@ public class RacingRounds {
     }
 
     public boolean isNotSuccessfullyMade() {
-        return racingRounds == GAME_BOUNDARY;
+        return racingRounds == WRONG_ROUNDS;
     }
 
     public GameResult doRounds(Cars cars, MovementInstruction movementInstruction) {

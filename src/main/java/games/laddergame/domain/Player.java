@@ -2,14 +2,14 @@ package games.laddergame.domain;
 
 
 import games.laddergame.exception.InvalidPlayerNameException;
-import games.utility.BaseGameUnitNameChecker;
+import games.utility.BaseGameValidityChecker;
 
 public class Player {
     private String name;
     private int position;
 
     public Player(String name, int position) {
-        if (BaseGameUnitNameChecker.isNotValid(name)) {
+        if (BaseGameValidityChecker.isNotValid(name)) {
             throw new InvalidPlayerNameException();
         }
         this.name = name;

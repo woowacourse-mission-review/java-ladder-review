@@ -1,6 +1,6 @@
 package games.racinggame.domain;
 import games.racinggame.exception.InvalidCarNameException;
-import games.utility.BaseGameUnitNameChecker;
+import games.utility.BaseGameValidityChecker;
 
 public class Car implements Comparable<Car> {
     private static final int INITIAL_POSITION = 0;
@@ -10,7 +10,7 @@ public class Car implements Comparable<Car> {
     private int position;
 
     public Car(String name, int position) {
-        if (BaseGameUnitNameChecker.isNotValid(name)) {
+        if (BaseGameValidityChecker.isNotValid(name)) {
             throw new InvalidCarNameException();
         }
         this.name = name;
