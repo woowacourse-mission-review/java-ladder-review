@@ -1,3 +1,5 @@
+package games.gamecomponent;
+
 import games.exception.NoSuchGameException;
 import games.racinggame.RacingGame;
 

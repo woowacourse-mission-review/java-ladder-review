@@ -9,6 +9,10 @@ import java.util.stream.Collectors;
 public class Cars {
     private List<Car> cars;
 
+    public Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     public Cars(String carNames) {
         try {
             List<String> parsedCarNames = parse(carNames);

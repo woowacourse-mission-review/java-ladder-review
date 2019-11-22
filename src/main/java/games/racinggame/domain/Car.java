@@ -13,10 +13,15 @@ public class Car implements Comparable<Car> {
     private final String carName;
     private int position;
 
-    public Car(String carName) {
+    public Car(String carName, int position) {
         checkValidCarName(carName);
         this.carName = carName;
-        this.position = INITIAL_POSITION;
+        this.position = position;
+
+    }
+
+    public Car(String carName) {
+        this(carName, INITIAL_POSITION);
     }
 
     private void checkValidCarName(String carName) {

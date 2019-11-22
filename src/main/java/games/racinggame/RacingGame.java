@@ -1,6 +1,6 @@
 package games.racinggame;
 
-import Game;
+import games.gamecomponent.Game;
 import games.racinggame.domain.Cars;
 import games.racinggame.domain.GameResult;
 import games.racinggame.domain.RacingRounds;
