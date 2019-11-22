@@ -7,6 +7,14 @@ import java.util.List;
 
 public class OutputView {
 
+    public static OutputView getInstance() {
+        return LazyHolder.INSTANCE;
+    }
+
+    public static class LazyHolder{
+        public static OutputView INSTANCE = new OutputView();
+    }
+
     public void printGameResult(GameResult gameResult) {
         printEachRound(gameResult.getSnapShots());
         printWinners(gameResult.findWinners());

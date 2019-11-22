@@ -14,8 +14,8 @@ public class RacingGame implements Game {
     private OutputView outputView;
 
     public RacingGame() {
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
+        this.inputView = InputView.getInstance();
+        this.outputView = OutputView.getInstance();
     }
 
     @Override
