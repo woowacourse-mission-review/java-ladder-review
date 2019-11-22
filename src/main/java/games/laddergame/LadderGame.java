@@ -2,9 +2,12 @@ package games.laddergame;
 
 import games.gamecomponent.Game;
 import games.laddergame.domain.*;
+import games.library.ObjectMakingStrategy;
 import games.library.ObjectMakingTemplate;
 import games.view.InputView;
 import games.view.OutputView;
+
+import java.util.List;
 
 public class LadderGame implements Game {
     private static final String GAME_NAME = "LADDER";
@@ -25,27 +28,30 @@ public class LadderGame implements Game {
 
     @Override
     public void start() {
-        Players players = registerPlayers();
+        String rawPlayersNames = inputView.askUserInput("규칙대로 참가할 사람의 이름을 적어주세요");
+        GameComponents players = registerComponents(rawPlayersNames, Player::new);
+
+        String rawPrizeNames = inputView.askUserInput("규칙대로 참가할 사람의 이름을 적어주세요");
+        GameComponents prizes = registerComponents(rawPrizeNames, Prize::new);
+
         Height height = registerHeight();
-        Prizes prizes = registerPrizes();
     }
 
-    private Players registerPlayers() {
-        Players players;
+    public GameComponents registerComponents(String rawData, ObjectMakingStrategy strategy) {
+        GameComponents components;
         do {
-            String rawPlayersNames = inputView.askUserInput("참여할 사람의 이름을 입력하세요.(이름은 쉼표로 구분합니다.)");
-            players = new Players(objectMakingTemplate.createMultipleObjects(rawPlayersNames, (name,position) -> new Player(name, position)));
-            return players;
-        } while (players.isNotSuccessfullyMade());
+            components = new GameComponents(createMultipleObjects(rawData, strategy));
+            return components;
+        } while (components.isNotSuccessfullyMade());
     }
 
-    private Prizes registerPrizes() {
-        Prizes prizes;
-        do {
-            String rawPrizeNames = inputView.askUserInput("상품을 차례대로 등록해주세요!");
-            prizes = new Prizes(objectMakingTemplate.createMultipleObjects(rawPrizeNames, (name, position) -> new Prize(name, position)));
-            return prizes;
-        } while (prizes.isNotSuccessfullyMade());
+
+    private List<GameComponent> createMultipleObjects(String rawData, ObjectMakingStrategy strategy) {
+        try {
+            return objectMakingTemplate.createObjects(rawData, strategy);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private Height registerHeight() {

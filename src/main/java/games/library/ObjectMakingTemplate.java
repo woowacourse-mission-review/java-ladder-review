@@ -1,8 +1,8 @@
 package games.library;
 
+import games.laddergame.domain.GameComponent;
 import games.utility.CommaParser;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -16,8 +16,7 @@ public class ObjectMakingTemplate<T> {
         private static ObjectMakingTemplate INSTANCE = new ObjectMakingTemplate();
     }
 
-    public List<T> createMultipleObjects(String rawData, ObjectMakingLogic<T> logic) {
-        List<T> resultList = new ArrayList<>();
+    public List<GameComponent> createObjects(String rawData, ObjectMakingStrategy logic) {
         List<String> parsedData = CommaParser.parse(rawData);
         int max = parsedData.size() - 1;
 

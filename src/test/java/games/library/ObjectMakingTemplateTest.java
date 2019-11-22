@@ -16,7 +16,7 @@ class ObjectMakingTemplateTest {
         ObjectMakingTemplate objectMakingTemplate = ObjectMakingTemplate.getInstance();
         String usereInput = "java,ruby,css";
 
-        List<Player> players = objectMakingTemplate.createMultipleObjects(usereInput, ((name, position) -> new Player(name, position)));
+        List<Player> players = objectMakingTemplate.createObjects(usereInput, ((name, position) -> new Player(name, position)));
         assertThat(players.get(0).getName()).isEqualTo("java");
         assertThat(players.get(0).getPosition()).isEqualTo(0);
         assertThat(players.get(1).getName()).isEqualTo("ruby");
@@ -31,7 +31,7 @@ class ObjectMakingTemplateTest {
         ObjectMakingTemplate objectMakingTemplate = ObjectMakingTemplate.getInstance();
         String usereInput = "WIN!,win,lose";
 
-        List<Prize> prizes = objectMakingTemplate.createMultipleObjects(usereInput, ((name, position) -> new Prize(name, position)));
+        List<Prize> prizes = objectMakingTemplate.createObjects(usereInput, ((name, position) -> new Prize(name, position)));
         assertThat(prizes.get(0).getName()).isEqualTo("WIN!");
         assertThat(prizes.get(0).getPosition()).isEqualTo(0);
         assertThat(prizes.get(1).getName()).isEqualTo("win");
