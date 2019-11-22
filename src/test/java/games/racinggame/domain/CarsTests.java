@@ -15,7 +15,7 @@ public class CarsTests {
         Cars cars = new Cars(userInput);
 
         assertThat(cars.size()).isEqualTo(3);
-        assertThat(cars.getCarAt(0).getCarName()).isEqualTo("cda");
+        assertThat(cars.getCarAt(0).getName()).isEqualTo("cda");
     }
 
     @Test
@@ -45,7 +45,7 @@ public class CarsTests {
     @Test
     @DisplayName("자동차 이름에 특수문자 있을 때 테스트")
     void fail_cars_constructors_tests4() {
-        String userInput = "abc,abc,cda";
+        String userInput = "abc,abc!,cda";
         Cars cars = new Cars(userInput);
         assertThat(cars.isNotSuccessfullyMade()).isTrue();
     }

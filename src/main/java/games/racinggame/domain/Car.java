@@ -1,41 +1,24 @@
 package games.racinggame.domain;
-
-
 import games.racinggame.exception.InvalidCarNameException;
+import games.utility.BaseGameUnitNameChecker;
 
 public class Car implements Comparable<Car> {
     private static final int INITIAL_POSITION = 0;
     private static final int MOVEMENT_BOUNDARY = 4;
-    private static final int CARNAME_LOWERBOUNDARY = 1;
-    private static final int CARNAME_UPPERBOUNDARY = 5;
-    private static final String ALLOWED_PATTERNS = "^[a-zA-Z0-9]*$";
 
-    private final String carName;
+    private String name;
     private int position;
 
-    public Car(String carName, int position) {
-        checkValidCarName(carName);
-        this.carName = carName;
-        this.position = position;
-
-    }
-
-    public Car(String carName) {
-        this(carName, INITIAL_POSITION);
-    }
-
-    private void checkValidCarName(String carName) {
-        if (checkNameLength(carName) || checkAlphabetic(carName)) {
+    public Car(String name, int position) {
+        if (BaseGameUnitNameChecker.isNotValid(name)) {
             throw new InvalidCarNameException();
         }
+        this.name = name;
+        this.position = position;
     }
 
-    private boolean checkNameLength(String carName) {
-        return carName.length() < CARNAME_LOWERBOUNDARY || carName.length() > CARNAME_UPPERBOUNDARY;
-    }
-
-    private boolean checkAlphabetic(String carName) {
-        return !carName.matches(ALLOWED_PATTERNS);
+    public Car(String name) {
+        this(name, INITIAL_POSITION);
     }
 
     public void move(int instruction) {
@@ -44,16 +27,16 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public String getCarName() {
-        return carName;
+    public boolean isWinner(int position) {
+        return position == this.position;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPosition() {
         return position;
-    }
-
-    public boolean isWinner(int position) {
-        return position == this.position;
     }
 
     @Override

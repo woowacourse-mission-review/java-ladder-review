@@ -1,6 +1,7 @@
 package games.laddergame;
 
 import games.gamecomponent.Game;
+import games.laddergame.domain.Players;
 import games.view.InputView;
 import games.view.OutputView;
 
@@ -21,7 +22,15 @@ public class LadderGame implements Game {
 
     @Override
     public void start() {
+        Players players = registerPlayers();
+    }
 
-
+    private Players registerPlayers() {
+        Players players;
+        do {
+            String rawPlayersNames = inputView.askUserInput("참여할 사람의 이름을 입력하세요.(이름은 쉼표로 구분합니다.)");
+            players = new Players(rawPlayersNames);
+            return players;
+        } while (players.isNotSuccessfullyMade());
     }
 }

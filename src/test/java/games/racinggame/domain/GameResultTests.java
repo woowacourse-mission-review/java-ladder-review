@@ -75,7 +75,7 @@ public class GameResultTests {
         snapShots.add(carStatusSnapShot1);
         snapShots.add(carStatusSnapShot2);
 
-        List<String> winners = new ArrayList<>(Collections.singletonList(car1.getCarName()));
+        List<String> winners = new ArrayList<>(Collections.singletonList(car1.getName()));
 
         GameResult checkGameResult = new GameResult(snapShots, winners);
 

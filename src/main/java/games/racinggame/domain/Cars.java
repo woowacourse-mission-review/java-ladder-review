@@ -1,7 +1,8 @@
 package games.racinggame.domain;
 
 import games.racinggame.exception.InvalidCarNameException;
-import games.view.InputView;
+import games.utility.BaseGameUnitNameChecker;
+import games.utility.CommaParser;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -15,8 +16,8 @@ public class Cars {
 
     public Cars(String carNames) {
         try {
-            List<String> parsedCarNames = parse(carNames);
-            checkValidCarNames(parsedCarNames);
+            List<String> parsedCarNames = CommaParser.parse(carNames);
+            BaseGameUnitNameChecker.checkDuplicateCarNames(parsedCarNames);
 
             cars = parsedCarNames.stream()
                     .map(Car::new)
@@ -25,17 +26,6 @@ public class Cars {
             System.out.println(e.getMessage());
             this.cars = null;
         }
-    }
-
-    private void checkValidCarNames(List<String> carNames) {
-        Set<String> uniqueCarNames = new HashSet<>(carNames);
-        if (uniqueCarNames.size() != carNames.size()) {
-            throw new InvalidCarNameException();
-        }
-    }
-
-    private List<String> parse(String carNames) {
-        return new ArrayList<>(Arrays.asList(carNames.split(InputView.DELIMITER)));
     }
 
     public int size() {
@@ -66,7 +56,7 @@ public class Cars {
         List<Integer> carPositions = new ArrayList<>();
 
         for (Car car : cars) {
-            carNames.add(car.getCarName());
+            carNames.add(car.getName());
             carPositions.add(car.getPosition());
         }
 
@@ -77,7 +67,7 @@ public class Cars {
         Car winner = Collections.max(cars);
         return cars.stream()
                 .filter(car -> car.isWinner(winner.getPosition()))
-                .map(car -> car.getCarName())
+                .map(car -> car.getName())
                 .collect(Collectors.toList());
     }
 }
