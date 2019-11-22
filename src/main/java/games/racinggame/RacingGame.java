@@ -5,8 +5,8 @@ import games.racinggame.domain.Cars;
 import games.racinggame.domain.GameResult;
 import games.racinggame.domain.RacingRounds;
 import games.racinggame.domain.instructions.RandomMovementInstruction;
-import games.racinggame.view.InputView;
-import games.racinggame.view.OutputView;
+import games.view.InputView;
+import games.view.OutputView;
 
 public class RacingGame implements Game {
     private static final String GAME_NAME = "CAR";

@@ -1,16 +1,17 @@
 package games.gamecomponent;
 
 import games.exception.NoSuchGameException;
+import games.laddergame.LadderGame;
 import games.racinggame.RacingGame;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class GameLauncher {
-    private static List<Game> games = Arrays.asList(new RacingGame());
+    private static List<Game> games = Arrays.asList(new RacingGame(), new LadderGame());
 
     public static void main(String[] args) {
-        Game game = selectGame("CAR");
+        Game game = selectGame("LADDER");
         game.start();
     }
 

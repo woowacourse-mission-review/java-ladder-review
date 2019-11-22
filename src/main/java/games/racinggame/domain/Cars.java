@@ -1,7 +1,7 @@
 package games.racinggame.domain;
 
 import games.racinggame.exception.InvalidCarNameException;
-import games.racinggame.view.InputView;
+import games.view.InputView;
 
 import java.util.*;
 import java.util.stream.Collectors;
