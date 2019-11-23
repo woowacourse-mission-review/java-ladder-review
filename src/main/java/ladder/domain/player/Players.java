@@ -10,12 +10,14 @@ import static ladder.domain.common.Position.MIN_POSITION_BOUNDARY;
 
 public class Players implements Iterable<Player> {
     private static final String DELIMITER_NAMES = ",";
+    private static final int PLAYERS_MIN_BOUNDARY = 2;
 
     private final List<Player> players;
 
     private Players(final String inputNames) {
         List<PlayerName> names = parseNames(inputNames);
-        checkDuplicateName(names);
+        validateCountOfPlayers(names);
+        validateDuplicatedName(names);
         this.players = createPlayers(names);
     }
 
@@ -29,7 +31,13 @@ public class Players implements Iterable<Player> {
                 .collect(Collectors.toList());
     }
 
-    private void checkDuplicateName(final List<PlayerName> names) {
+    private void validateCountOfPlayers(final List<PlayerName> names) {
+        if (names.size() < PLAYERS_MIN_BOUNDARY) {
+            throw new IllegalArgumentException("플레이어가 " + PLAYERS_MIN_BOUNDARY + "명 이상이어야 합니다.");
+        }
+    }
+
+    private void validateDuplicatedName(final List<PlayerName> names) {
         Set<PlayerName> set = new HashSet<>(names);
         if (set.size() != names.size()) {
             throw new IllegalArgumentException("중복되는 이름이 존재합니다.");

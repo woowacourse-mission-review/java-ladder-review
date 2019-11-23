@@ -16,6 +16,13 @@ class PlayersTest {
     }
 
     @Test
+    void 최소_인원수_미만_예외처리() {
+        String inputNames = "bedi";
+
+        assertThrows(IllegalArgumentException.class, () -> Players.of(inputNames));
+    }
+
+    @Test
     void 이름_중복_예외처리() {
         String inputNames = "bedi, cu, bedi";
 
