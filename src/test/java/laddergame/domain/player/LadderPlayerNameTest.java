@@ -9,33 +9,33 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class PlayerNameTest {
+class LadderPlayerNameTest {
 
-    private PlayerName playerName;
+    private LadderPlayerName ladderPlayerName;
 
     @BeforeEach
     void setUp() {
-        playerName = new PlayerName("red");
+        ladderPlayerName = new LadderPlayerName("red");
     }
 
     @Test
     @DisplayName("PlayerName 이름으로 생성하기")
     void create() {
-        assertThat(playerName.getName()).isEqualTo("red");
+        assertThat(ladderPlayerName.getName()).isEqualTo("red");
     }
 
     @Test
     @DisplayName("지정한 이름 길이 초과하는 경우")
     void create_ExcessOfPlayerNameException() {
-        assertDoesNotThrow(() -> new PlayerName("green"));
+        assertDoesNotThrow(() -> new LadderPlayerName("green"));
 
-        Exception exception = assertThrows(ExcessOfPlayerNameException.class, () -> new PlayerName("violet"));
+        Exception exception = assertThrows(ExcessOfPlayerNameException.class, () -> new LadderPlayerName("violet"));
         assertThat(exception.getMessage()).isEqualTo(ExcessOfPlayerNameException.EXCESS_OF_PLAYER_NAME_MESSAGE);
     }
 
     @Test
     void matchName() {
-        assertThat(playerName.matchName("red")).isTrue();
-        assertThat(playerName.matchName("blue")).isFalse();
+        assertThat(ladderPlayerName.matchName("red")).isTrue();
+        assertThat(ladderPlayerName.matchName("blue")).isFalse();
     }
 }

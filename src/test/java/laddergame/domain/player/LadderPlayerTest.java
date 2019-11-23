@@ -6,24 +6,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PlayerTest {
+class LadderPlayerTest {
 
-    private Player player;
+    private LadderPlayer ladderPlayer;
 
     @BeforeEach
     void setUp() {
-        player = Player.of("red");
+        ladderPlayer = LadderPlayer.from("red");
     }
 
     @Test
     @DisplayName("Player 이름으로 생성하기")
     void create() {
-        assertThat(player.getPlayerName()).isEqualTo("red");
+        assertThat(ladderPlayer.getName()).isEqualTo("red");
     }
 
     @Test
     void matchName() {
-        assertThat(player.matchName("red")).isTrue();
-        assertThat(player.matchName("blue")).isFalse();
+        assertThat(ladderPlayer.matchName("red")).isTrue();
+        assertThat(ladderPlayer.matchName("blue")).isFalse();
     }
 }

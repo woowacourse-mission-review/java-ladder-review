@@ -1,6 +1,6 @@
 package laddergame.service;
 
-import laddergame.domain.player.Players;
+import laddergame.domain.player.LadderPlayers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,12 +17,12 @@ class LadderGameServiceTest {
 
     @Test
     void createPlayers() {
-        Players players = ladderGameService.createPlayers("red, blue, green");
+        LadderPlayers ladderPlayers = ladderGameService.createPlayers("red, blue, green");
 
-        assertThat(players).isNotNull();
-        assertThat(players.size()).isEqualTo(3);
-        assertThat(players.hasPlayerWithName("red")).isTrue();
-        assertThat(players.hasPlayerWithName("blue")).isTrue();
-        assertThat(players.hasPlayerWithName("green")).isTrue();
+        assertThat(ladderPlayers).isNotNull();
+        assertThat(ladderPlayers.size()).isEqualTo(3);
+        assertThat(ladderPlayers.hasPlayerWithName("red")).isTrue();
+        assertThat(ladderPlayers.hasPlayerWithName("blue")).isTrue();
+        assertThat(ladderPlayers.hasPlayerWithName("green")).isTrue();
     }
 }

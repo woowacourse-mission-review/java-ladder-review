@@ -1,7 +1,7 @@
 package laddergame.service;
 
-import laddergame.domain.player.Player;
-import laddergame.domain.player.Players;
+import laddergame.domain.player.LadderPlayer;
+import laddergame.domain.player.LadderPlayers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,13 +9,13 @@ import java.util.stream.Collectors;
 
 public class LadderGameService {
 
-    public Players createPlayers(final String playerNameInputs) {
+    public LadderPlayers createPlayers(final String playerNameInputs) {
         String[] playerNameTokens = playerNameInputs.split(",");
-        List<Player> players = Arrays.stream(playerNameTokens)
+        List<LadderPlayer> ladderPlayers = Arrays.stream(playerNameTokens)
                 .map(String::trim)
-                .map(Player::of)
+                .map(LadderPlayer::from)
                 .collect(Collectors.toList());
 
-        return Players.create(players);
+        return LadderPlayers.create(ladderPlayers);
     }
 }

@@ -2,14 +2,13 @@ package laddergame.domain.player;
 
 import laddergame.exception.ExcessOfPlayerNameException;
 
-// TODO: 23/11/2019 modify naming to 'LadderPlayerName'
-public class PlayerName {
+public class LadderPlayerName {
 
     public static final int MAX_LEN_OF_PLAYER_NAME = 5;
 
     private final Name name;
 
-    public PlayerName(final String name) {
+    public LadderPlayerName(final String name) {
         if (isNameExceedMaxLength(name)) {
             throw new ExcessOfPlayerNameException();
         }

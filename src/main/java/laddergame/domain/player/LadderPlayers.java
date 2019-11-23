@@ -2,16 +2,16 @@ package laddergame.domain.player;
 
 import java.util.List;
 
-public class Players {
+public class LadderPlayers {
 
-    private final List<Player> players;
+    private final List<LadderPlayer> players;
 
-    private Players(final List<Player> players) {
+    private LadderPlayers(final List<LadderPlayer> players) {
         this.players = players;
     }
 
-    public static Players create(final List<Player> players) {
-        return new Players(players);
+    public static LadderPlayers create(final List<LadderPlayer> players) {
+        return new LadderPlayers(players);
     }
 
     public int size() {
