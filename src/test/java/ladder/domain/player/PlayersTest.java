@@ -28,4 +28,12 @@ class PlayersTest {
 
         assertThrows(IllegalArgumentException.class, () -> Players.of(inputNames));
     }
+
+    @Test
+    void getByPlayerName_없는_이름_예외처리() {
+        String inputNames = "bedi, cu, pobi";
+        Players players = Players.of(inputNames);
+
+        assertThrows(IllegalArgumentException.class, () -> players.getByPlayerName("qwe"));
+    }
 }

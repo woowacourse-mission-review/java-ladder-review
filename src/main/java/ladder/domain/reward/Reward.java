@@ -19,6 +19,10 @@ public class Reward {
         return name;
     }
 
+    public boolean matchPosition(final Position other) {
+        return position == other;
+    }
+
     @Override
     public String toString() {
         return "Reward{" +

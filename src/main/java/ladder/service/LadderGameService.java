@@ -1,5 +1,6 @@
 package ladder.service;
 
+import ladder.domain.LadderGameInfo;
 import ladder.domain.ladder.Height;
 import ladder.domain.ladder.Ladder;
 import ladder.domain.ladder.LadderFactory;
@@ -24,5 +25,9 @@ public class LadderGameService {
 
     public Rewards createRewards(final String inputRewards) {
         return Rewards.of(inputRewards);
+    }
+
+    public LadderGameInfo createLadderGameInfo(final Players players, final Rewards rewards, final Ladder ladder) {
+        return new LadderGameInfo(players, rewards, ladder);
     }
 }

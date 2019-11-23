@@ -31,6 +31,15 @@ public class Players implements Iterable<Player> {
                 .collect(Collectors.toList());
     }
 
+    private List<Player> createPlayers(final List<PlayerName> names) {
+        final List<Player> players = new ArrayList<>();
+        int position = MIN_POSITION_BOUNDARY;
+        for (final PlayerName name : names) {
+            players.add(Player.of(name, Position.from(position++)));
+        }
+        return players;
+    }
+
     private void validateCountOfPlayers(final List<PlayerName> names) {
         if (names.size() < PLAYERS_MIN_BOUNDARY) {
             throw new IllegalArgumentException("플레이어가 " + PLAYERS_MIN_BOUNDARY + "명 이상이어야 합니다.");
@@ -44,17 +53,15 @@ public class Players implements Iterable<Player> {
         }
     }
 
-    private List<Player> createPlayers(final List<PlayerName> names) {
-        final List<Player> players = new ArrayList<>();
-        int position = MIN_POSITION_BOUNDARY;
-        for (final PlayerName name : names) {
-            players.add(Player.of(name, Position.from(position++)));
-        }
-        return players;
-    }
-
     public int size() {
         return players.size();
+    }
+
+    public Player getByPlayerName(final String playerName) {
+        return players.stream()
+                .filter(player -> player.matchPlayerName(playerName))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 이름입니다."));
     }
 
     @Override

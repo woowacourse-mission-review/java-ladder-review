@@ -34,6 +34,13 @@ public class Rewards implements Iterable<Reward> {
         return rewards.size();
     }
 
+    public Reward getByPosition(final Position position) {
+        return rewards.stream()
+                .filter(reward -> reward.matchPosition(position))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 결과입니다."));
+    }
+
     @Override
     public Iterator<Reward> iterator() {
         return new Iterator<Reward>() {
