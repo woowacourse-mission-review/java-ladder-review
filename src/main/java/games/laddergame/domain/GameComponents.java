@@ -11,13 +11,19 @@ public class GameComponents {
     private List<GameComponent> gameComponents;
     private static int STARTING_POSITION = 0;
 
-    public GameComponents(List<GameComponent> gameComponents) {
+    public GameComponents(List<GameComponent> gameComponents, boolean isDuplicateCheckNecessary) {
         try {
-//            checkDuplicateNames(gameComponents);
+            checkDuplicates(gameComponents, isDuplicateCheckNecessary);
             this.gameComponents = gameComponents;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             this.gameComponents = null;
+        }
+    }
+
+    private void checkDuplicates(List<GameComponent> gameComponents, boolean isDuplicateCheckNecessary) {
+        if (isDuplicateCheckNecessary) {
+            checkDuplicateNames(gameComponents);
         }
     }
 
@@ -39,5 +45,9 @@ public class GameComponents {
 
     public GameComponent getComponentAt(int index) {
         return gameComponents.get(index);
+    }
+
+    public int size() {
+        return gameComponents.size();
     }
 }

@@ -2,6 +2,8 @@ package games.laddergame;
 
 import games.gamecomponent.Game;
 import games.laddergame.domain.*;
+import games.laddergame.domain.ladder.Ladder;
+import games.laddergame.domain.ladder.ladderrowmaker.DefaultLadderRowMaker;
 import games.library.ObjectMakingStrategy;
 import games.library.ObjectMakingTemplate;
 import games.view.InputView;
@@ -11,6 +13,9 @@ import java.util.List;
 
 public class LadderGame implements Game {
     private static final String GAME_NAME = "LADDER";
+    private static final String REGISTER_PLAYERS_MESSAGE = "규칙을 따라서 참가지 이름을 입력해 주세요!";
+    private static final String REGISTER_PRIZES_MESSAGE = "규칙을 따라서 상품 이름을 입력해 주세요!";
+
     private InputView inputView;
     private OutputView outputView;
     private ObjectMakingTemplate objectMakingTemplate;
@@ -28,25 +33,23 @@ public class LadderGame implements Game {
 
     @Override
     public void start() {
-        String rawPlayersNames = inputView.askUserInput("규칙대로 참가할 사람의 이름을 적어주세요");
-        GameComponents players = registerComponents(rawPlayersNames, Player::new);
-
-        String rawPrizeNames = inputView.askUserInput("규칙대로 참가할 사람의 이름을 적어주세요");
-        GameComponents prizes = registerComponents(rawPrizeNames, Prize::new);
-
+        GameComponents players = registerComponents(REGISTER_PLAYERS_MESSAGE, Player::new, true);
+        GameComponents prizes = registerComponents(REGISTER_PRIZES_MESSAGE, Prize::new, false);
         Height height = registerHeight();
+        Ladder ladder = new Ladder(players.size(), height.getHeight(), new DefaultLadderRowMaker(players.size()));
     }
 
-    public GameComponents registerComponents(String rawData, ObjectMakingStrategy strategy) {
+    public GameComponents registerComponents(String message, ObjectMakingStrategy strategy, boolean isDuplicateCheckNecessary) {
         GameComponents components;
         do {
-            components = new GameComponents(createMultipleObjects(rawData, strategy));
+            String rawData = inputView.askUserInput(message);
+            components = new GameComponents(createMultipleObjects(rawData, strategy), isDuplicateCheckNecessary);
             return components;
         } while (components.isNotSuccessfullyMade());
     }
 
 
-    private List<GameComponent> createMultipleObjects(String rawData, ObjectMakingStrategy strategy) {
+    public List<GameComponent> createMultipleObjects(String rawData, ObjectMakingStrategy strategy) {
         try {
             return objectMakingTemplate.createObjects(rawData, strategy);
         } catch (Exception e) {

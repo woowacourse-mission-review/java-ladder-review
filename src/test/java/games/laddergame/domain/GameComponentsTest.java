@@ -16,7 +16,7 @@ public class GameComponentsTest {
         Player player1 = new Player("jm", 10);
         Player player2 = new Player("im", 11);
 
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2));
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2), true);
 
         assertThat(players.isNotSuccessfullyMade()).isFalse();
         assertThat(players.getComponentAt(0).getPosition()).isEqualTo(10);
@@ -30,7 +30,7 @@ public class GameComponentsTest {
         Player player1 = new Player("jm", 10);
         Player player2 = new Player("jm", 11);
 
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2));
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2), true);
 
         assertThat(players.isNotSuccessfullyMade()).isTrue();
     }
