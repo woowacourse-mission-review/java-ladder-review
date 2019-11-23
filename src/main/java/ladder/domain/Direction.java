@@ -22,6 +22,10 @@ public enum Direction {
         return right ? RIGHT : STRAIGHT;
     }
 
+    public boolean isRight() {
+        return this == RIGHT;
+    }
+
     public int getDirection() {
         return direction;
     }

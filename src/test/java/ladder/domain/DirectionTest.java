@@ -30,4 +30,11 @@ class DirectionTest {
 
         assertThat(actual).isEqualTo(Direction.STRAIGHT);
     }
+
+    @Test
+    void isRightTest() {
+        assertThat(Direction.RIGHT.isRight()).isTrue();
+        assertThat(Direction.STRAIGHT.isRight()).isFalse();
+        assertThat(Direction.LEFT.isRight()).isFalse();
+    }
 }
