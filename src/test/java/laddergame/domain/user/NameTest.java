@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class nameTest {
+class NameTest {
 
     @Test
     @DisplayName("올바른 이름으로 생성 test")
