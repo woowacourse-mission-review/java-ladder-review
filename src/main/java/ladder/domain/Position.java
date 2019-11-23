@@ -5,13 +5,13 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Position {
+    public static final int MIN_POSITION_BOUNDARY = 0;
     static final int POSITION_CACHE_SIZE = 3;
-    static final int POSITION_BOUNDARY = 0;
 
     private static final Map<Integer, Position> CACHE = new HashMap<>();
 
     static {
-        for (int i = POSITION_BOUNDARY; i <= POSITION_CACHE_SIZE; i++) {
+        for (int i = MIN_POSITION_BOUNDARY; i <= POSITION_CACHE_SIZE; i++) {
             CACHE.put(i, new Position(i));
         }
     }
@@ -25,8 +25,8 @@ public class Position {
     }
 
     private void validate(final int position) {
-        if (position < POSITION_BOUNDARY) {
-            throw new IllegalArgumentException("포지션은 " + POSITION_BOUNDARY + "이상이어야 합니다.");
+        if (position < MIN_POSITION_BOUNDARY) {
+            throw new IllegalArgumentException("포지션은 " + MIN_POSITION_BOUNDARY + "이상이어야 합니다.");
         }
     }
 

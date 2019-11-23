@@ -2,7 +2,7 @@ package ladder.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static ladder.domain.Position.POSITION_BOUNDARY;
+import static ladder.domain.Position.MIN_POSITION_BOUNDARY;
 import static ladder.domain.Position.POSITION_CACHE_SIZE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -27,7 +27,7 @@ class PositionTest {
 
     @Test
     void 최소값_미만_예외처리() {
-        assertThrows(IllegalArgumentException.class, () -> Position.from(POSITION_BOUNDARY - 1));
+        assertThrows(IllegalArgumentException.class, () -> Position.from(MIN_POSITION_BOUNDARY - 1));
     }
 
     @Test
