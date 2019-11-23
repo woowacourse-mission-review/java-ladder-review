@@ -11,6 +11,10 @@ public enum Direction {
         this.direction = direction;
     }
 
+    public static Direction of(final boolean direction) {
+        return direction ? RIGHT : STRAIGHT;
+    }
+
     public Direction next(final boolean right) {
         if (this == RIGHT) {
             return LEFT;

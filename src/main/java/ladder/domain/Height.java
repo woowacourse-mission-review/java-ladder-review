@@ -22,7 +22,7 @@ public class Height {
         return new Height(height);
     }
 
-    int getHeight() {
+    int get() {
         return height;
     }
 

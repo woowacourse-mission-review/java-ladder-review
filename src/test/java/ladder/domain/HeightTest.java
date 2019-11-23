@@ -22,7 +22,7 @@ class HeightTest {
         int height = HEIGHT_MIN_BOUNDARY + 1;
         Height actual = Height.from(height);
 
-        assertThat(actual.getHeight()).isEqualTo(height);
+        assertThat(actual.get()).isEqualTo(height);
     }
 
     @Test
