@@ -5,14 +5,15 @@ import laddergame.exception.ExcessOfPlayerNameException;
 public class PlayerName {
 
     public static final int MAX_LEN_OF_PLAYER_NAME = 5;
-    private final String name;
+
+    private final Name name;
 
     public PlayerName(final String name) {
         if (isNameExceedMaxLength(name)) {
             throw new ExcessOfPlayerNameException();
         }
 
-        this.name = name;
+        this.name = new Name(name);
     }
 
     private boolean isNameExceedMaxLength(final String name) {
@@ -20,6 +21,6 @@ public class PlayerName {
     }
 
     public String getName() {
-        return name;
+        return name.getInnerName();
     }
 }
