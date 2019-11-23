@@ -11,7 +11,6 @@ public class Point {
     }
 
     public Direction next() {
-        // TODO: 원시값을 포장할 필요가 있지 않을까? (Direction 이라는 enum 클래스는 어떨까?) 이를 통해 if 문을 줄일 수도 있지 않을까?
         return Direction.of(left, right);
     }
 
