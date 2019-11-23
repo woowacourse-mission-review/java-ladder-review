@@ -4,6 +4,7 @@ import ladder.domain.ladder.Height;
 import ladder.domain.ladder.Ladder;
 import ladder.domain.ladder.LadderFactory;
 import ladder.domain.player.Players;
+import ladder.domain.reward.Rewards;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,14 +25,6 @@ class LadderGameServiceTest {
     private LadderGameService ladderGameService;
 
     @Test
-    void createPlayersTest() {
-        String inputNames = "bedi,pobi,cu";
-        Players players = ladderGameService.createPlayers(inputNames);
-
-        assertThat(players.size()).isEqualTo(3);
-    }
-
-    @Test
     void createLadderTest() {
         // given
         int height = 2;
@@ -44,5 +37,21 @@ class LadderGameServiceTest {
 
         // then
         assertThat(createdLadder).isEqualTo(mockLadder);
+    }
+
+    @Test
+    void createPlayersTest() {
+        String inputNames = "bedi,pobi,cu";
+        Players players = ladderGameService.createPlayers(inputNames);
+
+        assertThat(players.size()).isEqualTo(3);
+    }
+
+    @Test
+    void createRewardsTest() {
+        String inputNames = "bedi,pobi,cu";
+        Rewards rewards = ladderGameService.createRewards(inputNames);
+
+        assertThat(rewards.size()).isEqualTo(3);
     }
 }
