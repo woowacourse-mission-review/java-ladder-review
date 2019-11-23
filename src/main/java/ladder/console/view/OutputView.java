@@ -1,8 +1,11 @@
 package ladder.console.view;
 
+import ladder.domain.Result;
 import ladder.domain.ladder.Ladder;
 import ladder.domain.player.Players;
 import ladder.domain.reward.Rewards;
+
+import java.util.List;
 
 public class OutputView {
 
@@ -34,5 +37,12 @@ public class OutputView {
         final StringBuilder sb = new StringBuilder();
         rewards.forEach(reward -> sb.append(String.format("%-6s", reward.getName())));
         System.out.println(sb.toString());
+    }
+
+    public void printResult(final List<Result> results) {
+        System.out.println("실행 결과");
+        results.forEach(result ->
+                System.out.println(result.getPlayerName() + " : " + result.getRewardName()));
+        System.out.println();
     }
 }

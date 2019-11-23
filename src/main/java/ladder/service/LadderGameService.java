@@ -1,11 +1,14 @@
 package ladder.service;
 
 import ladder.domain.LadderGameInfo;
+import ladder.domain.Result;
 import ladder.domain.ladder.Height;
 import ladder.domain.ladder.Ladder;
 import ladder.domain.ladder.LadderFactory;
 import ladder.domain.player.Players;
 import ladder.domain.reward.Rewards;
+
+import java.util.List;
 
 public class LadderGameService {
 
@@ -29,5 +32,9 @@ public class LadderGameService {
 
     public LadderGameInfo createLadderGameInfo(final Players players, final Rewards rewards, final Ladder ladder) {
         return new LadderGameInfo(players, rewards, ladder);
+    }
+
+    public List<Result> createResults(final LadderGameInfo ladderGameInfo, final String playerName) {
+        return ladderGameInfo.getResults(playerName);
     }
 }
