@@ -63,4 +63,15 @@ public class Line {
         final Direction direction = directions.get(position.get());
         return position.change(direction.getDirection());
     }
+
+    public boolean matchSize(final Line other) {
+        return this.directions.size() == other.directions.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "directions=" + directions +
+                '}';
+    }
 }

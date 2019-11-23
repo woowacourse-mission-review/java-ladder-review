@@ -90,4 +90,26 @@ class LineTest {
         // then
         assertThat(actual).isEqualTo(expected);
     }
+
+    @Test
+    @DisplayName("matchSize 같은지 확인")
+    void matchSizeTest01() {
+        List<Direction> directions = Arrays.asList(Direction.RIGHT, Direction.LEFT, Direction.STRAIGHT);
+        Line line1 = Line.of(directions);
+        Line line2 = Line.of(directions);
+
+        assertThat(line1.matchSize(line2)).isTrue();
+    }
+
+
+    @Test
+    @DisplayName("matchSize 다른지 확인")
+    void matchSizeTest02() {
+        List<Direction> directions1 = Arrays.asList(Direction.RIGHT, Direction.LEFT, Direction.STRAIGHT);
+        List<Direction> directions2 = Arrays.asList(Direction.RIGHT, Direction.LEFT);
+        Line line1 = Line.of(directions1);
+        Line line2 = Line.of(directions2);
+
+        assertThat(line1.matchSize(line2)).isFalse();
+    }
 }
