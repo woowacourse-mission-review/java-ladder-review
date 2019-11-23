@@ -2,6 +2,7 @@ package ladder.console.view;
 
 import ladder.domain.ladder.Ladder;
 import ladder.domain.player.Players;
+import ladder.domain.reward.Rewards;
 
 public class OutputView {
 
@@ -26,6 +27,12 @@ public class OutputView {
             sb.append("\n");
         });
 
+        System.out.print(sb.toString());
+    }
+
+    public void printRewards(final Rewards rewards) {
+        final StringBuilder sb = new StringBuilder();
+        rewards.forEach(reward -> sb.append(String.format("%-6s", reward.getName())));
         System.out.println(sb.toString());
     }
 }
