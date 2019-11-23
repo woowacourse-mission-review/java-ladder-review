@@ -1,16 +1,17 @@
 package ladder.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Ladder {
-    private static final int LINES_MIN_BOUNDARY = 1;
+    static final int LADDER_HEIGHT_MIN_BOUNDARY = 1;
 
     private final List<Line> lines;
 
     private Ladder(final List<Line> lines) {
         this.lines = new ArrayList<>(lines);
-        validateSize(this.lines);
+        validateHeight(this.lines);
         validateSameSizeOfDirections(this.lines);
     }
 
@@ -18,9 +19,9 @@ public class Ladder {
         return new Ladder(lines);
     }
 
-    private void validateSize(final List<Line> lines) {
-        if (lines.size() <= LINES_MIN_BOUNDARY) {
-            throw new IllegalArgumentException(LINES_MIN_BOUNDARY + "이상이어야 합니다.");
+    private void validateHeight(final List<Line> lines) {
+        if (lines.size() < LADDER_HEIGHT_MIN_BOUNDARY) {
+            throw new IllegalArgumentException(LADDER_HEIGHT_MIN_BOUNDARY + "이상이어야 합니다.");
         }
     }
 
@@ -37,6 +38,10 @@ public class Ladder {
             position = line.move(position);
         }
         return position;
+    }
+
+    public List<Line> getLines() {
+        return Collections.unmodifiableList(lines);
     }
 
     @Override

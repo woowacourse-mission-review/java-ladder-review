@@ -3,9 +3,11 @@ package ladder.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
+import static ladder.domain.Ladder.LADDER_HEIGHT_MIN_BOUNDARY;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -28,9 +30,14 @@ class LadderTest {
     }
 
     @Test
-    @DisplayName("lines 최소 사이즈 검사")
+    @DisplayName("lines 최소 높이 검사")
     void createException02() {
-        assertThrows(IllegalArgumentException.class, () -> Ladder.of(Collections.emptyList()));
+        List<Line> lines = new ArrayList<>();
+        IntStream.range(0, LADDER_HEIGHT_MIN_BOUNDARY - 1)
+                .forEach(x -> lines.add(Line.of(List.of(Direction.RIGHT, Direction.LEFT))));
+
+
+        assertThrows(IllegalArgumentException.class, () -> Ladder.of(lines));
     }
 
     @Test
