@@ -22,6 +22,11 @@ class LadderPlayerTest {
     }
 
     @Test
+    void equals() {
+        assertThat(ladderPlayer).isEqualTo(LadderPlayer.from("red"));
+    }
+
+    @Test
     void matchName() {
         assertThat(ladderPlayer.matchName("red")).isTrue();
         assertThat(ladderPlayer.matchName("blue")).isFalse();
