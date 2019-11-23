@@ -3,6 +3,7 @@ public class Point {
     private final boolean right;
 
     public Point(boolean left, boolean right) {
+        validateNoConsecutiveBridge(left, right);
         this.left = left;
         this.right = right;
     }
@@ -16,5 +17,11 @@ public class Point {
             return 1;
         }
         return 0;
+    }
+
+    private void validateNoConsecutiveBridge(boolean left, boolean right) {
+        if (left && right) {
+            throw new IllegalArgumentException("양 쪽에 다리가 놓여있을 수 없습니다.");
+        }
     }
 }
