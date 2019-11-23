@@ -38,3 +38,7 @@
     - Position 객체
         - [ ] 사용자의 사다리 내 수평 현재 위치를 나타낸다.
         - [ ] [제약조건] 사용자 수를 넘는 위치를 가질 수 없다.
+        
+## Refactoring
+- Direction.of 메서드 내에서 left, right validation 이 이루어져야 하는가 아니면 
+Point 객체에서 이루어져야 하는가
