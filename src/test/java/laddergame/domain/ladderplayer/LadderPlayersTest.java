@@ -1,10 +1,12 @@
 package laddergame.domain.ladderplayer;
 
 import laddergame.exception.DuplicatePlayersException;
+import laddergame.exception.LackOfPlayersException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,6 +34,14 @@ class LadderPlayersTest {
         assertThat(ladderPlayers.hasPlayerWithName("green")).isTrue();
 
         assertThat(ladderPlayers.hasPlayerWithName("black")).isFalse();
+    }
+
+    @Test
+    void createPlayers_LackOfPlayersException() {
+        List<LadderPlayer> players = Collections.singletonList(LadderPlayer.from("red"));
+        Exception exception = assertThrows(LackOfPlayersException.class, () -> LadderPlayers.create(players));
+
+        assertThat(exception.getMessage()).isEqualTo(LackOfPlayersException.LACK_OF_PLAYERS_MESSAGE);
     }
 
     @Test

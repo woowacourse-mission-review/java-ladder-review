@@ -1,6 +1,7 @@
 package laddergame.domain.ladderplayer;
 
 import laddergame.exception.DuplicatePlayersException;
+import laddergame.exception.LackOfPlayersException;
 
 import java.util.HashSet;
 import java.util.List;
@@ -8,14 +9,26 @@ import java.util.Set;
 
 public class LadderPlayers {
 
+    public static final int MIN_NUM_OF_LADDER_PLAYERS = 2;
     private final List<LadderPlayer> players;
 
     private LadderPlayers(final List<LadderPlayer> players) {
+        validatePlayers(players);
+
+        this.players = players;
+    }
+
+    private void validatePlayers(final List<LadderPlayer> players) {
+        if (isLackOfPlayers(players)) {
+            throw new LackOfPlayersException();
+        }
         if (hasDuplicatePlayers(players)) {
             throw new DuplicatePlayersException();
         }
+    }
 
-        this.players = players;
+    private boolean isLackOfPlayers(final List<LadderPlayer> players) {
+        return players.size() < MIN_NUM_OF_LADDER_PLAYERS;
     }
 
     private boolean hasDuplicatePlayers(final List<LadderPlayer> players) {
