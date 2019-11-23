@@ -1,6 +1,6 @@
 package laddergame.controller;
 
-import laddergame.domain.player.LadderPlayers;
+import laddergame.domain.ladderplayer.LadderPlayers;
 import laddergame.service.LadderGameService;
 import laddergame.view.InputView;
 import laddergame.view.OutputView;

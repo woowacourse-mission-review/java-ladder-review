@@ -1,7 +1,7 @@
 package laddergame.service;
 
-import laddergame.domain.player.LadderPlayer;
-import laddergame.domain.player.LadderPlayers;
+import laddergame.domain.ladderplayer.LadderPlayer;
+import laddergame.domain.ladderplayer.LadderPlayers;
 
 import java.util.Arrays;
 import java.util.List;

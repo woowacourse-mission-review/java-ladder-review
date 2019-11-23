@@ -1,6 +1,6 @@
 package laddergame.exception;
 
-import laddergame.domain.player.LadderPlayerName;
+import laddergame.domain.name.LadderPlayerName;
 
 public class ExcessOfPlayerNameException extends IllegalArgumentException {
 

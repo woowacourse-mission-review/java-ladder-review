@@ -1,6 +1,6 @@
 package laddergame.service;
 
-import laddergame.domain.player.LadderPlayers;
+import laddergame.domain.ladderplayer.LadderPlayers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

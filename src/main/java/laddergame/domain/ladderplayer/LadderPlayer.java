@@ -1,4 +1,6 @@
-package laddergame.domain.player;
+package laddergame.domain.ladderplayer;
+
+import laddergame.domain.name.LadderPlayerName;
 
 public class LadderPlayer {
 

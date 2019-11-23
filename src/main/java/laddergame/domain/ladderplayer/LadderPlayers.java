@@ -1,4 +1,4 @@
-package laddergame.domain.player;
+package laddergame.domain.ladderplayer;
 
 import java.util.List;
 
