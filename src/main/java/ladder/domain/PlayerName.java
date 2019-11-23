@@ -2,13 +2,13 @@ package ladder.domain;
 
 import java.util.Objects;
 
-public class Name {
+public class PlayerName {
     static final int NAME_MIN_BOUNDARY = 1;
     static final int NAME_MAX_BOUNDARY = 5;
 
     private final String name;
 
-    private Name(final String name) {
+    private PlayerName(final String name) {
         this.name = Objects.requireNonNull(name).trim();
         validateLength(this.name);
     }
@@ -19,11 +19,11 @@ public class Name {
         }
     }
 
-    public static Name from(final String name) {
-        return new Name(name);
+    public static PlayerName from(final String name) {
+        return new PlayerName(name);
     }
 
-    public String getName() {
+    public String get() {
         return name;
     }
 
@@ -31,8 +31,8 @@ public class Name {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final Name name1 = (Name) o;
-        return Objects.equals(name, name1.name);
+        final PlayerName playerName1 = (PlayerName) o;
+        return Objects.equals(name, playerName1.name);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Name {
 
     @Override
     public String toString() {
-        return "Name{" +
+        return "PlayerName{" +
                 "name='" + name + '\'' +
                 '}';
     }
