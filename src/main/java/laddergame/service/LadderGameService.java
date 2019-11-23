@@ -7,6 +7,7 @@ import laddergame.domain.ladderplayer.LadderPlayers;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class LadderGameService {
@@ -14,16 +15,23 @@ public class LadderGameService {
     private static final String LADDER_GAME_NAME_DELIMITER = ",";
 
     public LadderPlayers createPlayers(final String playerNames) {
-        List<LadderPlayer> ladderPlayers = parsePlayerNames(playerNames);
+        List<LadderPlayer> ladderPlayers = parseNames(playerNames, LadderPlayer::from);
 
         return LadderPlayers.create(ladderPlayers);
     }
 
-    private List<LadderPlayer> parsePlayerNames(final String playerNames) {
-        String[] playerNameTokens = playerNames.split(LADDER_PLAYER_NAME_DELIMITER);
-        return Arrays.stream(playerNameTokens)
+    public LadderGoals createGoals(final String goalNames, final int sizeOfLadderPlayers) {
+        List<LadderGoal> ladderGoals = parseNames(goalNames, LadderGoal::from);
+
+        return LadderGoals.create(ladderGoals, sizeOfLadderPlayers);
+    }
+
+    private <T> List<T> parseNames(final String names, final Function<String, T> creationFunction) {
+        String[] nameTokens = names.split(LADDER_GAME_NAME_DELIMITER);
+
+        return Arrays.stream(nameTokens)
                 .map(String::trim)
-                .map(LadderPlayer::from)
+                .map(creationFunction)
                 .collect(Collectors.toList());
     }
 }
