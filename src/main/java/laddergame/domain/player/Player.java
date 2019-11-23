@@ -4,8 +4,12 @@ public class Player {
 
     private final PlayerName name;
 
-    public Player(final String name) {
+    private Player(final String name) {
         this.name = new PlayerName(name);
+    }
+
+    public static Player of(String name) {
+        return new Player(name);
     }
 
     public String getName() {

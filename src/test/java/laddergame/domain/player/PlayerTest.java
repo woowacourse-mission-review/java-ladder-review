@@ -10,7 +10,7 @@ class PlayerTest {
     @Test
     @DisplayName("Player 이름으로 생성하기")
     void create() {
-        Player player = new Player("red");
+        Player player = Player.of("red");
 
         assertThat(player.getName()).isEqualTo("red");
     }
