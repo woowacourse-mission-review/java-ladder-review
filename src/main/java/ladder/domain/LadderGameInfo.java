@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class LadderGameInfo {
-    static final String ALL_RESULTS = "all";
+    public static final String ALL_RESULTS = "all";
 
     private final Players players;
     private final Rewards rewards;
