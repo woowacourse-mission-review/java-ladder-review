@@ -21,6 +21,10 @@ public class Name {
         return innerName.equals(name);
     }
 
+    public boolean isNameLengthGreaterThan(int length) {
+        return innerName.length() > length;
+    }
+
     public String getInnerName() {
         return innerName;
     }

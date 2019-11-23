@@ -1,5 +1,6 @@
 package laddergame.service;
 
+import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,5 +25,12 @@ class LadderGameServiceTest {
         assertThat(ladderPlayers.hasPlayerWithName("red")).isTrue();
         assertThat(ladderPlayers.hasPlayerWithName("blue")).isTrue();
         assertThat(ladderPlayers.hasPlayerWithName("green")).isTrue();
+    }
+
+    @Test
+    void createGoals() {
+        LadderGoals ladderGoals = ladderGameService.createGoals("one, two, three", 3);
+
+        assertThat(ladderGoals).isNotNull();
     }
 }

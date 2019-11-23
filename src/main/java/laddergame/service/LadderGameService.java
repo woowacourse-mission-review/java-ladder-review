@@ -1,5 +1,7 @@
 package laddergame.service;
 
+import laddergame.domain.laddergoal.LadderGoal;
+import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayer;
 import laddergame.domain.ladderplayer.LadderPlayers;
 
@@ -9,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class LadderGameService {
 
-    private static final String LADDER_PLAYER_NAME_DELIMITER = ",";
+    private static final String LADDER_GAME_NAME_DELIMITER = ",";
 
     public LadderPlayers createPlayers(final String playerNames) {
         List<LadderPlayer> ladderPlayers = parsePlayerNames(playerNames);

@@ -47,4 +47,10 @@ class NameTest {
         assertThat(name.match("red")).isTrue();
         assertThat(name.match("blue")).isFalse();
     }
+
+    @Test
+    void isNameLengthGreaterThan() {
+        assertThat(name.isNameLengthGreaterThan(2)).isTrue();
+        assertThat(name.isNameLengthGreaterThan(3)).isFalse();
+    }
 }

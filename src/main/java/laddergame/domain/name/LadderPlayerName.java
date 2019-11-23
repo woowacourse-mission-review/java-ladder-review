@@ -11,15 +11,12 @@ public class LadderPlayerName {
     private final Name name;
 
     public LadderPlayerName(final String name) {
-        if (isNameExceedMaxLength(name)) {
+        Name newName = new Name(name);
+        if (newName.isNameLengthGreaterThan(MAX_LEN_OF_PLAYER_NAME)) {
             throw new ExcessOfPlayerNameException();
         }
 
-        this.name = new Name(name);
-    }
-
-    private boolean isNameExceedMaxLength(final String name) {
-        return name.length() > MAX_LEN_OF_PLAYER_NAME;
+        this.name = newName;
     }
 
     public boolean matchName(final String name) {
