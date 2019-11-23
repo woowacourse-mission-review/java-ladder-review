@@ -1,6 +1,6 @@
 package ladder.domain.player;
 
-import ladder.domain.Position;
+import ladder.domain.common.Position;
 
 import java.util.Objects;
 

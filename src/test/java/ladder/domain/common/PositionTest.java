@@ -1,9 +1,9 @@
-package ladder.domain;
+package ladder.domain.common;
 
 import org.junit.jupiter.api.Test;
 
-import static ladder.domain.Position.MIN_POSITION_BOUNDARY;
-import static ladder.domain.Position.POSITION_CACHE_SIZE;
+import static ladder.domain.common.Position.MIN_POSITION_BOUNDARY;
+import static ladder.domain.common.Position.POSITION_CACHE_SIZE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

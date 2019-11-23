@@ -1,8 +1,8 @@
 package ladder.service;
 
-import ladder.domain.Height;
-import ladder.domain.Ladder;
-import ladder.domain.LadderFactory;
+import ladder.domain.ladder.Height;
+import ladder.domain.ladder.Ladder;
+import ladder.domain.ladder.LadderFactory;
 import ladder.domain.player.Players;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

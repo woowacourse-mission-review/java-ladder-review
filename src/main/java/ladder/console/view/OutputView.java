@@ -1,6 +1,6 @@
 package ladder.console.view;
 
-import ladder.domain.Ladder;
+import ladder.domain.ladder.Ladder;
 import ladder.domain.player.Players;
 
 public class OutputView {

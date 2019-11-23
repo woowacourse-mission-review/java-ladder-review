@@ -1,12 +1,12 @@
 package ladder.domain.player;
 
-import ladder.domain.Position;
+import ladder.domain.common.Position;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static ladder.domain.Position.MIN_POSITION_BOUNDARY;
+import static ladder.domain.common.Position.MIN_POSITION_BOUNDARY;
 
 public class Players implements Iterable<Player> {
     private static final String DELIMITER_NAMES = ",";

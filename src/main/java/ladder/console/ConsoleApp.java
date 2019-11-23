@@ -2,9 +2,9 @@ package ladder.console;
 
 import ladder.console.view.InputView;
 import ladder.console.view.OutputView;
-import ladder.domain.DefaultLadderFactory;
-import ladder.domain.Ladder;
-import ladder.domain.LadderFactory;
+import ladder.domain.ladder.DefaultLadderFactory;
+import ladder.domain.ladder.Ladder;
+import ladder.domain.ladder.LadderFactory;
 import ladder.domain.player.Players;
 import ladder.service.LadderGameService;
 

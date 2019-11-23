@@ -1,4 +1,4 @@
-package ladder.domain;
+package ladder.domain.ladder;
 
 import java.util.Objects;
 
@@ -22,7 +22,7 @@ public class Height {
         return new Height(height);
     }
 
-    int get() {
+    public int get() {
         return height;
     }
 
