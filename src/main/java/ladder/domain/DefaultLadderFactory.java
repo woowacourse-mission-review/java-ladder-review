@@ -23,11 +23,11 @@ public class DefaultLadderFactory implements LadderFactory {
 
         Direction direction = Direction.of(random.nextBoolean());
         directions.add(direction);
-        for (int i = 1; i < countOfPlayers; i++) {
+        for (int i = 1; i < countOfPlayers - 1; i++) {
             direction = direction.next(random.nextBoolean());
             directions.add(direction);
         }
-
+        directions.add(direction.last());
         return Line.of(directions);
     }
 }
