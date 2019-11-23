@@ -9,13 +9,19 @@ import java.util.stream.Collectors;
 
 public class LadderGameService {
 
-    public LadderPlayers createPlayers(final String playerNameInputs) {
-        String[] playerNameTokens = playerNameInputs.split(",");
-        List<LadderPlayer> ladderPlayers = Arrays.stream(playerNameTokens)
+    private static final String LADDER_PLAYER_NAME_DELIMITER = ",";
+
+    public LadderPlayers createPlayers(final String playerNames) {
+        List<LadderPlayer> ladderPlayers = parsePlayerNames(playerNames);
+
+        return LadderPlayers.create(ladderPlayers);
+    }
+
+    private List<LadderPlayer> parsePlayerNames(final String playerNames) {
+        String[] playerNameTokens = playerNames.split(LADDER_PLAYER_NAME_DELIMITER);
+        return Arrays.stream(playerNameTokens)
                 .map(String::trim)
                 .map(LadderPlayer::from)
                 .collect(Collectors.toList());
-
-        return LadderPlayers.create(ladderPlayers);
     }
 }
