@@ -22,6 +22,13 @@ public enum Direction {
         return right ? RIGHT : STRAIGHT;
     }
 
+    public Direction last() {
+        if (this == RIGHT) {
+            return LEFT;
+        }
+        return STRAIGHT;
+    }
+
     public boolean isRight() {
         return this == RIGHT;
     }

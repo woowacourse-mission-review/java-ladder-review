@@ -37,4 +37,11 @@ class DirectionTest {
         assertThat(Direction.STRAIGHT.isRight()).isFalse();
         assertThat(Direction.LEFT.isRight()).isFalse();
     }
+
+    @Test
+    void lastTest() {
+        assertThat(Direction.RIGHT.last()).isEqualTo(Direction.LEFT);
+        assertThat(Direction.STRAIGHT.last()).isEqualTo(Direction.STRAIGHT);
+        assertThat(Direction.LEFT.last()).isEqualTo(Direction.STRAIGHT);
+    }
 }
