@@ -1,5 +1,6 @@
 package laddergame.controller;
 
+import laddergame.domain.player.Players;
 import laddergame.service.LadderGameService;
 import laddergame.view.InputView;
 import laddergame.view.OutputView;
@@ -16,6 +17,7 @@ public class LadderGameController {
     }
 
     public void run() {
-
+        String playerNameInputs = inputView.inputPlayerNames();
+        Players players = ladderGameService.createPlayers(playerNameInputs);
     }
 }

@@ -1,6 +1,7 @@
 package laddergame.domain.player;
 
 import laddergame.exception.IllegalNameException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,11 +10,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class NameTest {
 
+    private Name name;
+
+    @BeforeEach
+    void setUp() {
+        name = new Name("red");
+    }
+
     @Test
     @DisplayName("Name 객체 생성하기")
     void create() {
-        Name name = new Name("red");
-
         assertThat(name.getInnerName()).isEqualTo("red");
     }
 
@@ -29,5 +35,11 @@ class NameTest {
         Exception exception = assertThrows(IllegalNameException.class, () -> new Name(""));
 
         assertThat(exception.getMessage()).isEqualTo(IllegalNameException.ILLEGAL_NAME_MESSAGE);
+    }
+
+    @Test
+    void match() {
+        assertThat(name.match("red")).isTrue();
+        assertThat(name.match("blue")).isFalse();
     }
 }

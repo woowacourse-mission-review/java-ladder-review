@@ -15,6 +15,10 @@ public class Name {
         this.innerName = innerName;
     }
 
+    public boolean match(final String name) {
+        return innerName.equals(name);
+    }
+
     public String getInnerName() {
         return innerName;
     }
