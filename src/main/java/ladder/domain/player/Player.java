@@ -17,6 +17,10 @@ public class Player {
         return new Player(name, position);
     }
 
+    public boolean matchPlayerName(final String other) {
+        return name.get().equals(other);
+    }
+
     public String getName() {
         return name.get();
     }

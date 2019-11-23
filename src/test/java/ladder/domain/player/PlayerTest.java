@@ -26,4 +26,12 @@ class PlayerTest {
         assertThat(player1 != player2).isTrue();
         assertThat(player1).isEqualTo(player2);
     }
+
+    @Test
+    void matchPlayerName() {
+        PlayerName name = PlayerName.from("bedi");
+        Player player = Player.of(name, Position.from(0));
+
+        assertThat(player.matchPlayerName(name.get())).isTrue();
+    }
 }
