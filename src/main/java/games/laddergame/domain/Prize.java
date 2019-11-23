@@ -1,5 +1,7 @@
 package games.laddergame.domain;
 
+import games.laddergame.exception.DoesNotSupportException;
+
 public class Prize implements GameComponent {
     private String name;
     private int position;
@@ -16,5 +18,20 @@ public class Prize implements GameComponent {
     @Override
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public boolean canParticipate(int participantPosition) {
+        throw new DoesNotSupportException();
+    }
+
+    @Override
+    public void swapWith(GameComponent rightParticipant) {
+        throw new DoesNotSupportException();
+    }
+
+    @Override
+    public void finalizeSwap(int temporary) {
+        throw new DoesNotSupportException();
     }
 }

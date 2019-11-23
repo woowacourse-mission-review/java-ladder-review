@@ -25,4 +25,21 @@ public class Player implements GameComponent {
     public int getPosition() {
         return position;
     }
+
+    @Override
+    public boolean canParticipate(int participantPosition) {
+        return position == participantPosition;
+    }
+
+    @Override
+    public void swapWith(GameComponent otherParticipant) {
+        int temporary = position;
+        this.position = otherParticipant.getPosition();
+        otherParticipant.finalizeSwap(temporary);
+    }
+
+    @Override
+    public void finalizeSwap(int temporary) {
+        this.position = temporary;
+    }
 }

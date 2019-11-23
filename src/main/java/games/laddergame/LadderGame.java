@@ -4,8 +4,10 @@ import games.gamecomponent.Game;
 import games.laddergame.domain.*;
 import games.laddergame.domain.ladder.Ladder;
 import games.laddergame.domain.ladder.ladderrowmaker.DefaultLadderRowMaker;
+import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMakers;
 import games.library.ObjectMakingStrategy;
 import games.library.ObjectMakingTemplate;
+import games.racinggame.domain.GameResult;
 import games.view.InputView;
 import games.view.OutputView;
 
@@ -36,7 +38,8 @@ public class LadderGame implements Game {
         GameComponents players = registerComponents(REGISTER_PLAYERS_MESSAGE, Player::new, true);
         GameComponents prizes = registerComponents(REGISTER_PRIZES_MESSAGE, Prize::new, false);
         Height height = registerHeight();
-        Ladder ladder = new Ladder(players.size(), height.getHeight(), new DefaultLadderRowMaker(players.size()));
+        Ladder ladder = new Ladder(players.size(), height.getHeight(), new LadderRowMakers(players.size(), height.getHeight()));
+        GameResult gameResult = ladder.climbDownLadder(players, prizes);
     }
 
     public GameComponents registerComponents(String message, ObjectMakingStrategy strategy, boolean isDuplicateCheckNecessary) {
