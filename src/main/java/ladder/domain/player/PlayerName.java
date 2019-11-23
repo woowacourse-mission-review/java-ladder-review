@@ -3,8 +3,8 @@ package ladder.domain.player;
 import java.util.Objects;
 
 public class PlayerName {
-    static final int NAME_MIN_BOUNDARY = 1;
-    static final int NAME_MAX_BOUNDARY = 5;
+    private static final int NAME_MIN_BOUNDARY = 1;
+    private static final int NAME_MAX_BOUNDARY = 5;
 
     private final String name;
 
