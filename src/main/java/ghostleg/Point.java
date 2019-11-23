@@ -1,3 +1,5 @@
+package ghostleg;
+
 public class Point {
     private final boolean left;
     private final boolean right;
