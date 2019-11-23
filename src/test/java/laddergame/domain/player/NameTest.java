@@ -24,6 +24,11 @@ class NameTest {
     }
 
     @Test
+    void equals() {
+        assertThat(name).isEqualTo(new Name("red"));
+    }
+
+    @Test
     void create_IllegalNameException() {
         assertThrows(IllegalNameException.class, () -> new Name(""));
         assertThrows(IllegalNameException.class, () -> new Name(" "));

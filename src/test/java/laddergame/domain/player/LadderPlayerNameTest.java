@@ -25,6 +25,11 @@ class LadderPlayerNameTest {
     }
 
     @Test
+    void equals() {
+        assertThat(ladderPlayerName).isEqualTo(new LadderPlayerName("red"));
+    }
+
+    @Test
     @DisplayName("지정한 이름 길이 초과하는 경우")
     void create_ExcessOfPlayerNameException() {
         assertDoesNotThrow(() -> new LadderPlayerName("green"));

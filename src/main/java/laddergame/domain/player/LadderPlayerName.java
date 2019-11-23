@@ -2,6 +2,8 @@ package laddergame.domain.player;
 
 import laddergame.exception.ExcessOfPlayerNameException;
 
+import java.util.Objects;
+
 public class LadderPlayerName {
 
     public static final int MAX_LEN_OF_PLAYER_NAME = 5;
@@ -26,5 +28,18 @@ public class LadderPlayerName {
 
     public String getName() {
         return name.getInnerName();
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final LadderPlayerName that = (LadderPlayerName) o;
+        return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
