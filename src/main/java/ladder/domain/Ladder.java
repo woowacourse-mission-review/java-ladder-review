@@ -1,10 +1,10 @@
 package ladder.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
-public class Ladder {
+public class Ladder implements Iterable<Line> {
     static final int LADDER_HEIGHT_MIN_BOUNDARY = 1;
 
     private final List<Line> lines;
@@ -40,8 +40,21 @@ public class Ladder {
         return position;
     }
 
-    public List<Line> getLines() {
-        return Collections.unmodifiableList(lines);
+    @Override
+    public Iterator<Line> iterator() {
+        return new Iterator<Line>() {
+            int cursor = 0;
+
+            @Override
+            public boolean hasNext() {
+                return cursor < lines.size();
+            }
+
+            @Override
+            public Line next() {
+                return lines.get(cursor++);
+            }
+        };
     }
 
     @Override

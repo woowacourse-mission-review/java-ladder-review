@@ -1,9 +1,10 @@
 package ladder.domain;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Line {
+public class Line implements Iterable<Direction> {
     private static final int MIN_BOUNDARY_DIRECTIONS = 2;
 
     private final List<Direction> directions;
@@ -69,9 +70,27 @@ public class Line {
     }
 
     @Override
+    public Iterator<Direction> iterator() {
+        return new Iterator<Direction>() {
+            int cursor = 0;
+
+            @Override
+            public boolean hasNext() {
+                return cursor < directions.size();
+            }
+
+            @Override
+            public Direction next() {
+                return directions.get(cursor++);
+            }
+        };
+    }
+
+    @Override
     public String toString() {
         return "Line{" +
                 "directions=" + directions +
                 '}';
     }
+
 }

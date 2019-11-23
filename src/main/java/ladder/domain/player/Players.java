@@ -2,16 +2,13 @@ package ladder.domain.player;
 
 import ladder.domain.Position;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static ladder.domain.Position.MIN_POSITION_BOUNDARY;
 
-public class Players {
+public class Players implements Iterable<Player> {
     private static final String DELIMITER_NAMES = ",";
 
     private final List<Player> players;
@@ -50,6 +47,23 @@ public class Players {
 
     public int size() {
         return players.size();
+    }
+
+    @Override
+    public Iterator<Player> iterator() {
+        return new Iterator<Player>() {
+            int cursor = 0;
+
+            @Override
+            public boolean hasNext() {
+                return cursor < players.size();
+            }
+
+            @Override
+            public Player next() {
+                return players.get(cursor++);
+            }
+        };
     }
 
     @Override
