@@ -1,7 +1,6 @@
 package games.laddergame.domain.ladder;
 
-import games.laddergame.domain.GameComponents;
-import games.laddergame.domain.Player;
+import games.laddergame.domain.*;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMaker;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMakers;
 import org.junit.jupiter.api.DisplayName;
@@ -79,7 +78,14 @@ class LadderTest {
         Player player5 = new Player ("html", 4);
         GameComponents players = new GameComponents(Arrays.asList(player1, player2,player3, player4, player5), true);
 
-        ladder.climbDownLadder(players, null);
+        Prize prize1 = new Prize("java", 0);
+        Prize prize2 = new Prize("ruby", 1);
+        Prize prize3 = new Prize("css", 2);
+        Prize prize4 = new Prize("jaso", 3);
+        Prize prize5 = new Prize("html", 4);
+        GameComponents prizes = new GameComponents(Arrays.asList(prize1, prize2, prize3, prize4, prize5), false);
+
+        ladder.climbDownLadder(players, prizes);
         assertThat(players.getComponentAt(0).getPosition()).isEqualTo(0);
         assertThat(players.getComponentAt(1).getPosition()).isEqualTo(1);
         assertThat(players.getComponentAt(2).getPosition()).isEqualTo(2);

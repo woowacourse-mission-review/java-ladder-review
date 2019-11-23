@@ -5,11 +5,10 @@ import games.laddergame.domain.*;
 import games.laddergame.domain.ladder.Ladder;
 import games.laddergame.domain.ladder.ladderrowmaker.DefaultLadderRowMaker;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMakers;
+import games.laddergame.view.OutputView;
 import games.library.ObjectMakingStrategy;
 import games.library.ObjectMakingTemplate;
-import games.racinggame.domain.GameResult;
 import games.view.InputView;
-import games.view.OutputView;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class LadderGame implements Game {
 
     public LadderGame() {
         this.inputView = InputView.getInstance();
-        this.outputView = OutputView.getInstance();
+        this.outputView = new OutputView();
         this.objectMakingTemplate = ObjectMakingTemplate.getInstance();
     }
 
@@ -40,6 +39,7 @@ public class LadderGame implements Game {
         Height height = registerHeight();
         Ladder ladder = new Ladder(players.size(), height.getHeight(), new LadderRowMakers(players.size(), height.getHeight()));
         GameResult gameResult = ladder.climbDownLadder(players, prizes);
+        outputView.printGameResult(gameResult);
     }
 
     public GameComponents registerComponents(String message, ObjectMakingStrategy strategy, boolean isDuplicateCheckNecessary) {
@@ -47,8 +47,8 @@ public class LadderGame implements Game {
         do {
             String rawData = inputView.askUserInput(message);
             components = new GameComponents(createMultipleObjects(rawData, strategy), isDuplicateCheckNecessary);
-            return components;
         } while (components.isNotSuccessfullyMade());
+        return components;
     }
 
 

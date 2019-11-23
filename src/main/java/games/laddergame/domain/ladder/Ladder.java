@@ -1,9 +1,8 @@
 package games.laddergame.domain.ladder;
 
 import games.laddergame.domain.GameComponents;
-import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMaker;
+import games.laddergame.domain.GameResult;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMakers;
-import games.racinggame.domain.GameResult;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,8 +30,8 @@ public class Ladder {
         return Collections.unmodifiableList(ladder);
     }
 
-    public GameResult climbDownLadder(GameComponents players, GameComponents prizes) {
+    public games.laddergame.domain.GameResult climbDownLadder(GameComponents players, GameComponents prizes) {
         ladder.forEach(row -> row.playCurrentRow(players));
-        return new GameResult(null, null);
+        return new GameResult(players.getSorted(), prizes.getSorted(), Collections.unmodifiableList(ladder));
     }
 }

@@ -25,16 +25,19 @@ public class DefaultLadderRowMaker implements LadderRowMaker{
                 .mapToObj(index -> createOneMeetingPoint(index))
                 .collect(Collectors.toList());
 
+        System.out.println(row);
         return new Row(row);
     }
 
     private MeetingPoint createOneMeetingPoint(int index) {
         boolean currentValue = random.nextBoolean();
         if (previousValues.isEmpty()) {
+            previousValues.add(currentValue);
             return new MeetingPoint(index, currentValue);
         }
         if (previousValues.get(previousValues.size() - 1)) {
             currentValue = false;
+            previousValues.add(currentValue);
             return new MeetingPoint(index, currentValue);
         }
         previousValues.add(currentValue);

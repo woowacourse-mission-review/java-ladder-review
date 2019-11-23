@@ -32,4 +32,8 @@ public class Row {
     public int hashCode() {
         return Objects.hash(row);
     }
+
+    public List<MeetingPoint> getMathcingPoints() {
+        return row;
+    }
 }

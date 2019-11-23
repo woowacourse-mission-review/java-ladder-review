@@ -34,4 +34,9 @@ public class MeetingPoint {
             leftParticipant.swapWith(rightParticipant);
         }
     }
+
+    @Override
+    public String toString() {
+        return "MeetingPoint{" + "swap= " + swap + "}";
+    }
 }

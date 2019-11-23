@@ -2,10 +2,7 @@ package games.laddergame.domain;
 
 import games.laddergame.exception.DuplicateNameException;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GameComponents {
@@ -69,5 +66,11 @@ public class GameComponents {
                 .filter(gameComponent -> gameComponent.canParticipate(participantPosition))
                 .findAny()
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public List<GameComponent> getSorted() {
+        return this.gameComponents.stream()
+                .sorted(Comparator.comparingInt(GameComponent::getPosition))
+                .collect(Collectors.toList());
     }
 }
