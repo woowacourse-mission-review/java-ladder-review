@@ -29,4 +29,12 @@ class PositionTest {
     void 최소값_미만_예외처리() {
         assertThrows(IllegalArgumentException.class, () -> Position.from(POSITION_BOUNDARY - 1));
     }
+
+    @Test
+    void Position_changeTest() {
+        Position position = Position.from(1);
+        Position changedPosition = position.change(-1);
+
+        assertThat(changedPosition.get()).isEqualTo(0);
+    }
 }

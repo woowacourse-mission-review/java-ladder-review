@@ -37,6 +37,14 @@ public class Position {
         return value != null ? value : new Position(position);
     }
 
+    public Position change(final int direction) {
+        return from(this.position + direction);
+    }
+
+    public int get() {
+        return position;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
