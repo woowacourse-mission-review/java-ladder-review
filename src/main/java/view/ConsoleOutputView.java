@@ -36,11 +36,7 @@ public class ConsoleOutputView {
 
     private void drawLines(Lines lines) {
         for (Line line : lines.getLines()) {
-            if (line.isDrawn()) {
-                System.out.print(LINE);
-            } else {
-                System.out.print(EMPTY_LINE);
-            }
+            System.out.print(line.isDrawn() ? LINE : EMPTY_LINE);
             System.out.print(COLUMN);
         }
     }
@@ -88,16 +84,19 @@ public class ConsoleOutputView {
     public void outputResult(String wantedResult) {
         System.out.println("실행 결과");
         if (wantedResult.equals("all")) {
-            for (int startIndex = 0; startIndex < names.size(); ++startIndex) {
-                int resultIndex = ladder.run(startIndex);
-                System.out.println(names.get(startIndex) + " : " + results.get(resultIndex));
-            }
-
+            outputResultAll();
             return;
         }
 
         int startIndex = names.getIndex(new Name(wantedResult));
         int resultIndex = ladder.run(startIndex);
         System.out.println(wantedResult + ":" + results.get(resultIndex));
+    }
+
+    private void outputResultAll() {
+        for (int startIndex = 0; startIndex < names.size(); ++startIndex) {
+            int resultIndex = ladder.run(startIndex);
+            System.out.println(names.get(startIndex) + " : " + results.get(resultIndex));
+        }
     }
 }
