@@ -1,6 +1,5 @@
 package laddergame.domain.ladder;
 
-import laddergame.domain.user.User;
 import laddergame.domain.user.Users;
 
 import java.util.List;

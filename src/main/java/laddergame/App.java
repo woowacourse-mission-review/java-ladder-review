@@ -32,7 +32,7 @@ public class App {
         OutputView.printLadder(users, lines, results);
 
         String name;
-        while (!"all".equals(name=InputView.inputLine(InputMessage.INPUT_RESULT_OF_USER))) {
+        while (!"all".equals(name = InputView.inputLine(InputMessage.INPUT_RESULT_OF_USER))) {
             Position userPosition = users.getPositionOf(name);
             OutputView.printResultOf(results.getResultOf(userPosition));
         }

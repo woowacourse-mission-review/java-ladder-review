@@ -16,6 +16,7 @@ public class OutputView {
     private static final String NEW_LINE = "\n";
 
     public static void printLadder(Users users, Lines lines, Results results) {
+        System.out.println("사다리 결과" + NEW_LINE);
         printUsers(users);
         for (Line line : lines.getLines()) {
             printLine(line);
