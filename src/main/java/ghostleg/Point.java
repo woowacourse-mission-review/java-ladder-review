@@ -27,4 +27,8 @@ public class Point {
     public boolean isLast() {
         return !right;
     }
+
+    public boolean canFollow(Point another) {
+        return this.right == another.left;
+    }
 }

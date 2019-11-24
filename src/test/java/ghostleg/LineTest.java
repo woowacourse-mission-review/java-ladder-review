@@ -47,4 +47,12 @@ class LineTest {
                 new Point(false, true)
         ));
     }
+
+    @Test
+    void inconsistentPoints() {
+        assertThrows(IllegalArgumentException.class, () -> new Line(
+                new Point(false, true),
+                new Point(false, false)
+        ));
+    }
 }
