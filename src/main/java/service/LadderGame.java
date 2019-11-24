@@ -29,8 +29,16 @@ public class LadderGame {
         return ladder;
     }
 
-    public GameResult goDown() {
+    public void goDown() {
         gameResult = ladder.goDown(players, rewards);
+    }
+
+    public Reward getResult(String playerInput) {
+        Player player = new Player(playerInput);
+        return gameResult.getResult(player);
+    }
+
+    public GameResult getResults() {
         return gameResult;
     }
 }

@@ -9,6 +9,10 @@ public class Reward {
         this.name = new Name(name);
     }
 
+    public String getReward() {
+        return name.getName();
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
