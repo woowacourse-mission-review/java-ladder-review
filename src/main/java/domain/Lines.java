@@ -3,6 +3,7 @@ package domain;
 import domain.strategy.LineCreateStrategy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Lines {
@@ -77,5 +78,9 @@ public class Lines {
 
     private Line getLine(int index) {
         return lines.get(index);
+    }
+
+    public List<Line> getLines() {
+        return Collections.unmodifiableList(lines);
     }
 }

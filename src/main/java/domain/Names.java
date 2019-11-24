@@ -2,6 +2,7 @@ package domain;
 
 import domain.exception.DuplicatedNameException;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -31,5 +32,9 @@ public class Names {
 
     public int size() {
         return names.size();
+    }
+
+    public List<Name> getNames() {
+        return Collections.unmodifiableList(names);
     }
 }

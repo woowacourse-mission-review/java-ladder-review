@@ -2,6 +2,7 @@ package domain;
 
 import domain.exception.DifferentSizeFromNameException;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,5 +18,9 @@ public class Results {
         if (this.results.size() != nameSize) {
             throw new DifferentSizeFromNameException();
         }
+    }
+
+    public List<Result> getResults() {
+        return Collections.unmodifiableList(results);
     }
 }

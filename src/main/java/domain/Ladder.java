@@ -3,6 +3,7 @@ package domain;
 import domain.strategy.LineCreateStrategy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Ladder {
@@ -31,5 +32,9 @@ public class Ladder {
         }
 
         return resultLineIndex;
+    }
+
+    public List<Lines> getLadder() {
+        return Collections.unmodifiableList(ladder);
     }
 }
