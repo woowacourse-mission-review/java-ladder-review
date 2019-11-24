@@ -1,6 +1,8 @@
 package laddergame.domain.laddergoal;
 
+import laddergame.domain.name.LadderPlayerName;
 import laddergame.exception.MismatchSizeBetweenGoalsAndPlayersException;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,5 +28,17 @@ class LadderGoalsTest {
         Exception exception = assertThrows(MismatchSizeBetweenGoalsAndPlayersException.class, () -> LadderGoals.create(goals, 2));
 
         assertThat(exception.getMessage()).isEqualTo(MismatchSizeBetweenGoalsAndPlayersException.MISMATCH_SIZE_BETWEEN_GOALS_AND_PLAYERS_MESSAGE);
+    }
+
+    @Test
+    void getAlignedPlayerNames() {
+        List<String> alignedGoalNames = ladderGoals.getAlignedGoalNames();
+        for (String alignedGoalName : alignedGoalNames) {
+            int numOfBlanks = LadderPlayerName.MAX_LEN_OF_PLAYER_NAME - alignedGoalName.length();
+
+            String expected = alignedGoalName + StringUtils.repeat(" ", numOfBlanks);
+
+            assertThat(alignedGoalName).isEqualTo(expected);
+        }
     }
 }

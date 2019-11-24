@@ -20,6 +20,10 @@ public class LadderGoal {
         return ladderGoalName.getName();
     }
 
+    public String getAlignedName() {
+        return ladderGoalName.getAlignedName();
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;

@@ -35,4 +35,8 @@ public class LadderGame {
     public List<String> getAlignedPlayerNames() {
         return ladderPlayers.getAlignedPlayerNames();
     }
+
+    public List<String> getAlignedGoalNames() {
+        return ladderGoals.getAlignedGoalNames();
+    }
 }

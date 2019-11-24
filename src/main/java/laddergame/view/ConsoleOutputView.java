@@ -8,7 +8,7 @@ import java.util.List;
 public class ConsoleOutputView implements OutputView {
 
     private static final String EXCEPTION_INFO_MESSAGE = "ERROR : ";
-    private static final String PLAYER_NAME_DELIMITER = " ";
+    private static final String LADDER_NAME_DELIMITER = " ";
 
     @Override
     public void showExceptionMessage(final Exception e) {
@@ -18,6 +18,9 @@ public class ConsoleOutputView implements OutputView {
     @Override
     public void showLadderGame(final LadderGame ladderGame) {
         List<String> alignedPlayerNames = ladderGame.getAlignedPlayerNames();
-        System.out.println(StringUtils.join(alignedPlayerNames, PLAYER_NAME_DELIMITER));
+        System.out.println(StringUtils.join(alignedPlayerNames, LADDER_NAME_DELIMITER));
+
+        List<String> alignedGoalNames = ladderGame.getAlignedGoalNames();
+        System.out.println(StringUtils.join(alignedGoalNames, LADDER_NAME_DELIMITER));
     }
 }
