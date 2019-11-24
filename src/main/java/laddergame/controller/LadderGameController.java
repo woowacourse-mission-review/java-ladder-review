@@ -9,7 +9,11 @@ import laddergame.service.LadderGameService;
 import laddergame.view.InputView;
 import laddergame.view.OutputView;
 
+import java.util.Map;
+
 public class LadderGameController {
+
+    private static final String KEYWORD_FOR_ALL_RESULTS = "all";
 
     private final InputView inputView;
     private final OutputView outputView;
@@ -36,19 +40,31 @@ public class LadderGameController {
 
             LadderGameResult result = ladderGameService.proceedGame(ladderGame);
 
-            showResults(ladderGame);
+            showResults(result);
         } catch (IllegalArgumentException e) {
             outputView.showExceptionMessage(e);
         }
     }
 
-    private void showResults(LadderGame ladderGame) {
+    private void showResults(LadderGameResult result) {
         while (true) {
             try {
-                String playerName = inputView.inputPlayerNameForResult();
+                findAndShow(result);
             } catch (IllegalArgumentException e) {
                 outputView.showExceptionMessage(e);
             }
         }
+    }
+
+    private void findAndShow(final LadderGameResult result) {
+        String playerNameInput = inputView.inputPlayerNameForResult();
+        if (KEYWORD_FOR_ALL_RESULTS.equals(playerNameInput)) {
+            Map<String, String> allFinalResults = result.createAllFinalResults();
+            outputView.showAllResultsOfPlayers(allFinalResults);
+            return;
+        }
+
+        String resultOfPlayer = result.findFinalPlayerResult(playerNameInput);
+        outputView.showResultOfPlayer(resultOfPlayer);
     }
 }

@@ -3,7 +3,9 @@ package laddergame.domain;
 import laddergame.exception.LadderResultIndexNotFoundException;
 import laddergame.exception.PlayerResultNotFoundException;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LadderGameResult {
 
@@ -36,5 +38,17 @@ public class LadderGameResult {
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new LadderResultIndexNotFoundException(e);
         }
+    }
+
+    public String findFinalPlayerResult(final String playerName) {
+        return findPlayerResultAtLineNumber(ladderLineResults.size(), playerName);
+    }
+
+    public Map<String, String> createAllFinalResults() {
+        Map<String, String> finalResults = new HashMap<>();
+        for (String playerName : playerNames) {
+            finalResults.put(playerName, findFinalPlayerResult(playerName));
+        }
+        return finalResults;
     }
 }

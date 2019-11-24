@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -46,5 +47,23 @@ class LadderGameResultTest {
     void findPlayerResultAtLineNumber_LadderResultIndexNotFoundException() {
         assertThrows(LadderResultIndexNotFoundException.class
                 , () -> ladderGameResult.findPlayerResultAtLineNumber(0, "black"));
+    }
+
+    @Test
+    void findFinalPlayerResult() {
+        assertThat(ladderGameResult.findFinalPlayerResult("red")).isEqualTo("three");
+        assertThat(ladderGameResult.findFinalPlayerResult("blue")).isEqualTo("four");
+        assertThat(ladderGameResult.findFinalPlayerResult("green")).isEqualTo("one");
+        assertThat(ladderGameResult.findFinalPlayerResult("black")).isEqualTo("two");
+    }
+
+    @Test
+    void createAllFinalResults() {
+        Map<String, String> allFinalResults = ladderGameResult.createAllFinalResults();
+
+        assertThat(allFinalResults.get("red")).isEqualTo("three");
+        assertThat(allFinalResults.get("blue")).isEqualTo("four");
+        assertThat(allFinalResults.get("green")).isEqualTo("one");
+        assertThat(allFinalResults.get("black")).isEqualTo("two");
     }
 }
