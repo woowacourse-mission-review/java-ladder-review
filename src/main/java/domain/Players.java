@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +15,7 @@ public class Players {
     public Players(final String namesInput) {
         List<String> names = extractPlayerNames(namesInput);
         validate(names);
-        players = createPlayers(names);
+        players = Collections.unmodifiableList(createPlayers(names));
     }
 
     private List<String> extractPlayerNames(final String playersInput) {

@@ -35,7 +35,6 @@ public class LadderGameController {
             showReward(resultInput);
         }
         outputView.showRewards(ladderGame.getResults());
-
     }
 
     private Players inputPlayerNames(final int repeatCount) {

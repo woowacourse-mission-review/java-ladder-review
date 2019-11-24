@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +13,7 @@ public class Rewards {
     public Rewards(final String rewardInput, final int playersCount) {
         List<String> rewardNames = extractRewardNames(rewardInput);
         validateSize(rewardNames, playersCount);
-        rewards = createRewards(rewardNames);
+        rewards = Collections.unmodifiableList(createRewards(rewardNames));
     }
 
     private List<String> extractRewardNames(final String rewardInput) {

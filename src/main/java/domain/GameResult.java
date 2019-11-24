@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
@@ -7,7 +8,7 @@ public class GameResult {
     private final Map<Player, Reward> result;
 
     public GameResult(final Map<Player, Reward> result) {
-        this.result = result;
+        this.result = Collections.unmodifiableMap(result);
     }
 
     public Reward getResult(final Player player) {

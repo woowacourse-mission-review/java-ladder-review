@@ -11,7 +11,7 @@ public class HorizonLineResult {
         }
     }
 
-    public void swap(int i, int j) {
+    void swap(int i, int j) {
         Collections.swap(playerPosition, i, j);
     }
 
@@ -23,6 +23,6 @@ public class HorizonLineResult {
             result.put(players.get(playerIndex), rewards.get(rewardIndex++));
         }
 
-        return result;
+        return Collections.unmodifiableMap(result);
     }
 }
