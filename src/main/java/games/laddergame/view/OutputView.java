@@ -25,8 +25,8 @@ public class OutputView {
 
     private void printEachMatchingPoint(Row row) {
         List<MeetingPoint> meetingPoints = row.getMathcingPoints();
-        System.out.print("  |");
-        meetingPoints.forEach(meetingPoint -> { ;
+        System.out.print("     |");
+        meetingPoints.forEach(meetingPoint -> {
             if (meetingPoint.isSwap()) {
                 System.out.print("-----");
             }
@@ -38,8 +38,11 @@ public class OutputView {
     }
 
     private void printEachName(List<GameComponent> players) {
-        players.forEach(player -> System.out.print("  " + player.getName()));
-        System.out.println();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        players.forEach(player -> stringBuilder.append(String.format("%6s", player.getName())));
+        stringBuilder.append("\n");
+        System.out.println(stringBuilder.toString());
     }
 
     public void printUserInquiry(String userInput, Map<String, String> organizedResults) {
