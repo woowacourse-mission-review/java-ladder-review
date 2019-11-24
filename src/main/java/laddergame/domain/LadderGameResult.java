@@ -1,22 +1,33 @@
 package laddergame.domain;
 
 import laddergame.exception.LadderResultIndexNotFoundException;
+import laddergame.exception.PlayerResultNotFoundException;
 
 import java.util.List;
 
 public class LadderGameResult {
 
+    private final List<String> playerNames;
     private final List<LadderLineResult> ladderLineResults;
+    private final List<String> goalNames;
 
-    public LadderGameResult(final List<LadderLineResult> ladderLineResults) {
+    public LadderGameResult(final List<String> playerNames, final List<LadderLineResult> ladderLineResults, final List<String> goalNames) {
+        this.playerNames = playerNames;
         this.ladderLineResults = ladderLineResults;
+        this.goalNames = goalNames;
     }
 
-    public LadderLineResult findLineResult(int index) {
-        return ladderLineResults.get(index);
+    public String findPlayerResultAtLineNumber(final int lineNumber, final String playerName) {
+        if (playerNames.contains(playerName)) {
+            int indexOfPlayer = playerNames.indexOf(playerName);
+            Integer indexResultOfSource = findIndexOfSourceAtLine(lineNumber, indexOfPlayer);
+
+            return goalNames.get(indexResultOfSource);
+        }
+        throw new PlayerResultNotFoundException();
     }
 
-    public Integer findIndexOfSourceAtLine(final int lineNumber, final int sourceIndex) {
+    private Integer findIndexOfSourceAtLine(final int lineNumber, final int sourceIndex) {
         try {
             int realIndexOfLineResult = lineNumber - 1;
             LadderLineResult ladderLineResult = ladderLineResults.get(realIndexOfLineResult);

@@ -47,6 +47,6 @@ public class LadderGameService {
     }
 
     public LadderGameResult proceedGame(final LadderGame ladderGame) {
-        return null;
+        return ladderGame.proceed();
     }
 }

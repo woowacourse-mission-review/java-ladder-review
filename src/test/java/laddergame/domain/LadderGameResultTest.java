@@ -1,6 +1,7 @@
 package laddergame.domain;
 
 import laddergame.exception.LadderResultIndexNotFoundException;
+import laddergame.exception.PlayerResultNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,25 +20,31 @@ class LadderGameResultTest {
         LadderLineResult ladderLineResult2 = new LadderLineResult(Arrays.asList(2, 0, 3, 1));
         LadderLineResult ladderLineResult3 = new LadderLineResult(Arrays.asList(2, 3, 0, 1));
 
-        ladderGameResult = new LadderGameResult(Arrays.asList(ladderLineResult1, ladderLineResult2, ladderLineResult3));
+        ladderGameResult = new LadderGameResult(Arrays.asList("red", "blue", "green", "black")
+                , Arrays.asList(ladderLineResult1, ladderLineResult2, ladderLineResult3)
+                , Arrays.asList("one", "two", "three", "four"));
     }
 
     @Test
-    void findLineResult() {
-        LadderLineResult lineResult = ladderGameResult.findLineResult(1);
+    void findPlayerResultAtLineNumber() {
+        String resultOfLine1 = ladderGameResult.findPlayerResultAtLineNumber(1, "black");
+        assertThat(resultOfLine1).isEqualTo("four");
 
-        assertThat(lineResult.findIndexOfSource(0)).isEqualTo(2);
-        assertThat(lineResult.findIndexOfSource(1)).isEqualTo(0);
-        assertThat(lineResult.findIndexOfSource(2)).isEqualTo(3);
-        assertThat(lineResult.findIndexOfSource(3)).isEqualTo(1);
+        String resultOfLine2 = ladderGameResult.findPlayerResultAtLineNumber(2, "black");
+        assertThat(resultOfLine2).isEqualTo("three");
+
+        String resultOfLine3 = ladderGameResult.findPlayerResultAtLineNumber(3, "black");
+        assertThat(resultOfLine3).isEqualTo("two");
     }
 
     @Test
-    void findIndexOfSourceAtLine() {
-        assertThat(ladderGameResult.findIndexOfSourceAtLine(3, 3)).isEqualTo(1);
-        assertThat(ladderGameResult.findIndexOfSourceAtLine(1, 3)).isEqualTo(3);
+    void findPlayerResultAtLineNumber_PlayerResultNotFoundException() {
+        assertThrows(PlayerResultNotFoundException.class, () -> ladderGameResult.findPlayerResultAtLineNumber(1, "pink"));
+    }
 
+    @Test
+    void findPlayerResultAtLineNumber_LadderResultIndexNotFoundException() {
         assertThrows(LadderResultIndexNotFoundException.class
-                , () -> ladderGameResult.findIndexOfSourceAtLine(0, 3));
+                , () -> ladderGameResult.findPlayerResultAtLineNumber(0, "black"));
     }
 }

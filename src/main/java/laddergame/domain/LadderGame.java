@@ -44,4 +44,8 @@ public class LadderGame {
     public List<String> getStringsOfLadder() {
         return ladder.getStringsOfLadderLines(LadderPlayerName.MAX_LEN_OF_PLAYER_NAME);
     }
+
+    public LadderGameResult proceed() {
+        return null;
+    }
 }

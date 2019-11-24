@@ -3,7 +3,6 @@ package laddergame.controller;
 import laddergame.domain.LadderGame;
 import laddergame.domain.LadderGameResult;
 import laddergame.domain.LadderHeight;
-import laddergame.domain.laddergoal.LadderGoal;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
 import laddergame.service.LadderGameService;
