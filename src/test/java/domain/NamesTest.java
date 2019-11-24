@@ -1,5 +1,6 @@
 package domain;
 
+import domain.exception.DoesNotExistValidNameException;
 import domain.exception.DuplicatedNameException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,5 +40,29 @@ public class NamesTest {
         Names names =  new Names(inputs);
 
         assertThat(names.size()).isEqualTo(4);
+    }
+
+    @Test
+    @DisplayName("결과를 보고 싶은 사람을 정상적으로 입력한 경우")
+    void check_valid_name() {
+        String input = "pobi,honux,crong,jk";
+        List<String> inputs = StringParser.parse(input);
+        Names names =  new Names(inputs);
+
+        assertDoesNotThrow(() -> names.checkValidName(new Name("pobi")));
+        assertDoesNotThrow(() -> names.checkValidName(new Name("honux")));
+        assertDoesNotThrow(() -> names.checkValidName(new Name("crong")));
+        assertDoesNotThrow(() -> names.checkValidName(new Name("jk")));
+        assertDoesNotThrow(() -> names.checkValidName(new Name("all")));
+    }
+
+    @Test
+    @DisplayName("결과를 보고 싶은 사람을 잘못 입력한 경우 예외가 발생한다.")
+    void check_invalid_name() {
+        String input = "pobi,honux,crong,jk";
+        List<String> inputs = StringParser.parse(input);
+        Names names =  new Names(inputs);
+
+        assertThrows(DoesNotExistValidNameException.class, () -> names.checkValidName(new Name("comac")));
     }
 }

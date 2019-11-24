@@ -1,5 +1,6 @@
 package domain;
 
+import domain.exception.DoesNotExistValidNameException;
 import domain.exception.DuplicatedNameException;
 
 import java.util.Collections;
@@ -28,6 +29,12 @@ public class Names {
                 ;
 
         return !(uniqueNames.size() == names.size());
+    }
+
+    public void checkValidName(Name name) {
+        if (!name.equals(new Name("all")) && !names.contains(name)) {
+            throw new DoesNotExistValidNameException();
+        }
     }
 
     public int size() {
