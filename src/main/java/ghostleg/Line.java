@@ -3,6 +3,8 @@ package ghostleg;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Line {
     private final ArrayList<Point> points;
@@ -38,5 +40,11 @@ public class Line {
 
     public Direction getNext(int index) {
         return points.get(index).next();
+    }
+
+    public List<Direction> getNextAll() {
+        return points.stream()
+                .map(Point::next)
+                .collect(Collectors.toList());
     }
 }
