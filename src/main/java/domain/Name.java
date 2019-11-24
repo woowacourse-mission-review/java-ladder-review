@@ -10,7 +10,7 @@ public class Name {
 
     private void validate(final String name) {
         if ("".equals(name)) {
-            throw new IllegalArgumentException("공백을 이름으로 입력할 수 없습니다.");
+            throw new IllegalArgumentException("공백을 입력할 수 없습니다.");
         }
     }
 
