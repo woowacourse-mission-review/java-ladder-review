@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exception.PlayerNotFoundException;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -13,7 +15,7 @@ public class GameResult {
 
     public Reward getResult(final Player player) {
         if (!result.containsKey(player)) {
-            throw new IllegalArgumentException("해당 이름의 참가자가 존재하지 않습니다.");
+            throw new PlayerNotFoundException();
         }
         return result.get(player);
     }

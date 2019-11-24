@@ -1,5 +1,7 @@
 package view;
 
+import view.exception.RepeatCountExceedException;
+
 import java.util.Scanner;
 
 public class InputView {

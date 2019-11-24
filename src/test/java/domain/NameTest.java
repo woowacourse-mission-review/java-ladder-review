@@ -1,5 +1,6 @@
 package domain;
 
+import domain.exception.InvalidNameException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +20,7 @@ public class NameTest {
     @Test
     @DisplayName("공백 이름 생성 에러")
     void create_empty_name_error() {
-        String name = "";
-        assertThrows(IllegalArgumentException.class, () -> this.name = new Name(name));
+        assertThrows(InvalidNameException.class, () -> new Name(""));
     }
 
     @Test

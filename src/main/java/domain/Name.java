@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exception.InvalidNameException;
+
 import java.util.Objects;
 
 public class Name {
@@ -12,7 +14,7 @@ public class Name {
 
     private void validate(final String name) {
         if ("".equals(name)) {
-            throw new IllegalArgumentException("공백을 입력할 수 없습니다.");
+            throw new InvalidNameException("공백을 입력할 수 없습니다.");
         }
     }
 

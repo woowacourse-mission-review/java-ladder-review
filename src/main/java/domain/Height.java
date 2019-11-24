@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exception.InvalidHeightException;
+
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,7 +19,7 @@ public class Height {
     private void validate(final String heightInput) {
         Matcher matcher = pattern.matcher(heightInput);
         if (!matcher.find()) {
-            throw new IllegalArgumentException("1 이상 정수를 입력해주세요.");
+            throw new InvalidHeightException();
         }
     }
 

@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exception.InvalidPlayersException;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -31,13 +33,13 @@ public class Players {
 
     private void validateSize(final List<String> playerNames) {
         if (playerNames.size() < MIN_PLAYERS_COUNT) {
-            throw new IllegalArgumentException("최소 " + MIN_PLAYERS_COUNT + "명의 참가자를 입력해야 합니다.");
+            throw new InvalidPlayersException("최소 " + MIN_PLAYERS_COUNT + "명의 참가자를 입력해야 합니다.");
         }
     }
 
     private void validateDistinctName(final List<String> playerNames) {
         if (playerNames.size() != new HashSet<>(playerNames).size()) {
-            throw new IllegalArgumentException("중복된 이름을 입력할 수 없습니다.");
+            throw new InvalidPlayersException("중복된 이름을 입력할 수 없습니다.");
         }
     }
 
