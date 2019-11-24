@@ -13,14 +13,14 @@ public class ResultTest {
 
     @Test
     @DisplayName("사다리 결과를 정상적으로 생성한다.")
-    void create_name() {
+    void create_result() {
         Result result = new Result(NORMAL_RESULT);
         assertThat(result.getResult()).isEqualTo(NORMAL_RESULT);
     }
 
     @Test
     @DisplayName("빈 문자열로 사다리 결과를 생성할 때 예외가 발생한다.")
-    void create_empty_name() {
+    void create_empty_result() {
         assertThrows(EmptyResultException.class, () -> new Result(EMPTY_RESULT));
     }
 }
