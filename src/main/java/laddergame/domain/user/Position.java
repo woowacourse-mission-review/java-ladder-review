@@ -2,6 +2,8 @@ package laddergame.domain.user;
 
 import laddergame.domain.user.exception.InvalidPositionException;
 
+import java.util.Objects;
+
 public class Position {
 
     public static final int MIN_POSITION = 0;
@@ -21,6 +23,23 @@ public class Position {
 
     public Position next() {
         return Position.of(this.position + FOR_NEXT_POSITION);
+    }
+
+    public void move(final int moveValue) {
+        position+=moveValue;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final Position position1 = (Position) o;
+        return position == position1.position;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(position);
     }
 
     @Override

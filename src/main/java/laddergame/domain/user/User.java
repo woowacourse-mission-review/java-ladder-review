@@ -13,4 +13,12 @@ public class User {
     public static User of(final String name, final int position) {
         return new User(name, position);
     }
+
+    public boolean isPositionOf(final Position position) {
+        return this.position.equals(position);
+    }
+
+    public void move(final int moveValue) {
+        position.move(moveValue);
+    }
 }

@@ -1,6 +1,8 @@
 package laddergame.domain.ladder;
 
 import laddergame.domain.user.Position;
+import laddergame.domain.user.User;
+import laddergame.domain.user.Users;
 
 public class Point {
 
@@ -30,5 +32,10 @@ public class Point {
             "position=" + position +
             ", direction=" + direction +
             '}';
+    }
+
+    public void moveUser(final Users users) {
+        User user = users.getUserOf(position);
+        user.move(direction.move());
     }
 }

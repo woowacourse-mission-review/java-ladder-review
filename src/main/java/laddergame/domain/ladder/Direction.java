@@ -4,6 +4,9 @@ import laddergame.domain.ladder.exception.InvalidDirectionException;
 
 public class Direction {
 
+    private static final int MOVE_LEFT = -1;
+    private static final int MOVE_RIGHT = 1;
+    private static final int NOT_MOVE = 0;
     private final boolean left;
     private final boolean right;
 
@@ -33,6 +36,16 @@ public class Direction {
 
     public Direction next(final boolean right) {
         return Direction.of(this.right, right);
+    }
+
+    public int move() {
+        if (left) {
+            return MOVE_LEFT;
+        }
+        if (right) {
+            return MOVE_RIGHT;
+        }
+        return NOT_MOVE;
     }
 
     @Override

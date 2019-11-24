@@ -1,5 +1,8 @@
 package laddergame.domain.ladder;
 
+import laddergame.domain.user.User;
+import laddergame.domain.user.Users;
+
 import java.util.List;
 
 public class Line {
@@ -11,10 +14,18 @@ public class Line {
         this.points = points;
     }
 
+    public void moveUsers(final Users users) {
+        for (Point point : points) {
+            point.moveUser(users);
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         points.forEach(stringBuilder::append);
         return stringBuilder.append(NEW_LINE).toString();
     }
+
+
 }

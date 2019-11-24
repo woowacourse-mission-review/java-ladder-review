@@ -1,6 +1,7 @@
 package laddergame.domain.user;
 
 import com.google.common.collect.Lists;
+import laddergame.domain.ladder.exception.UserNotFoundException;
 
 import java.util.List;
 
@@ -27,5 +28,11 @@ public class Users {
 
     public int getSize() {
         return users.size();
+    }
+
+    public User getUserOf(final Position position) {
+        return users.stream().filter(user -> user.isPositionOf(position))
+            .findAny()
+            .orElseThrow(UserNotFoundException::new);
     }
 }
