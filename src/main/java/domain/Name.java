@@ -1,5 +1,7 @@
 package domain;
 
+import domain.exception.NameLengthExcessException;
+
 public class Name {
     private static final int MAX_NAME_SIZE = 5;
 
