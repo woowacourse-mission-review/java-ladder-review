@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class NameTest {
     private static final String NORMAL_NAME = "comac";
     private static final String ERROR_NAME = "abcdefg";
+    private static final String EMPTY_NAME = "";
 
     @Test
     @DisplayName("사람 이름을 정상적으로 생성한다.")
@@ -28,6 +29,6 @@ public class NameTest {
     @Test
     @DisplayName("빈 문자열로 이름을 생성할 때 예외가 발생한다.")
     void create_empty_name() {
-        assertThrows(EmptyNameException.class, () -> new Name(""));
+        assertThrows(EmptyNameException.class, () -> new Name(EMPTY_NAME));
     }
 }
