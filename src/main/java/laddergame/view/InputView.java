@@ -6,4 +6,6 @@ public interface InputView {
     String inputLadderGoalNames();
 
     String inputLadderHeight();
+
+    String inputPlayerNameForResult();
 }

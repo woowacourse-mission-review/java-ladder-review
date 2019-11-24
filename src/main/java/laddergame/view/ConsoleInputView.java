@@ -21,6 +21,11 @@ public class ConsoleInputView implements InputView {
         return inputWithMessage("최대 사다리 높이는 몇 개인가요?");
     }
 
+    @Override
+    public String inputPlayerNameForResult() {
+        return inputWithMessage("결과를 보고 싶은 사람은?");
+    }
+
     private String inputWithMessage(String message) {
         System.out.println(message);
         return SCANNER.nextLine();

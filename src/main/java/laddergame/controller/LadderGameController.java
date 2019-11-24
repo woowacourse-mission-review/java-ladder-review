@@ -2,6 +2,7 @@ package laddergame.controller;
 
 import laddergame.domain.LadderGame;
 import laddergame.domain.LadderHeight;
+import laddergame.domain.laddergoal.LadderGoal;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
 import laddergame.service.LadderGameService;
@@ -32,8 +33,20 @@ public class LadderGameController {
 
             LadderGame ladderGame = ladderGameService.createLadderGame(ladderPlayers, ladderGoals, ladderHeight);
             outputView.showLadderGame(ladderGame);
+
+            showResults(ladderGame);
         } catch (IllegalArgumentException e) {
             outputView.showExceptionMessage(e);
+        }
+    }
+
+    private void showResults(LadderGame ladderGame) {
+        while (true) {
+            try {
+                String playerName = inputView.inputPlayerNameForResult();
+            } catch (IllegalArgumentException e) {
+                outputView.showExceptionMessage(e);
+            }
         }
     }
 }
