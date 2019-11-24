@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ladder {
+    private static final int START_INDEX = 0;
+    
     private final int height;
     private final int lineSize;
     private List<Lines> ladder = new ArrayList<>();
@@ -13,17 +15,17 @@ public class Ladder {
     }
 
     private void initialize(int height, int lineSize, LineCreateStrategy strategy) {
-        for (int i = 0; i < height; i++) {
+        for (int index = START_INDEX; index < height; index++) {
             ladder.add(new Lines(lineSize, strategy));
         }
     }
 
-    public int run(int start) {
-        int result = start;
-        for (int i = 0; i < height; i++) {
-            result = ladder.get(i).move(result);
+    public int run(int startLineIndex) {
+        int resultLineIndex = startLineIndex;
+        for (int index = START_INDEX; index < height; index++) {
+            resultLineIndex = ladder.get(index).move(resultLineIndex);
         }
 
-        return result;
+        return resultLineIndex;
     }
 }
