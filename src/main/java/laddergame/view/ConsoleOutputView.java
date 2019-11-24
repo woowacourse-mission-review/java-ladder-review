@@ -17,15 +17,27 @@ public class ConsoleOutputView implements OutputView {
 
     @Override
     public void showLadderGame(final LadderGame ladderGame) {
-        List<String> alignedPlayerNames = ladderGame.getAlignedPlayerNames();
-        System.out.println(StringUtils.join(alignedPlayerNames, LADDER_NAME_DELIMITER));
+        showAlignedPlayerNames(ladderGame);
 
-        List<String> StringsOfLadder = ladderGame.getStringsOfLadder();
-        for (String line : StringsOfLadder) {
-            System.out.println(line);
-        }
+        showLadder(ladderGame);
 
+        showAlignedGoalNames(ladderGame);
+    }
+
+    private void showAlignedGoalNames(final LadderGame ladderGame) {
         List<String> alignedGoalNames = ladderGame.getAlignedGoalNames();
         System.out.println(StringUtils.join(alignedGoalNames, LADDER_NAME_DELIMITER));
+    }
+
+    private void showLadder(final LadderGame ladderGame) {
+        List<String> lines = ladderGame.getStringsOfLadder();
+        for (String line : lines) {
+            System.out.println(line);
+        }
+    }
+
+    private void showAlignedPlayerNames(final LadderGame ladderGame) {
+        List<String> alignedPlayerNames = ladderGame.getAlignedPlayerNames();
+        System.out.println(StringUtils.join(alignedPlayerNames, LADDER_NAME_DELIMITER));
     }
 }
