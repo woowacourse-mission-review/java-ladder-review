@@ -42,6 +42,6 @@ public class LadderGameService {
     }
 
     public LadderGame createLadderGame(final LadderPlayers ladderPlayers, final LadderGoals ladderGoals, final LadderHeight ladderHeight) {
-        return LadderGame.of(ladderPlayers, ladderGoals, ladderHeight);
+        return LadderGame.createWithRandomCreationStrategy(ladderPlayers, ladderGoals, ladderHeight);
     }
 }
