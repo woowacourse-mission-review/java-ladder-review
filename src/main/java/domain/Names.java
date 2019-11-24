@@ -25,8 +25,7 @@ public class Names {
     private boolean isDuplicated() {
         Set<String> uniqueNames = names.stream()
                 .map(Name::getName)
-                .collect(Collectors.toSet())
-                ;
+                .collect(Collectors.toSet());
 
         return !(uniqueNames.size() == names.size());
     }
@@ -41,7 +40,22 @@ public class Names {
         return names.size();
     }
 
+    public Name get(int index) {
+        return names.get(index);
+    }
+
     public List<Name> getNames() {
         return Collections.unmodifiableList(names);
+    }
+
+    // TODO: 2019/11/24 인덴트 줄이기
+    public int getIndex(Name name) {
+        for (int index = 0; index < size(); ++index) {
+            if (get(index).equals(name)) {
+                return index;
+            }
+        }
+
+        throw new DoesNotExistValidNameException();
     }
 }

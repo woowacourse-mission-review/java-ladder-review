@@ -38,4 +38,9 @@ public class Result {
     public int hashCode() {
         return Objects.hash(result);
     }
+
+    @Override
+    public String toString() {
+        return result;
+    }
 }

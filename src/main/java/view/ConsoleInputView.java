@@ -1,6 +1,7 @@
 package view;
 
 import domain.Height;
+import domain.Name;
 import domain.Names;
 import domain.Results;
 import domain.exception.*;
@@ -44,6 +45,18 @@ public class ConsoleInputView {
         } catch (InvalidHeightException e) {
             System.out.println(e.getMessage());
             return inputHeight();
+        }
+    }
+
+    public String inputWantedResult(Names names) {
+        try {
+            System.out.println("결과를 보고 싶은 사람은?");
+            String wantedResult = scanner.nextLine();
+            names.checkValidName(new Name(wantedResult));
+            return wantedResult;
+        } catch (DoesNotExistValidNameException | EmptyNameException e) {
+            System.out.println(e.getMessage());
+            return inputWantedResult(names);
         }
     }
 }

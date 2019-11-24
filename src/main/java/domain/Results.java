@@ -20,6 +20,10 @@ public class Results {
         }
     }
 
+    public Result get(int index) {
+        return results.get(index);
+    }
+
     public List<Result> getResults() {
         return Collections.unmodifiableList(results);
     }

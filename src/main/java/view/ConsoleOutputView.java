@@ -4,7 +4,7 @@ import domain.*;
 
 public class ConsoleOutputView {
     private static final int MAX_STRING_SIZE = 5;
-    private static final String EMPTY = "";
+    private static final String EMPTY_SPACE = " ";
 
     private static final String EMPTY_LINE = "     ";
     private static final String LINE = "-----";
@@ -48,10 +48,12 @@ public class ConsoleOutputView {
     private void drawNames() {
         for (Name name : names.getNames()) {
             int nameLength = name.length();
+            int frontEmptySize = getFrontEmptySize(nameLength);
+            int behindEmptySize = getBehindEmptySize(nameLength);
 
-            drawEmpty(getFrontEmptySize(nameLength));
+            drawEmpty(frontEmptySize);
             System.out.print(name.getName());
-            drawEmpty(getBehindEmptySize(nameLength));
+            drawEmpty(behindEmptySize);
         }
         System.out.println();
     }
@@ -59,10 +61,12 @@ public class ConsoleOutputView {
     private void drawResults() {
         for (Result result : results.getResults()) {
             int resultLength = result.length();
+            int frontEmptySize = getFrontEmptySize(resultLength);
+            int behindEmptySize = getBehindEmptySize(resultLength);
 
-            drawEmpty(getFrontEmptySize(resultLength));
+            drawEmpty(frontEmptySize);
             System.out.print(result.getResult());
-            drawEmpty(getBehindEmptySize(resultLength));
+            drawEmpty(behindEmptySize);
         }
         System.out.println();
     }
@@ -77,7 +81,23 @@ public class ConsoleOutputView {
 
     private void drawEmpty(int size) {
         for (int i = 0; i < size; i++) {
-            System.out.print(EMPTY);
+            System.out.print(EMPTY_SPACE);
         }
+    }
+
+    public void outputResult(String wantedResult) {
+        System.out.println("실행 결과");
+        if (wantedResult.equals("all")) {
+            for (int startIndex = 0; startIndex < names.size(); ++startIndex) {
+                int resultIndex = ladder.run(startIndex);
+                System.out.println(names.get(startIndex) + " : " + results.get(resultIndex));
+            }
+
+            return;
+        }
+
+        int startIndex = names.getIndex(new Name(wantedResult));
+        int resultIndex = ladder.run(startIndex);
+        System.out.println(wantedResult + ":" + results.get(resultIndex));
     }
 }
