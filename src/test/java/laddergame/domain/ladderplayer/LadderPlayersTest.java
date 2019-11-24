@@ -1,7 +1,9 @@
 package laddergame.domain.ladderplayer;
 
+import laddergame.domain.name.LadderPlayerName;
 import laddergame.exception.DuplicatePlayersException;
 import laddergame.exception.LackOfPlayersException;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -50,5 +52,17 @@ class LadderPlayersTest {
         Exception exception = assertThrows(DuplicatePlayersException.class, () -> LadderPlayers.create(players));
 
         assertThat(exception.getMessage()).isEqualTo(DuplicatePlayersException.DUPLICATE_PLAYERS_MESSAGE);
+    }
+
+    @Test
+    void getAlignedPlayerNames() {
+        List<String> alignedPlayerNames = ladderPlayers.getAlignedPlayerNames();
+        for (String alignedPlayerName : alignedPlayerNames) {
+            int numOfBlanks = LadderPlayerName.MAX_LEN_OF_PLAYER_NAME - alignedPlayerName.length();
+
+            String expected = alignedPlayerName + StringUtils.repeat(" ", numOfBlanks);
+
+            assertThat(alignedPlayerName).isEqualTo(expected);
+        }
     }
 }

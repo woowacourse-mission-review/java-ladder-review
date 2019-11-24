@@ -24,6 +24,10 @@ public class LadderPlayer {
         return ladderPlayerName.getName();
     }
 
+    public String getAlignedName() {
+        return ladderPlayerName.getAlignedName();
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;

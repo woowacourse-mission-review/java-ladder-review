@@ -1,6 +1,7 @@
 package laddergame.domain.name;
 
 import laddergame.exception.ExcessOfPlayerNameException;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
@@ -25,6 +26,10 @@ public class LadderPlayerName {
 
     public String getName() {
         return name.getInnerName();
+    }
+
+    public String getAlignedName() {
+        return StringUtils.rightPad(getName(), MAX_LEN_OF_PLAYER_NAME);
     }
 
     @Override

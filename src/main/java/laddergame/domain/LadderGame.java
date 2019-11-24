@@ -6,6 +6,8 @@ import laddergame.domain.ladder.RandomLadderCreationStrategy;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
 
+import java.util.List;
+
 public class LadderGame {
 
     private final LadderPlayers ladderPlayers;
@@ -28,5 +30,9 @@ public class LadderGame {
     public static LadderGame createWithRandomCreationStrategy(final LadderPlayers ladderPlayers
             , final LadderGoals ladderGoals, final LadderHeight ladderHeight) {
         return of(ladderPlayers, ladderGoals, ladderHeight, new RandomLadderCreationStrategy());
+    }
+
+    public List<String> getAlignedPlayerNames() {
+        return ladderPlayers.getAlignedPlayerNames();
     }
 }

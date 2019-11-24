@@ -31,6 +31,7 @@ public class LadderGameController {
             LadderHeight ladderHeight = ladderGameService.createHeight(ladderHeightInput);
 
             LadderGame ladderGame = ladderGameService.createLadderGame(ladderPlayers, ladderGoals, ladderHeight);
+            outputView.showLadderGame(ladderGame);
         } catch (IllegalArgumentException e) {
             outputView.showExceptionMessage(e);
         }

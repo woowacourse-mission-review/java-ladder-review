@@ -6,10 +6,12 @@ import laddergame.exception.LackOfPlayersException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class LadderPlayers {
 
     public static final int MIN_NUM_OF_LADDER_PLAYERS = 2;
+
     private final List<LadderPlayer> players;
 
     private LadderPlayers(final List<LadderPlayer> players) {
@@ -47,5 +49,11 @@ public class LadderPlayers {
     public boolean hasPlayerWithName(final String name) {
         return players.stream()
                 .anyMatch(player -> player.matchName(name));
+    }
+
+    public List<String> getAlignedPlayerNames() {
+        return players.stream()
+                .map(LadderPlayer::getAlignedName)
+                .collect(Collectors.toList());
     }
 }
