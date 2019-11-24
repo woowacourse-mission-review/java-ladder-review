@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 public class Player {
     private final PlayerName name;

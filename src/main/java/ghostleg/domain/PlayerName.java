@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 import java.util.regex.Pattern;
 

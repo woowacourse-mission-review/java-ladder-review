@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 public class NumOfPlayers {
     private static final int MIN_NUM_OF_PLAYERS = 2;

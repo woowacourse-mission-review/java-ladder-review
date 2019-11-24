@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 public class Position {
     private static final int MIN_POSITION = 0;

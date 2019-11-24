@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 public class Point {
     private final boolean left;

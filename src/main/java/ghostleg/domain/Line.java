@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 import com.google.common.collect.Lists;
 
@@ -24,7 +24,7 @@ public class Line {
 
     private void validateFirstAndLast(Point[] points) {
         Point first = points[0];
-        Point last = points[points.length -1];
+        Point last = points[points.length - 1];
         if (!(first.isFirst() && last.isLast())) {
             throw new IllegalArgumentException("올바른 사다리 Line 이 아닙니다.");
         }
@@ -32,7 +32,7 @@ public class Line {
 
     private void validateConsistency(Point[] points) {
         for (int i = 0; i < points.length - 1; i++) {
-            if (!points[i].canFollow(points[i+1])) {
+            if (!points[i].canFollow(points[i + 1])) {
                 throw new IllegalArgumentException("사다리 Line 의 점들이 일관되지 않습니다.");
             }
         }

@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 public class LadderHeight {
     private static final int MIN_HEIGHT = 1;

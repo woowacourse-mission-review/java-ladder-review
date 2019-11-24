@@ -1,4 +1,4 @@
-package ghostleg;
+package ghostleg.domain;
 
 public enum Direction {
     LEFT(-1),
