@@ -6,6 +6,7 @@ import laddergame.exception.LackOfPlayersException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class LadderPlayers {
@@ -51,9 +52,17 @@ public class LadderPlayers {
                 .anyMatch(player -> player.matchName(name));
     }
 
+    public List<String> getPlayerNames() {
+        return modifyWithFunction(LadderPlayer::getName);
+    }
+
     public List<String> getAlignedPlayerNames() {
+        return modifyWithFunction(LadderPlayer::getAlignedName);
+    }
+
+    private List<String> modifyWithFunction(Function<LadderPlayer, String> function) {
         return players.stream()
-                .map(LadderPlayer::getAlignedName)
+                .map(function)
                 .collect(Collectors.toList());
     }
 }

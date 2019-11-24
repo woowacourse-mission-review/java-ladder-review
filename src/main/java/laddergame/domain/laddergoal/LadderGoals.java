@@ -3,6 +3,7 @@ package laddergame.domain.laddergoal;
 import laddergame.exception.MismatchSizeBetweenGoalsAndPlayersException;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class LadderGoals {
@@ -25,9 +26,17 @@ public class LadderGoals {
         return new LadderGoals(goals, sizeOfLadderPlayers);
     }
 
+    public List<String> getGoalNames() {
+        return modifyWithFunction(LadderGoal::getName);
+    }
+
     public List<String> getAlignedGoalNames() {
+        return modifyWithFunction(LadderGoal::getAlignedName);
+    }
+
+    private List<String> modifyWithFunction(Function<LadderGoal, String> function) {
         return goals.stream()
-                .map(LadderGoal::getAlignedName)
+                .map(function)
                 .collect(Collectors.toList());
     }
 }

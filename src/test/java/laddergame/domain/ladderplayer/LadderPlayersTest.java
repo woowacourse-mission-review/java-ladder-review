@@ -55,6 +55,16 @@ class LadderPlayersTest {
     }
 
     @Test
+    void getPlayerNames() {
+        List<String> playerNames = ladderPlayers.getPlayerNames();
+
+        assertThat(playerNames.size()).isEqualTo(3);
+        assertThat(playerNames.contains("red")).isTrue();
+        assertThat(playerNames.contains("blue")).isTrue();
+        assertThat(playerNames.contains("green")).isTrue();
+    }
+
+    @Test
     void getAlignedPlayerNames() {
         List<String> alignedPlayerNames = ladderPlayers.getAlignedPlayerNames();
         for (String alignedPlayerName : alignedPlayerNames) {

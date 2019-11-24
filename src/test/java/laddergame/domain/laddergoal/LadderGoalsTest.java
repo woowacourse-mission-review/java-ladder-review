@@ -31,7 +31,17 @@ class LadderGoalsTest {
     }
 
     @Test
-    void getAlignedPlayerNames() {
+    void getGoalNames() {
+        List<String> goalNames = ladderGoals.getGoalNames();
+
+        assertThat(goalNames.size()).isEqualTo(3);
+        assertThat(goalNames.contains("one")).isTrue();
+        assertThat(goalNames.contains("two")).isTrue();
+        assertThat(goalNames.contains("three")).isTrue();
+    }
+
+    @Test
+    void getAlignedGoalNames() {
         List<String> alignedGoalNames = ladderGoals.getAlignedGoalNames();
         for (String alignedGoalName : alignedGoalNames) {
             int numOfBlanks = LadderPlayerName.MAX_LEN_OF_PLAYER_NAME - alignedGoalName.length();

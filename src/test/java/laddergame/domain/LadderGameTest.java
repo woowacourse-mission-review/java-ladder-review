@@ -33,4 +33,13 @@ class LadderGameTest {
     void create() {
         assertThat(ladderGame).isNotNull();
     }
+
+    @Test
+    void proceed() {
+        LadderGameResult ladderGameResult = ladderGame.proceed();
+
+        assertThat(ladderGameResult.findPlayerResultAtLineNumber(1, "red")).isEqualTo("two");
+        assertThat(ladderGameResult.findPlayerResultAtLineNumber(2, "red")).isEqualTo("one");
+        assertThat(ladderGameResult.findPlayerResultAtLineNumber(3, "red")).isEqualTo("two");
+    }
 }
