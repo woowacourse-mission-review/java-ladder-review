@@ -45,4 +45,8 @@ public class Players {
                 .map(Player::new)
                 .collect(Collectors.toList());
     }
+
+    int getPlayerSize() {
+        return players.size();
+    }
 }
