@@ -28,4 +28,8 @@ public class Names {
 
         return !(uniqueNames.size() == names.size());
     }
+
+    public int size() {
+        return names.size();
+    }
 }
