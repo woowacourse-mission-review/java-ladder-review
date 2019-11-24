@@ -1,6 +1,7 @@
 package laddergame.domain;
 
 import laddergame.domain.ladder.Ladder;
+import laddergame.domain.ladder.RandomLadderCreationStrategy;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
 
@@ -14,7 +15,7 @@ public class LadderGame {
         this.ladderPlayers = ladderPlayers;
         this.ladderGoals = ladderGoals;
 
-        this.ladder = new Ladder();
+        this.ladder = Ladder.of(new RandomLadderCreationStrategy(), ladderPlayers.size(), ladderHeight.getHeight());
     }
 
     public static LadderGame of(final LadderPlayers ladderPlayers, final LadderGoals ladderGoals, final LadderHeight ladderHeight) {

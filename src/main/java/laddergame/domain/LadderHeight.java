@@ -8,9 +8,10 @@ import java.util.Objects;
 public class LadderHeight {
 
     public static final int MIN_HEIGHT = 1;
-    private final long height;
 
-    private LadderHeight(final long height) {
+    private final int height;
+
+    private LadderHeight(final int height) {
         if (isLessThan(height)) {
             throw new LackOfHeightException();
         }
@@ -18,23 +19,23 @@ public class LadderHeight {
         this.height = height;
     }
 
-    private boolean isLessThan(final long height) {
+    private boolean isLessThan(final int height) {
         return height < MIN_HEIGHT;
     }
 
-    public static LadderHeight from(final long height) {
+    public static LadderHeight from(final int height) {
         return new LadderHeight(height);
     }
 
     public static LadderHeight from(final String height) {
         try {
-            return from(Long.parseLong(height));
+            return from(Integer.parseInt(height));
         } catch (NumberFormatException e) {
             throw new IllegalHeightException();
         }
     }
 
-    public long getHeight() {
+    public int getHeight() {
         return height;
     }
 
