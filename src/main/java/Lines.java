@@ -22,7 +22,7 @@ public class Lines {
     }
 
     private boolean hasLeftLine(int index) {
-        if (index == START_INDEX) {
+        if (isLocatedStartPosition(index)) {
             return false;
         }
 
@@ -31,32 +31,40 @@ public class Lines {
     }
 
     public int move(int currentIndex) {
-        if (rightMove(currentIndex)) {
-            return currentIndex + 1;
-        }
-
         if (leftMove(currentIndex)) {
             return currentIndex - 1;
+        }
+
+        if (rightMove(currentIndex)) {
+            return currentIndex + 1;
         }
 
         return currentIndex;
     }
 
+    private boolean leftMove(int index) {
+        if (isLocatedStartPosition(index)) {
+            return false;
+        }
+
+        int preIndex = index - 1;
+        return getLine(preIndex).isDrawn();
+    }
+
     private boolean rightMove(int index) {
-        if (index == size) {
+        if (isLocatedFinalPosition(index)) {
             return false;
         }
 
         return getLine(index).isDrawn();
     }
 
-    private boolean leftMove(int index) {
-        if (index == START_INDEX) {
-            return false;
-        }
+    private boolean isLocatedStartPosition(int index) {
+        return index == START_INDEX;
+    }
 
-        int preIndex = index - 1;
-        return getLine(preIndex).isDrawn();
+    private boolean isLocatedFinalPosition(int index) {
+        return index == size;
     }
 
     public boolean hasLineAt(int index) {
