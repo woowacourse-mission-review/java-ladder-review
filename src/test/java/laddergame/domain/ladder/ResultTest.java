@@ -11,12 +11,12 @@ class ResultTest {
     @Test
     void valid_result() {
         String result = "1000";
-        assertDoesNotThrow(() -> Result.of(result, 0));
+        assertDoesNotThrow(() -> Result.of(result));
     }
 
     @Test
     void blank_result() {
         String result = "";
-        assertThrows(InvalidResultValueException.class, () -> Result.of("", 0));
+        assertThrows(InvalidResultValueException.class, () -> Result.of(""));
     }
 }
