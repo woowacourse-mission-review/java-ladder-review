@@ -35,4 +35,15 @@ public class Users {
             .findAny()
             .orElseThrow(UserNotFoundException::new);
     }
+
+    public Position getPositionOf(final String userName) {
+        return users.stream().filter(user -> user.isEqualsName(userName))
+            .findAny()
+            .map(User::getPosition)
+            .orElseThrow(UserNotFoundException::new);
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
 }

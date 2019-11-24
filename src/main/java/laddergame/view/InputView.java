@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class InputView {
 
-    private static final Scanner SCANNER = new Scanner(System.in);
-
     public static String inputLine(InputMessage inputMessage) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println(inputMessage.getMessage());
-        return SCANNER.nextLine();
+        return scanner.nextLine();
     }
 
     public static int inputNumber(InputMessage inputMessage) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println(inputMessage.getMessage());
-        return SCANNER.nextInt();
+        return scanner.nextInt();
     }
 }

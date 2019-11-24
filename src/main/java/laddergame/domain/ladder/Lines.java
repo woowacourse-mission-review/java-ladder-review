@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Lines {
 
-    public static final String NEW_LINE = "\n";
+    private static final String NEW_LINE = "\n";
     private final List<Line> lines;
 
     public Lines(final List<Line> lines) {
@@ -14,7 +14,11 @@ public class Lines {
     }
 
     public void moveUsers(final Users users) {
-        lines.stream().forEach(line -> line.moveUsers(users));
+        lines.forEach(line -> line.moveUsers(users));
+    }
+
+    public List<Line> getLines() {
+        return this.lines;
     }
 
     @Override

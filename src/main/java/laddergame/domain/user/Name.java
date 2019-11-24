@@ -22,4 +22,12 @@ public class Name {
     public static Name of(final String name) {
         return new Name(name);
     }
+
+    public boolean isEquals(final String name) {
+        return this.name.equals(name);
+    }
+
+    public String getName() {
+        return name;
+    }
 }

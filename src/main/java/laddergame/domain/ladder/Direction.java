@@ -48,6 +48,10 @@ public class Direction {
         return NOT_MOVE;
     }
 
+    public boolean canMoveRight() {
+        return right;
+    }
+
     @Override
     public String toString() {
         return "Direction{" +

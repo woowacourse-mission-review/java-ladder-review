@@ -8,6 +8,7 @@ public class Position {
 
     public static final int MIN_POSITION = 0;
     public static final int FOR_NEXT_POSITION = 1;
+    public static final int FIRST_POSITION = 0;
     private int position;
 
     private Position(final int position) {
@@ -26,7 +27,7 @@ public class Position {
     }
 
     public void move(final int moveValue) {
-        position+=moveValue;
+        position += moveValue;
     }
 
     @Override
@@ -35,6 +36,18 @@ public class Position {
         if (o == null || getClass() != o.getClass()) return false;
         final Position position1 = (Position) o;
         return position == position1.position;
+    }
+
+    public boolean isFirst() {
+        return this.position == FIRST_POSITION;
+    }
+
+    public void moveRight() {
+        this.position++;
+    }
+
+    public void moveLeft() {
+        this.position--;
     }
 
     @Override

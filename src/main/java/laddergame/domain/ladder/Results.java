@@ -1,12 +1,14 @@
 package laddergame.domain.ladder;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import laddergame.domain.user.Position;
 
-import java.util.List;
+import java.util.Map;
 
 public class Results {
 
-    private final List<Result> results;
+    public static final String RESULT_DELIMITER = ",";
+    private final Map<Position, Result> results;
 
     private Results(final String resultsWithComma) {
         this.results = initResults(resultsWithComma);
@@ -16,13 +18,17 @@ public class Results {
         return new Results(resultsWithComma);
     }
 
-    private List<Result> initResults(final String resultsWithComma) {
-        List<Result> results = Lists.newArrayList();
-        String[] resultsStr = resultsWithComma.split(",");
+    private Map<Position, Result> initResults(final String resultsWithComma) {
+        Map<Position, Result> results = Maps.newHashMap();
+        String[] resultsStr = resultsWithComma.split(RESULT_DELIMITER);
 
         for (int position = 0; position < resultsStr.length; position++) {
-            results.add(Result.of(resultsStr[position], position));
+            results.put(Position.of(position), Result.of(resultsStr[position]));
         }
         return results;
+    }
+
+    public String getResultOf(Position position) {
+        return results.get(position).getResult();
     }
 }

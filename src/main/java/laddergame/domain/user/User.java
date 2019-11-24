@@ -14,11 +14,31 @@ public class User {
         return new User(name, position);
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
     public boolean isPositionOf(final Position position) {
         return this.position.equals(position);
     }
 
     public void move(final int moveValue) {
         position.move(moveValue);
+    }
+
+    public boolean isEqualsName(final String name) {
+        return this.name.isEquals(name);
+    }
+
+    public void moveRight() {
+        position.moveRight();
+    }
+
+    public void moveLeft() {
+        position.moveLeft();
     }
 }

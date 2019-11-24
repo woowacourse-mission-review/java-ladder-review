@@ -26,16 +26,28 @@ public class Point {
         return new Point(this.position.next(), direction.last());
     }
 
+    public boolean isFirst() {
+        return position.isFirst();
+    }
+
+    public void moveUser(final Users users) {
+        if (direction.canMoveRight()) {
+            User leftUser = users.getUserOf(position);
+            User rightUser = users.getUserOf(position.next());
+            leftUser.moveRight();
+            rightUser.moveLeft();
+        }
+    }
+
+    public boolean canMoveRight() {
+        return direction.canMoveRight();
+    }
+
     @Override
     public String toString() {
         return "Point{" +
             "position=" + position +
             ", direction=" + direction +
             '}';
-    }
-
-    public void moveUser(final Users users) {
-        User user = users.getUserOf(position);
-        user.move(direction.move());
     }
 }

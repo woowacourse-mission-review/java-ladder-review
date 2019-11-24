@@ -1,12 +1,15 @@
 package laddergame;
 
 import laddergame.domain.ladder.Height;
+import laddergame.domain.ladder.LadderGame;
 import laddergame.domain.ladder.Lines;
 import laddergame.domain.ladder.LinesGenerator;
 import laddergame.domain.ladder.Results;
+import laddergame.domain.user.Position;
 import laddergame.domain.user.Users;
 import laddergame.view.InputMessage;
 import laddergame.view.InputView;
+import laddergame.view.OutputView;
 
 public class App {
     public static void main(String[] args) {
@@ -22,6 +25,17 @@ public class App {
 
         LinesGenerator linesGenerator = new LinesGenerator(users.getSize(), height);
         Lines lines = linesGenerator.generateLines();
-        System.out.println(lines);
+
+        LadderGame ladderGame = new LadderGame(lines, users);
+        ladderGame.playGame();
+
+        OutputView.printLadder(users, lines, results);
+
+        String name;
+        while (!"all".equals(name=InputView.inputLine(InputMessage.INPUT_RESULT_OF_USER))) {
+            Position userPosition = users.getPositionOf(name);
+            OutputView.printResultOf(results.getResultOf(userPosition));
+        }
+        OutputView.printAllResult(users, results);
     }
 }
