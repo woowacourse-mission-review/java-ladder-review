@@ -3,8 +3,7 @@ package domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
     private Player player;
@@ -21,5 +20,23 @@ public class PlayerTest {
     void register_empty_name() {
         String name = "";
         assertThrows(IllegalArgumentException.class, () -> player = new Player(name));
+    }
+
+    @Test
+    @DisplayName("같은 이름 Player Equals True")
+    void equals() {
+        Player player1 = new Player("A");
+        Player player2 = new Player("A");
+
+        assertEquals(player1, player2);
+    }
+
+    @Test
+    @DisplayName("다른 이름 Player Equals False")
+    void not_equals() {
+        Player player1 = new Player("A");
+        Player player2 = new Player("B");
+
+        assertNotEquals(player1, player2);
     }
 }

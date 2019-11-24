@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Ladder {
     private final int playersCount;
@@ -34,5 +35,16 @@ public class Ladder {
         }
 
         return new HorizonLine(linkedStatuses);
+    }
+
+    public GameResult goDown(Players players, Rewards rewards) {
+        HorizonLineResult horizonLineResult = new HorizonLineResult(playersCount);
+
+        for (HorizonLine horizonLine : horizonLines) {
+            horizonLine.goDown(horizonLineResult);
+        }
+
+        Map<Player, Reward> results = horizonLineResult.link(players, rewards);
+        return new GameResult(results);
     }
 }

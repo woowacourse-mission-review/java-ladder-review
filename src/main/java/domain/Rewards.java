@@ -32,4 +32,8 @@ public class Rewards {
                 .map(Reward::new)
                 .collect(Collectors.toList());
     }
+
+    public Reward get(int index) {
+        return rewards.get(index);
+    }
 }

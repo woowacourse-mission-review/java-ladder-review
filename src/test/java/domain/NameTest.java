@@ -22,4 +22,22 @@ public class NameTest {
         String name = "";
         assertThrows(IllegalArgumentException.class, () -> this.name = new Name(name));
     }
+
+    @Test
+    @DisplayName("같은 이름 Equals True")
+    void equals() {
+        Name name1 = new Name("A");
+        Name name2 = new Name("A");
+
+        assertEquals(name1, name2);
+    }
+
+    @Test
+    @DisplayName("다른 이름 Equals False")
+    void not_equals() {
+        Name name1 = new Name("A");
+        Name name2 = new Name("B");
+
+        assertNotEquals(name1, name2);
+    }
 }

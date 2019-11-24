@@ -8,4 +8,12 @@ public class HorizonLine {
     public HorizonLine(final List<LinkedStatus> linkedStatus) {
         this.linkedStatus = linkedStatus;
     }
+
+    public void goDown(final HorizonLineResult horizonLineResult) {
+        for (int i = 1; i <= linkedStatus.size(); i++) {
+            if (linkedStatus.get(i - 1).equals(LinkedStatus.LINKED)) {
+                horizonLineResult.swap(i - 1, i);
+            }
+        }
+    }
 }
