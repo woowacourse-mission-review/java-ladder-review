@@ -1,4 +1,4 @@
-package games.gamecomponent;
+package games.gamelauncher;
 
 import games.exception.NoSuchGameException;
 import games.laddergame.LadderGame;
