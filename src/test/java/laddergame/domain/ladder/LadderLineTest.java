@@ -15,7 +15,7 @@ class LadderLineTest {
 
     @Test
     void getStringOfLadderLine() {
-        LadderLine ladderLine = LadderLine.of(() -> true, 3);
+        LadderLine ladderLine = LadderLine.of(() -> true, 4);
         String stringOfLadderLine = ladderLine.getStringOfLadderLine(5);
 
         assertThat(stringOfLadderLine).isEqualTo("|-----|     |-----|");

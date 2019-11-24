@@ -20,6 +20,11 @@ public class ConsoleOutputView implements OutputView {
         List<String> alignedPlayerNames = ladderGame.getAlignedPlayerNames();
         System.out.println(StringUtils.join(alignedPlayerNames, LADDER_NAME_DELIMITER));
 
+        List<String> StringsOfLadder = ladderGame.getStringsOfLadder();
+        for (String line : StringsOfLadder) {
+            System.out.println(line);
+        }
+
         List<String> alignedGoalNames = ladderGame.getAlignedGoalNames();
         System.out.println(StringUtils.join(alignedGoalNames, LADDER_NAME_DELIMITER));
     }

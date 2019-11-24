@@ -23,7 +23,7 @@ public class LadderLine {
         List<Direction> directions = new ArrayList<>();
 
         Direction currentDirection = null;
-        for (int index = 0; index <= width; index++) {
+        for (int index = 1; index <= width; index++) {
             currentDirection = generateNextDirection(currentDirection, strategy, width - index);
             directions.add(currentDirection);
         }

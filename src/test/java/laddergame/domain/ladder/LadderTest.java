@@ -17,7 +17,7 @@ class LadderTest {
 
     @Test
     void getStringsOfLadderLines() {
-        Ladder ladder = Ladder.of(() -> true, 3, 3);
+        Ladder ladder = Ladder.of(() -> true, 4, 3);
         List<String> stringsOfLadderLines = ladder.getStringsOfLadderLines(5);
 
         for (String stringOfLadderLine : stringsOfLadderLines) {
