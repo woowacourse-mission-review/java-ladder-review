@@ -11,7 +11,8 @@ class LineTest {
 
     @BeforeEach
     void setUp() {
-         testLine = new Line(
+        testLine = new Line(
+                new NumOfPlayers(3),
                 new Point(false, true),
                 new Point(true, false),
                 new Point(false, false));
@@ -35,6 +36,7 @@ class LineTest {
     @Test
     void invalidFirstPoint() {
         assertThrows(IllegalArgumentException.class, () -> new Line(
+                new NumOfPlayers(2),
                 new Point(true, false),
                 new Point(false, false)
         ));
@@ -43,6 +45,7 @@ class LineTest {
     @Test
     void invalidLastPoint() {
         assertThrows(IllegalArgumentException.class, () -> new Line(
+                new NumOfPlayers(2),
                 new Point(false, false),
                 new Point(false, true)
         ));
@@ -51,8 +54,18 @@ class LineTest {
     @Test
     void inconsistentPoints() {
         assertThrows(IllegalArgumentException.class, () -> new Line(
+                new NumOfPlayers(2),
                 new Point(false, true),
                 new Point(false, false)
+        ));
+    }
+
+    @Test
+    void invalidNumOfPoints() {
+        assertThrows(IllegalArgumentException.class, () -> new Line(
+                new NumOfPlayers(3),
+                new Point(false, true),
+                new Point(true, false)
         ));
     }
 }
