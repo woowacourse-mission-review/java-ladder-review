@@ -3,7 +3,7 @@ package domain;
 import java.util.*;
 
 public class HorizonLineResult {
-    private List<Integer> playerPosition = new ArrayList<>();
+    private final List<Integer> playerPosition = new ArrayList<>();
 
     public HorizonLineResult(final int playersCount) {
         for (int i = 0; i < playersCount; i++) {

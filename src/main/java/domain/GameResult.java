@@ -17,7 +17,7 @@ public class GameResult {
         return result.get(player);
     }
 
-    public void forEach(BiConsumer<Player, Reward> consumer) {
+    public void forEach(final BiConsumer<Player, Reward> consumer) {
         result.forEach(consumer);
     }
 }

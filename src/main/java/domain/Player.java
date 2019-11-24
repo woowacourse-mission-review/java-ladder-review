@@ -3,7 +3,7 @@ package domain;
 import java.util.Objects;
 
 public class Player {
-    private Name name;
+    private final Name name;
 
     public Player(final String name) {
         this.name = new Name(name);

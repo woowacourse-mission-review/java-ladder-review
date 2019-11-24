@@ -9,7 +9,7 @@ public class Players {
     private static final int MIN_PLAYERS_COUNT = 2;
     private static final String NAME_DELIMITER = ",";
 
-    List<Player> players;
+    private final List<Player> players;
 
     public Players(final String namesInput) {
         List<String> names = extractPlayerNames(namesInput);

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class InputView {
     private static final int MAX_REPEAT_COUNT = 5;
 
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public String inputPlayerNames(final int repeatCount) {
         checkRepeatCount(repeatCount);

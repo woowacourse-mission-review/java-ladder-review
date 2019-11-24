@@ -37,7 +37,7 @@ public class Ladder {
         return new HorizonLine(linkedStatuses);
     }
 
-    public GameResult goDown(Players players, Rewards rewards) {
+    public GameResult goDown(final Players players, final Rewards rewards) {
         HorizonLineResult horizonLineResult = new HorizonLineResult(playersCount);
 
         for (HorizonLine horizonLine : horizonLines) {

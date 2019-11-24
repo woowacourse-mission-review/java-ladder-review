@@ -11,9 +11,9 @@ import view.OutputView;
 public class LadderGameController {
     private static final int INITIAL_REPEAT_COUNT = 0;
 
-    private InputView inputView;
-    private OutputView outputView;
-    private LadderGame ladderGame = new LadderGame();
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final LadderGame ladderGame = new LadderGame();
 
     public LadderGameController(final InputView inputView, final OutputView outputView) {
         this.inputView = inputView;
@@ -23,7 +23,7 @@ public class LadderGameController {
     public void start() {
         Players players = inputPlayerNames(INITIAL_REPEAT_COUNT);
         Rewards rewards = inputRewards(INITIAL_REPEAT_COUNT);
-        Height height = inputHeight(INITIAL_REPEAT_COUNT);
+        inputHeight(INITIAL_REPEAT_COUNT);
 
         HorizonLines horizonLines = ladderGame.createLadder();
         ladderGame.goDown();
@@ -72,5 +72,4 @@ public class LadderGameController {
             outputView.showErrorMessage(e);
         }
     }
-
 }

@@ -21,7 +21,7 @@ public class Height {
         }
     }
 
-    public int getHeight() {
+    int getHeight() {
         return height;
     }
 

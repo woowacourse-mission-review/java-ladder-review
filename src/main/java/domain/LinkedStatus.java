@@ -5,7 +5,7 @@ public enum LinkedStatus {
 
     private static final Double THRESHOLD = 0.5;
 
-    public static LinkedStatus determine(LinkedStatus status) {
+    public static LinkedStatus determine(final LinkedStatus status) {
         if (status.equals(LINKED)) {
             return UNLINKED;
         }
