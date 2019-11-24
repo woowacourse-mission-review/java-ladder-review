@@ -1,9 +1,13 @@
+package domain;
+
+import domain.strategy.LineCreateStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Ladder {
     private static final int START_INDEX = 0;
-    
+
     private final int height;
     private final int lineSize;
     private List<Lines> ladder = new ArrayList<>();

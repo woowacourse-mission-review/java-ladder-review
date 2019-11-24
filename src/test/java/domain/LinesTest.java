@@ -1,3 +1,7 @@
+package domain;
+
+import domain.strategy.EmptyLineCreateStrategy;
+import domain.strategy.HasLineCreateStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +13,7 @@ public class LinesTest {
     private static final int LINE_SIZE = 3;
 
     @Test
-    @DisplayName("HasLineCreateStrategy 전략을 이용하여 사다리 한 줄을 만든다.")
+    @DisplayName("domain.strategy.HasLineCreateStrategy 전략을 이용하여 사다리 한 줄을 만든다.")
     void create_Lines_with_HasLineCreateStrategy() {
         Lines lines = new Lines(LINE_SIZE, new HasLineCreateStrategy());
 
@@ -19,7 +23,7 @@ public class LinesTest {
     }
 
     @Test
-    @DisplayName("EmptyLineCreateStrategy 전략을 이용하여 사다리 한 줄을 만든다.")
+    @DisplayName("domain.strategy.EmptyLineCreateStrategy 전략을 이용하여 사다리 한 줄을 만든다.")
     void create_Lines_with_EmptyLineCreateStrategy() {
         Lines lines = new Lines(LINE_SIZE, new EmptyLineCreateStrategy());
 
@@ -29,7 +33,7 @@ public class LinesTest {
     }
 
     @Test
-    @DisplayName("HasLineCreateStrategy 전략을 이용하여 사다리 생성 후 해당 사다리에서 움직인다.")
+    @DisplayName("domain.strategy.HasLineCreateStrategy 전략을 이용하여 사다리 생성 후 해당 사다리에서 움직인다.")
     void move_Lines_with_HasLineCreateStrategy() {
         Lines lines = new Lines(LINE_SIZE, new HasLineCreateStrategy());
 
@@ -40,7 +44,7 @@ public class LinesTest {
     }
 
     @Test
-    @DisplayName("EmptyLineCreateStrategy 전략을 이용하여 사다리 생성 후 해당 사다리에서 움직인다.")
+    @DisplayName("domain.strategy.EmptyLineCreateStrategy 전략을 이용하여 사다리 생성 후 해당 사다리에서 움직인다.")
     void move_Lines_with_EmptyLineCreateStrategy() {
         Lines lines = new Lines(LINE_SIZE, new EmptyLineCreateStrategy());
 

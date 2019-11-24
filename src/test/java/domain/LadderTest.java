@@ -1,3 +1,7 @@
+package domain;
+
+import domain.strategy.EmptyLineCreateStrategy;
+import domain.strategy.HasLineCreateStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +19,7 @@ public class LadderTest {
     }
 
     @Test
-    @DisplayName("HasLineCreateStrategy 을 가지고 사다리를 만든 후 게임을 진행한다. 시작 위치를 매개변수로 입력하면, 결과 위치를 반환한다.")
+    @DisplayName("domain.strategy.HasLineCreateStrategy 을 가지고 사다리를 만든 후 게임을 진행한다. 시작 위치를 매개변수로 입력하면, 결과 위치를 반환한다.")
     void run_Ladder_with_HasLineCreateStrategy() {
         Ladder ladder = new Ladder(HEIGHT_SIZE, LINE_SIZE, new HasLineCreateStrategy());
 
@@ -26,7 +30,7 @@ public class LadderTest {
     }
 
     @Test
-    @DisplayName("EmptyLineCreateStrategy 을 가지고 사다리를 만든 후 게임을 진행한다. 시작 위치를 매개변수로 입력하면, 결과 위치를 반환한다.")
+    @DisplayName("domain.strategy.EmptyLineCreateStrategy 을 가지고 사다리를 만든 후 게임을 진행한다. 시작 위치를 매개변수로 입력하면, 결과 위치를 반환한다.")
     void run_Ladder_with_EmptyLineCreateStrategy() {
         Ladder ladder = new Ladder(HEIGHT_SIZE, LINE_SIZE, new EmptyLineCreateStrategy());
 

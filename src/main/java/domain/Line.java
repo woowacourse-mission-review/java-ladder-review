@@ -1,3 +1,7 @@
+package domain;
+
+import domain.strategy.LineCreateStrategy;
+
 public class Line {
     private boolean hasLine;
 

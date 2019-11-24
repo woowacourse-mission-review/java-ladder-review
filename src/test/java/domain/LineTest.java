@@ -1,3 +1,8 @@
+package domain;
+
+import domain.strategy.EmptyLineCreateStrategy;
+import domain.strategy.HasLineCreateStrategy;
+import domain.strategy.LineCreateStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +17,7 @@ public class LineTest {
     }
 
     @Test
-    @DisplayName("라인을 가지고 있는 Line 객체를 생성한다.")
+    @DisplayName("라인을 가지고 있는 domain.Line 객체를 생성한다.")
     void create_Line_with_line() {
         Line line = new Line();
         LineCreateStrategy strategy = new HasLineCreateStrategy();
@@ -22,7 +27,7 @@ public class LineTest {
     }
 
     @Test
-    @DisplayName("라인을 가지고 있지 않는 Line 객체를 생성한다.")
+    @DisplayName("라인을 가지고 있지 않는 domain.Line 객체를 생성한다.")
     void create_Line_without_line() {
         Line line = new Line();
         LineCreateStrategy strategy = new EmptyLineCreateStrategy();

@@ -1,3 +1,5 @@
+package domain.strategy;
+
 public class HasLineCreateStrategy implements LineCreateStrategy {
 
     @Override
