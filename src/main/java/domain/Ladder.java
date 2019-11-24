@@ -30,7 +30,7 @@ public class Ladder {
         LinkedStatus previous;
 
         linkedStatuses.add(previous = LinkedStatus.determine());
-        while (linkedStatuses.size() < playersCount) {
+        while (linkedStatuses.size() < playersCount - 1) {
             linkedStatuses.add(previous = LinkedStatus.determine(previous));
         }
 
@@ -46,5 +46,9 @@ public class Ladder {
 
         Map<Player, Reward> results = horizonLineResult.link(players, rewards);
         return new GameResult(results);
+    }
+
+    public HorizonLines getHorizonLines() {
+        return horizonLines;
     }
 }

@@ -1,8 +1,9 @@
 package domain;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class HorizonLine {
+public class HorizonLine implements Iterable<LinkedStatus> {
     private final List<LinkedStatus> linkedStatus;
 
     public HorizonLine(final List<LinkedStatus> linkedStatus) {
@@ -15,5 +16,10 @@ public class HorizonLine {
                 horizonLineResult.swap(i - 1, i);
             }
         }
+    }
+
+    @Override
+    public Iterator<LinkedStatus> iterator() {
+        return linkedStatus.iterator();
     }
 }

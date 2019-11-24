@@ -24,9 +24,9 @@ public class LadderGame {
         return rewards;
     }
 
-    public Ladder createLadder() {
+    public HorizonLines createLadder() {
         ladder = new Ladder(players.getPlayerSize(), height);
-        return ladder;
+        return ladder.getHorizonLines();
     }
 
     public void goDown() {
