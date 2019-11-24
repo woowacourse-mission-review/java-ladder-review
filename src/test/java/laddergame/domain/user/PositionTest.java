@@ -10,11 +10,11 @@ class PositionTest {
 
     @Test
     void valid_position() {
-        assertDoesNotThrow(() -> new Position(0));
+        assertDoesNotThrow(() -> Position.of(0));
     }
 
     @Test
     void invalid_position() {
-        assertThrows(InvalidPositionException.class, () -> new Position(-1));
+        assertThrows(InvalidPositionException.class, () -> Position.of(-1));
     }
 }

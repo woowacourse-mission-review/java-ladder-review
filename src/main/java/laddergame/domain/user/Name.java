@@ -8,7 +8,7 @@ public class Name {
     private static final int MAX_NAME_SIZE = 5;
     private final String name;
 
-    public Name(final String name) {
+    private Name(final String name) {
         if (isInvalidName(name)) {
             throw new InvalidNameSizeException();
         }

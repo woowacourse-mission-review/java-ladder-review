@@ -8,6 +8,6 @@ public class UserTest {
 
     @Test
     void valid_user() {
-        assertDoesNotThrow(() -> new User("conas", 0));
+        assertDoesNotThrow(() -> User.of("conas", 0));
     }
 }

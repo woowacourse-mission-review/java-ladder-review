@@ -8,8 +8,12 @@ public class Users {
 
     private final List<User> users;
 
-    public Users(final String namesWithComma) {
+    private Users(final String namesWithComma) {
         this.users = initUsers(namesWithComma);
+    }
+
+    public static Users of(final String namesWithComma) {
+        return new Users(namesWithComma);
     }
 
     private List<User> initUsers(final String namesWithComma) {

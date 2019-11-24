@@ -5,7 +5,7 @@ public class User {
     private final Name name;
     private final Position position;
 
-    public User(final String name, final int position) {
+    private User(final String name, final int position) {
         this.name = Name.of(name);
         this.position = Position.of(position);
     }

@@ -7,7 +7,7 @@ public class Position {
     public static final int MIN_POSITION = 0;
     private int position;
 
-    public Position(final int position) {
+    private Position(final int position) {
         if (position < MIN_POSITION) {
             throw new InvalidPositionException();
         }
