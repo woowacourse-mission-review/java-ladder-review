@@ -1,6 +1,7 @@
 package laddergame.service;
 
 import laddergame.domain.LadderGame;
+import laddergame.domain.LadderGameResult;
 import laddergame.domain.LadderHeight;
 import laddergame.domain.laddergoal.LadderGoal;
 import laddergame.domain.laddergoal.LadderGoals;
@@ -43,5 +44,9 @@ public class LadderGameService {
 
     public LadderGame createLadderGame(final LadderPlayers ladderPlayers, final LadderGoals ladderGoals, final LadderHeight ladderHeight) {
         return LadderGame.createWithRandomCreationStrategy(ladderPlayers, ladderGoals, ladderHeight);
+    }
+
+    public LadderGameResult proceedGame(final LadderGame ladderGame) {
+        return null;
     }
 }
