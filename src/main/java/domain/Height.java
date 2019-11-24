@@ -22,4 +22,8 @@ public class Height {
             throw new InvalidHeightException();
         }
     }
+
+    public int getHeight() {
+        return height;
+    }
 }

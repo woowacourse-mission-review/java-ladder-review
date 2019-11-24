@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 public class LadderTest {
-    private static final int HEIGHT_SIZE = 5;
+    private static final Height HEIGHT_SIZE = new Height("5");
     private static final int LINE_SIZE = 3;
 
     @Test
