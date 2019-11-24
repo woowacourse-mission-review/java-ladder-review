@@ -19,4 +19,12 @@ public class Point {
             throw new IllegalArgumentException("양 쪽에 다리가 놓여있을 수 없습니다.");
         }
     }
+
+    public boolean isFirst() {
+        return !left;
+    }
+
+    public boolean isLast() {
+        return !right;
+    }
 }

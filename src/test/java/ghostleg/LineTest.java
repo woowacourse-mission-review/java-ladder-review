@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LineTest {
     private Line testLine;
@@ -29,5 +30,21 @@ class LineTest {
     @Test
     void nextPositionIsStraight() {
         assertThat(testLine.getNext(2)).isEqualTo(Direction.STRAIGHT);
+    }
+
+    @Test
+    void invalidFirstPoint() {
+        assertThrows(IllegalArgumentException.class, () -> new Line(
+                new Point(true, false),
+                new Point(false, false)
+        ));
+    }
+
+    @Test
+    void invalidLastPoint() {
+        assertThrows(IllegalArgumentException.class, () -> new Line(
+                new Point(false, false),
+                new Point(false, true)
+        ));
     }
 }
