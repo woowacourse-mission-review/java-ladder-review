@@ -1,5 +1,6 @@
 package domain;
 
+import domain.exception.EmptyNameException;
 import domain.exception.NameLengthExcessException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,5 +23,11 @@ public class NameTest {
     @DisplayName("5글자를 초과하는 이름을 생성할 때 예외가 발생한다.")
     void create_over_size_name() {
         assertThrows(NameLengthExcessException.class, () -> new Name(ERROR_NAME));
+    }
+
+    @Test
+    @DisplayName("빈 문자열로 이름을 생성할 때 예외가 발생한다.")
+    void create_empty_name() {
+        assertThrows(EmptyNameException.class, () -> new Name(""));
     }
 }

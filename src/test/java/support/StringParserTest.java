@@ -32,4 +32,26 @@ public class StringParserTest {
         assertThat(inputs.get(2)).isEqualTo("꽝");
         assertThat(inputs.get(3)).isEqualTo("3000");
     }
+
+    @Test
+    @DisplayName("입력받은 문자열 중간에 빈 문자열이 있는 경우 빈 문자열이 리스트에 포함된다.")
+    void create_include_empty_string() {
+        String input = "pobi,honux,,jk";
+        List<String> inputs = StringParser.parse(input);
+
+        assertThat(inputs.get(0)).isEqualTo("pobi");
+        assertThat(inputs.get(1)).isEqualTo("honux");
+        assertThat(inputs.get(2)).isEqualTo("");
+        assertThat(inputs.get(3)).isEqualTo("jk");
+    }
+
+    @Test
+    @DisplayName("입력받은 문자열 맨 앞과 끝에 빈 문자열이 있는 경우 빈 문자열이 리스트에 포함되지 않는다.")
+    void create_include_empty_string_at_first_and_final_position() {
+        String input = ",honux,crong,";
+        List<String> inputs = StringParser.parse(input);
+
+        assertThat(inputs.get(1)).isEqualTo("honux");
+        assertThat(inputs.get(2)).isEqualTo("crong");
+    }
 }
