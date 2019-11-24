@@ -7,14 +7,20 @@ import java.util.stream.Collectors;
 
 public class Players {
     private static final int MIN_PLAYERS_COUNT = 2;
+    private static final String NAME_DELIMITER = ",";
 
     List<Player> players;
 
-    public Players(final String playersInput) {
-        List<String> playerNames = Arrays.stream(playersInput.split(","))
+    public Players(final String namesInput) {
+        List<String> names = extractPlayerNames(namesInput);
+        validate(names);
+        players = createPlayers(names);
+    }
+
+    private List<String> extractPlayerNames(final String playersInput) {
+        return Arrays.stream(playersInput.split(NAME_DELIMITER))
                 .map(String::trim)
                 .collect(Collectors.toList());
-        validate(playerNames);
     }
 
     private void validate(final List<String> playerNames) {
@@ -32,5 +38,11 @@ public class Players {
         if (playerNames.size() != new HashSet<>(playerNames).size()) {
             throw new IllegalArgumentException("중복된 이름을 입력할 수 없습니다.");
         }
+    }
+
+    private List<Player> createPlayers(final List<String> playerNames) {
+        return playerNames.stream()
+                .map(Player::new)
+                .collect(Collectors.toList());
     }
 }
