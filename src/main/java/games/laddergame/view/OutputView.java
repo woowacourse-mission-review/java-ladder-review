@@ -45,4 +45,8 @@ public class OutputView {
     public void printUserInquiry(String userInput, Map<String, String> organizedResults) {
         System.out.println(organizedResults.get(userInput));
     }
+
+    public void printErrorMessage(String message) {
+        System.out.println(message);
+    }
 }

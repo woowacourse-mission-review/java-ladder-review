@@ -9,6 +9,7 @@ public class Player implements GameComponent, Comparable<Player> {
     private int position;
 
     public Player(String name, int position) {
+        name = name.trim();
         if (BaseGameValidityChecker.isNotValid(name)) {
             throw new InvalidPlayerNameException();
         }

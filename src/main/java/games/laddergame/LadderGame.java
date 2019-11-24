@@ -3,7 +3,6 @@ package games.laddergame;
 import games.gamecomponent.Game;
 import games.laddergame.domain.*;
 import games.laddergame.domain.ladder.Ladder;
-import games.laddergame.domain.ladder.ladderrowmaker.DefaultLadderRowMaker;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMakers;
 import games.laddergame.view.OutputView;
 import games.library.ObjectMakingStrategy;
@@ -62,6 +61,7 @@ public class LadderGame implements Game {
         try {
             return objectMakingTemplate.createObjects(rawData, strategy);
         } catch (Exception e) {
+            outputView.printErrorMessage(e.getMessage());
             return null;
         }
     }

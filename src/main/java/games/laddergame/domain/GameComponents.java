@@ -7,15 +7,21 @@ import java.util.stream.Collectors;
 
 public class GameComponents {
     private List<GameComponent> gameComponents;
-    private static int STARTING_POSITION = 0;
 
     public GameComponents(List<GameComponent> gameComponents, boolean isDuplicateCheckNecessary) {
         try {
+            checkIfGameComponentsProperlyMade(gameComponents);
             checkDuplicates(gameComponents, isDuplicateCheckNecessary);
             this.gameComponents = gameComponents;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             this.gameComponents = null;
+        }
+    }
+
+    private void checkIfGameComponentsProperlyMade(List<GameComponent> gameComponents) {
+        if (gameComponents == null) {
+            throw new IllegalArgumentException("이름이 제대로 생성되지 않았습니다.");
         }
     }
 
