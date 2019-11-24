@@ -46,6 +46,10 @@ public class LadderGame {
     }
 
     public LadderGameResult proceed() {
-        return null;
+        List<String> playerNames = ladderPlayers.getPlayerNames();
+        List<LadderLineResult> lineResults = ladder.createLineResults();
+        List<String> goalNames = ladderGoals.getGoalNames();
+
+        return new LadderGameResult(playerNames, lineResults, goalNames);
     }
 }

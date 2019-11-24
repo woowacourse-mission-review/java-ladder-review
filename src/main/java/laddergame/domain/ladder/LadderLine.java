@@ -1,11 +1,13 @@
 package laddergame.domain.ladder;
 
+import laddergame.exception.LadderResultIndexNotFoundException;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class LadderLine {
 
@@ -54,5 +56,26 @@ public class LadderLine {
         }
 
         return stringJoiner.toString();
+    }
+
+    public List<Integer> moveToNextIndex(List<Integer> indices) {
+        if (isNotSameSizeWithDirections(indices)) {
+            throw new LadderResultIndexNotFoundException();
+        }
+
+        return indices.stream()
+                .map(index -> {
+                    Direction direction = directions.get(index);
+                    return direction.moveToNextIndex(index);
+                })
+                .collect(Collectors.toList());
+    }
+
+    private boolean isNotSameSizeWithDirections(final List<Integer> indices) {
+        return indices.size() != directions.size();
+    }
+
+    public int size() {
+        return directions.size();
     }
 }

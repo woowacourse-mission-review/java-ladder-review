@@ -53,6 +53,13 @@ class DirectionTest {
     }
 
     @Test
+    void moveToNextIndex() {
+        assertThat(left.moveToNextIndex(1)).isEqualTo(0);
+        assertThat(right.moveToNextIndex(1)).isEqualTo(2);
+        assertThat(none.moveToNextIndex(1)).isEqualTo(1);
+    }
+
+    @Test
     void hasLeft() {
         assertThat(left.hasLeft()).isTrue();
         assertThat(right.hasLeft()).isFalse();
