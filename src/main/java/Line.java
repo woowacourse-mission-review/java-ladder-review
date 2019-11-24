@@ -1,14 +1,10 @@
 public class Line {
-    private final int index;
     private boolean hasLine;
 
-    public Line(final int index) {
-        this.index = index;
-    }
-
-    public void initialize(boolean leftLine, boolean rightLine, LineCreateStrategy strategy) {
-        if (leftLine || rightLine) {
+    public void initialize(boolean hasLeftLine, LineCreateStrategy strategy) {
+        if (hasLeftLine) {
             hasLine = false;
+            return;
         }
 
         hasLine = strategy.create();

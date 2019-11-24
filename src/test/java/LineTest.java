@@ -8,15 +8,15 @@ public class LineTest {
     @Test
     @DisplayName("현재 사다리 인덱스를 가지고 사다리 라인을 생성한다.")
     void create_Line() {
-        assertDoesNotThrow(() -> new Line(0));
+        assertDoesNotThrow(() -> new Line());
     }
 
     @Test
     @DisplayName("라인을 가지고 있는 Line 객체를 생성한다.")
     void create_Line_with_line() {
-        Line line = new Line(0);
+        Line line = new Line();
         LineCreateStrategy strategy = new HasLineCreateStrategy();
-        line.initialize(false, false, strategy);
+        line.initialize(false, strategy);
 
         assertTrue(line.getLine());
     }
@@ -24,9 +24,9 @@ public class LineTest {
     @Test
     @DisplayName("라인을 가지고 있지 않는 Line 객체를 생성한다.")
     void create_Line_without_line() {
-        Line line = new Line(0);
+        Line line = new Line();
         LineCreateStrategy strategy = new EmptyLineCreateStrategy();
-        line.initialize(false, false, strategy);
+        line.initialize(false, strategy);
 
         assertFalse(line.getLine());
     }
