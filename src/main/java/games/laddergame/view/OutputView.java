@@ -6,6 +6,7 @@ import games.laddergame.domain.ladder.MeetingPoint;
 import games.laddergame.domain.ladder.Row;
 
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     public void printGameResult(GameResult gameResult) {
@@ -39,5 +40,9 @@ public class OutputView {
     private void printEachName(List<GameComponent> players) {
         players.forEach(player -> System.out.print("  " + player.getName()));
         System.out.println();
+    }
+
+    public void printUserInquiry(String userInput, Map<String, String> organizedResults) {
+        System.out.println(organizedResults.get(userInput));
     }
 }

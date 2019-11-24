@@ -68,9 +68,7 @@ public class GameComponents {
                 .orElseThrow(IllegalArgumentException::new);
     }
 
-    public List<GameComponent> getSorted() {
-        return this.gameComponents.stream()
-                .sorted(Comparator.comparingInt(GameComponent::getPosition))
-                .collect(Collectors.toList());
+    public List<GameComponent> getComponents() {
+        return Collections.unmodifiableList(gameComponents);
     }
 }

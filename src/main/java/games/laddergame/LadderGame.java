@@ -39,7 +39,13 @@ public class LadderGame implements Game {
         Height height = registerHeight();
         Ladder ladder = new Ladder(players.size(), height.getHeight(), new LadderRowMakers(players.size(), height.getHeight()));
         GameResult gameResult = ladder.climbDownLadder(players, prizes);
+        endGame(gameResult);
+    }
+
+    private void endGame(GameResult gameResult) {
         outputView.printGameResult(gameResult);
+        String userInput = inputView.askUserInput("결과를 보고싶은 사람의 이름을 입력해주세요!");
+        outputView.printUserInquiry(userInput, gameResult.organizeResults());
     }
 
     public GameComponents registerComponents(String message, ObjectMakingStrategy strategy, boolean isDuplicateCheckNecessary) {

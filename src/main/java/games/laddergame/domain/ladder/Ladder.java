@@ -32,6 +32,6 @@ public class Ladder {
 
     public games.laddergame.domain.GameResult climbDownLadder(GameComponents players, GameComponents prizes) {
         ladder.forEach(row -> row.playCurrentRow(players));
-        return new GameResult(players.getSorted(), prizes.getSorted(), Collections.unmodifiableList(ladder));
+        return new GameResult(players.getComponents(), prizes.getComponents(), Collections.unmodifiableList(ladder));
     }
 }

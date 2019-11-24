@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class DefaultLadderRowMaker implements LadderRowMaker{
+public class DefaultLadderRowMaker implements LadderRowMaker {
     private int width;
     private List<Boolean> previousValues;
     private Random random = new Random();
@@ -37,8 +37,6 @@ public class DefaultLadderRowMaker implements LadderRowMaker{
         }
         if (previousValues.get(previousValues.size() - 1)) {
             currentValue = false;
-            previousValues.add(currentValue);
-            return new MeetingPoint(index, currentValue);
         }
         previousValues.add(currentValue);
         return new MeetingPoint(index, currentValue);
