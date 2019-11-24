@@ -19,13 +19,17 @@ public class LadderGameController {
     }
 
     public void run() {
-        String playerNameInput = inputView.inputLadderPlayerNames();
-        LadderPlayers ladderPlayers = ladderGameService.createPlayers(playerNameInput);
+        try {
+            String playerNameInput = inputView.inputLadderPlayerNames();
+            LadderPlayers ladderPlayers = ladderGameService.createPlayers(playerNameInput);
 
-        String ladderGoalInput = inputView.inputLadderGoalNames();
-        LadderGoals ladderGoals = ladderGameService.createGoals(ladderGoalInput, ladderPlayers.size());
+            String ladderGoalInput = inputView.inputLadderGoalNames();
+            LadderGoals ladderGoals = ladderGameService.createGoals(ladderGoalInput, ladderPlayers.size());
 
-        String ladderHeightInput = inputView.inputLadderHeight();
-        LadderHeight ladderHeight = ladderGameService.createHeight(ladderHeightInput);
+            String ladderHeightInput = inputView.inputLadderHeight();
+            LadderHeight ladderHeight = ladderGameService.createHeight(ladderHeightInput);
+        } catch (IllegalArgumentException e) {
+            outputView.showExceptionMessage(e);
+        }
     }
 }
