@@ -1,5 +1,6 @@
 package laddergame.service;
 
+import laddergame.domain.LadderGame;
 import laddergame.domain.LadderHeight;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
@@ -40,5 +41,15 @@ class LadderGameServiceTest {
         LadderHeight ladderHeight = ladderGameService.createHeight("10");
 
         assertThat(ladderHeight).isNotNull();
+    }
+
+    @Test
+    void createLadderGame() {
+        LadderPlayers ladderPlayers = ladderGameService.createPlayers("red, blue, green");
+        LadderGoals ladderGoals = ladderGameService.createGoals("one, two, three", 3);
+        LadderHeight ladderHeight = ladderGameService.createHeight("10");
+
+        LadderGame ladderGame = ladderGameService.createLadderGame(ladderPlayers, ladderGoals, ladderHeight);
+        assertThat(ladderGame).isNotNull();
     }
 }

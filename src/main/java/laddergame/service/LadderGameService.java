@@ -1,5 +1,6 @@
 package laddergame.service;
 
+import laddergame.domain.LadderGame;
 import laddergame.domain.LadderHeight;
 import laddergame.domain.laddergoal.LadderGoal;
 import laddergame.domain.laddergoal.LadderGoals;
@@ -38,5 +39,9 @@ public class LadderGameService {
 
     public LadderHeight createHeight(final String ladderHeight) {
         return LadderHeight.from(ladderHeight);
+    }
+
+    public LadderGame createLadderGame(final LadderPlayers ladderPlayers, final LadderGoals ladderGoals, final LadderHeight ladderHeight) {
+        return LadderGame.of(ladderPlayers, ladderGoals, ladderHeight);
     }
 }
