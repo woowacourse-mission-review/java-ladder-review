@@ -18,7 +18,7 @@ public class LineTest {
         LineCreateStrategy strategy = new HasLineCreateStrategy();
         line.initialize(false, strategy);
 
-        assertTrue(line.getLine());
+        assertTrue(line.isDrawn());
     }
 
     @Test
@@ -28,6 +28,6 @@ public class LineTest {
         LineCreateStrategy strategy = new EmptyLineCreateStrategy();
         line.initialize(false, strategy);
 
-        assertFalse(line.getLine());
+        assertFalse(line.isDrawn());
     }
 }

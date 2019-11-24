@@ -10,7 +10,7 @@ public class Line {
         hasLine = strategy.create();
     }
 
-    public boolean getLine() {
+    public boolean isDrawn() {
         return hasLine;
     }
 }
