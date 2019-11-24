@@ -21,4 +21,8 @@ public class Height {
     private boolean isValidHeight(final int height) {
         return height >= MIN_LADDER_HEIGHT;
     }
+
+    public int getHeight() {
+        return height;
+    }
 }

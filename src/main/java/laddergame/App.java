@@ -1,6 +1,8 @@
 package laddergame;
 
 import laddergame.domain.ladder.Height;
+import laddergame.domain.ladder.Lines;
+import laddergame.domain.ladder.LinesGenerator;
 import laddergame.domain.ladder.Results;
 import laddergame.domain.user.Users;
 import laddergame.view.InputMessage;
@@ -17,5 +19,9 @@ public class App {
 
         int scannedHeight = InputView.inputNumber(InputMessage.INPUT_HEIGHT);
         Height height = Height.of(scannedHeight);
+
+        LinesGenerator linesGenerator = new LinesGenerator(users.getSize(), height);
+        Lines lines = linesGenerator.generateLines();
+        System.out.println(lines);
     }
 }

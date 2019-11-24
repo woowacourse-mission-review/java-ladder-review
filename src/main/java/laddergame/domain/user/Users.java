@@ -24,4 +24,8 @@ public class Users {
         }
         return users;
     }
+
+    public int getSize() {
+        return users.size();
+    }
 }
