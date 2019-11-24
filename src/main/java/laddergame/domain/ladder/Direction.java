@@ -40,14 +40,6 @@ public enum Direction {
         return rightCrossBar ? LEFT : Direction.valueOf(false, strategy.createCrossBar());
     }
 
-    public int moveToNextIndex(int index) {
-        return (leftCrossBar || rightCrossBar) ? moveLeftOrRight(index) : index;
-    }
-
-    private int moveLeftOrRight(int index) {
-        return leftCrossBar ? --index : ++index;
-    }
-
     public boolean hasLeft() {
         return leftCrossBar;
     }

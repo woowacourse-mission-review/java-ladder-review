@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
-import java.util.stream.Collectors;
 
 public class LadderLine {
 
@@ -58,17 +57,28 @@ public class LadderLine {
         return stringJoiner.toString();
     }
 
-    public List<Integer> moveToNextIndex(List<Integer> indices) {
-        if (isNotSameSizeWithDirections(indices)) {
+    public List<Integer> moveToNextIndex(List<Integer> indicesOfPlayers) {
+        if (isNotSameSizeWithDirections(indicesOfPlayers)) {
             throw new LadderResultIndexNotFoundException();
         }
 
-        return indices.stream()
-                .map(index -> {
-                    Direction direction = directions.get(index);
-                    return direction.moveToNextIndex(index);
-                })
-                .collect(Collectors.toList());
+        List<Integer> newIndicesOfPlayers = new ArrayList<>(indicesOfPlayers);
+        indicesOfPlayers.forEach(indexOfPlayer -> {
+            int indexOfDirection = indicesOfPlayers.indexOf(indexOfPlayer);
+            Direction direction = directions.get(indexOfDirection);
+
+            if (direction.hasRight()) {
+                swapWithRightIndex(indexOfDirection, newIndicesOfPlayers);
+            }
+        });
+        return newIndicesOfPlayers;
+    }
+
+    private void swapWithRightIndex(final int indexOfDirection, final List<Integer> indicesOfPlayers) {
+        Integer left = indicesOfPlayers.get(indexOfDirection);
+        indicesOfPlayers.remove(indexOfDirection);
+
+        indicesOfPlayers.add(indexOfDirection + 1, left);
     }
 
     private boolean isNotSameSizeWithDirections(final List<Integer> indices) {
