@@ -12,12 +12,14 @@ public class NameTest {
     private static final String NORMAL_NAME = "comac";
     private static final String ERROR_NAME = "abcdefg";
     private static final String EMPTY_NAME = "";
+    private static final int NORMAL_NAME_LENGTH = 5;
 
     @Test
     @DisplayName("사람 이름을 정상적으로 생성한다.")
     void create_name() {
         Name name = new Name(NORMAL_NAME);
         assertThat(name.getName()).isEqualTo(NORMAL_NAME);
+        assertThat(name.length()).isEqualTo(NORMAL_NAME_LENGTH);
     }
 
     @Test

@@ -16,6 +16,10 @@ public class Result {
         }
     }
 
+    public int length() {
+        return result.length();
+    }
+
     public String getResult() {
         return result;
     }

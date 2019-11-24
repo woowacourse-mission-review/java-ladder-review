@@ -10,12 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ResultTest {
     private static final String NORMAL_RESULT = "꽝";
     private static final String EMPTY_RESULT = "";
+    private static final int NORMAL_RESULT_LENGTH = 1;
 
     @Test
     @DisplayName("사다리 결과를 정상적으로 생성한다.")
     void create_result() {
         Result result = new Result(NORMAL_RESULT);
         assertThat(result.getResult()).isEqualTo(NORMAL_RESULT);
+        assertThat(result.length()).isEqualTo(NORMAL_RESULT_LENGTH);
     }
 
     @Test
