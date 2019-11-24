@@ -12,10 +12,6 @@ public class ObjectMakingTemplate<T> {
         return LazyHolder.INSTANCE;
     }
 
-    private static class LazyHolder {
-        private static ObjectMakingTemplate INSTANCE = new ObjectMakingTemplate();
-    }
-
     public List<GameComponent> createObjects(String rawData, ObjectMakingStrategy logic) {
         List<String> parsedData = CommaParser.parse(rawData);
         int max = parsedData.size() - 1;
@@ -23,5 +19,9 @@ public class ObjectMakingTemplate<T> {
         return IntStream.rangeClosed(0, max)
                 .mapToObj(index -> logic.makeObject(parsedData.get(index), index))
                 .collect(Collectors.toList());
+    }
+
+    private static class LazyHolder {
+        private static ObjectMakingTemplate INSTANCE = new ObjectMakingTemplate();
     }
 }

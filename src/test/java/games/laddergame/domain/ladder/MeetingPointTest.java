@@ -34,7 +34,7 @@ class MeetingPointTest {
         Player player2 = new Player("ruby", 1);
         Player player3 = new Player("css", 2);
         Player player4 = new Player("jaso", 3);
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2,player3, player4), true);
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
         MeetingPoint point = new MeetingPoint(1, true);
         point.swap(players);
@@ -50,7 +50,7 @@ class MeetingPointTest {
         Player player2 = new Player("ruby", 1);
         Player player3 = new Player("css", 2);
         Player player4 = new Player("jaso", 3);
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2,player3, player4), true);
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
         MeetingPoint point = new MeetingPoint(2, true);
         point.swap(players);
@@ -66,7 +66,7 @@ class MeetingPointTest {
         Player player2 = new Player("ruby", 1);
         Player player3 = new Player("css", 2);
         Player player4 = new Player("jaso", 3);
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2,player3, player4), true);
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
         MeetingPoint point = new MeetingPoint(3, true);
         point.swap(players);

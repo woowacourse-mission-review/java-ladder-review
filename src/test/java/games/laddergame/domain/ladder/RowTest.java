@@ -1,13 +1,11 @@
 package games.laddergame.domain.ladder;
 
-import games.laddergame.domain.GameComponent;
 import games.laddergame.domain.GameComponents;
 import games.laddergame.domain.Player;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -24,7 +22,7 @@ class RowTest {
         Player player2 = new Player("ruby", 1);
         Player player3 = new Player("css", 2);
         Player player4 = new Player("jaso", 3);
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2,player3, player4), true);
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
         row.playCurrentRow(players);
 
@@ -46,7 +44,7 @@ class RowTest {
         Player player2 = new Player("ruby", 1);
         Player player3 = new Player("css", 2);
         Player player4 = new Player("jaso", 3);
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2,player3, player4), true);
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
         row.playCurrentRow(players);
 

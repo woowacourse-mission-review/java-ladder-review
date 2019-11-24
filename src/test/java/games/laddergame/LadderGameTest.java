@@ -1,7 +1,6 @@
 package games.laddergame;
 
 import games.laddergame.domain.GameComponent;
-import games.laddergame.domain.GameComponents;
 import games.laddergame.domain.Player;
 import games.laddergame.domain.Prize;
 import org.junit.jupiter.api.DisplayName;

@@ -5,6 +5,7 @@ import games.laddergame.exception.DoesNotSupportException;
 public class Prize implements GameComponent {
     private String name;
     private int position;
+
     public Prize(String name, int position) {
         name = name.trim();
         this.name = name;

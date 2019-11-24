@@ -1,6 +1,8 @@
 package games.laddergame.domain.ladder;
 
-import games.laddergame.domain.*;
+import games.laddergame.domain.GameComponents;
+import games.laddergame.domain.Player;
+import games.laddergame.domain.Prize;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMaker;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMakers;
 import org.junit.jupiter.api.DisplayName;
@@ -26,7 +28,7 @@ class LadderTest {
         List<Row> checkRows = Arrays.asList(row1, row2, row3, row4);
 
 
-        Ladder ladder = new Ladder(3, 4, new LadderRowMakers(3,4));
+        Ladder ladder = new Ladder(3, 4, new LadderRowMakers(3, 4));
 
         assertThat(ladder.getHeight()).isEqualTo(4);
         assertThat(ladder.getWidth()).isEqualTo(3);
@@ -44,7 +46,7 @@ class LadderTest {
         Row row4 = new Row(Arrays.asList(point1, point2, point3));
 
         List<Row> checkRows = Arrays.asList(row1, row2, row3, row4);
-        List<LadderRowMaker> rowMakers = Arrays.asList(()->row1, ()->row2, ()->row3, ()->row4);
+        List<LadderRowMaker> rowMakers = Arrays.asList(() -> row1, () -> row2, () -> row3, () -> row4);
 
         Ladder ladder = new Ladder(3, 4, new LadderRowMakers(rowMakers));
 
@@ -68,15 +70,15 @@ class LadderTest {
         MeetingPoint point8 = new MeetingPoint(4, true);
         Row row2 = new Row(Arrays.asList(point5, point6, point7, point8));
 
-        List<LadderRowMaker> rowMakers = Arrays.asList(()->row1,()->row2, ()->row2, ()->row1);
+        List<LadderRowMaker> rowMakers = Arrays.asList(() -> row1, () -> row2, () -> row2, () -> row1);
         Ladder ladder = new Ladder(5, 4, new LadderRowMakers(rowMakers));
 
         Player player1 = new Player("java", 0);
         Player player2 = new Player("ruby", 1);
         Player player3 = new Player("css", 2);
         Player player4 = new Player("jaso", 3);
-        Player player5 = new Player ("html", 4);
-        GameComponents players = new GameComponents(Arrays.asList(player1, player2,player3, player4, player5), true);
+        Player player5 = new Player("html", 4);
+        GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4, player5), true);
 
         Prize prize1 = new Prize("java", 0);
         Prize prize2 = new Prize("ruby", 1);

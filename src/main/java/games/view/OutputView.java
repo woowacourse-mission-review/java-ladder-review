@@ -11,10 +11,6 @@ public class OutputView {
         return LazyHolder.INSTANCE;
     }
 
-    public static class LazyHolder{
-        public static OutputView INSTANCE = new OutputView();
-    }
-
     public void printGameResult(GameResult gameResult) {
         printEachRound(gameResult.getSnapShots());
         printWinners(gameResult.findWinners());
@@ -47,5 +43,9 @@ public class OutputView {
             }
             System.out.println();
         }
+    }
+
+    public static class LazyHolder {
+        public static OutputView INSTANCE = new OutputView();
     }
 }

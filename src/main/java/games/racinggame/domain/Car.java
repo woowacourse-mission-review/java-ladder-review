@@ -1,4 +1,5 @@
 package games.racinggame.domain;
+
 import games.racinggame.exception.InvalidCarNameException;
 import games.utility.BaseGameValidityChecker;
 
