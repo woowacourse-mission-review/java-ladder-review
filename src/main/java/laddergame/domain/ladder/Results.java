@@ -1,7 +1,6 @@
 package laddergame.domain.ladder;
 
 import com.google.common.collect.Lists;
-import laddergame.domain.user.Position;
 
 import java.util.List;
 

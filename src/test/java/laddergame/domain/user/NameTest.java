@@ -13,20 +13,20 @@ class NameTest {
     @DisplayName("올바른 이름으로 생성 test")
     void valid_name() {
         String name = "conas";
-        assertDoesNotThrow(() ->  Name.of(name));
+        assertDoesNotThrow(() -> Name.of(name));
     }
 
     @Test
     @DisplayName("5글자가 넘어가는 경우 test")
     void invalid_size_name() {
         String name = "conatuseus";
-        assertThrows(InvalidNameSizeException.class, () ->  Name.of(name));
+        assertThrows(InvalidNameSizeException.class, () -> Name.of(name));
     }
 
     @Test
     @DisplayName("blank 이름인 경우 test")
     void blank_name() {
         String name = "";
-        assertThrows(InvalidNameSizeException.class, () ->  Name.of(name));
+        assertThrows(InvalidNameSizeException.class, () -> Name.of(name));
     }
 }

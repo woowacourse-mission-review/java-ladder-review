@@ -10,4 +10,9 @@ public class InputView {
         System.out.println(inputMessage.getMessage());
         return SCANNER.nextLine();
     }
+
+    public static int inputNumber(InputMessage inputMessage) {
+        System.out.println(inputMessage.getMessage());
+        return SCANNER.nextInt();
+    }
 }

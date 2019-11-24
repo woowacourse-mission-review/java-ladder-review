@@ -1,5 +1,6 @@
 package laddergame;
 
+import laddergame.domain.ladder.Height;
 import laddergame.domain.ladder.Results;
 import laddergame.domain.user.Users;
 import laddergame.view.InputMessage;
@@ -13,5 +14,8 @@ public class App {
 
         String scannedResults = InputView.inputLine(InputMessage.INPUT_RESULT);
         Results results = Results.of(scannedResults);
+
+        int scannedHeight = InputView.inputNumber(InputMessage.INPUT_HEIGHT);
+        Height height = Height.of(scannedHeight);
     }
 }
