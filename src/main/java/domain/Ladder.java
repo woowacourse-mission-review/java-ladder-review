@@ -16,11 +16,11 @@ public class Ladder {
     public Ladder(Height height, int lineSize, LineCreateStrategy strategy) {
         this.height = height;
         this.lineSize = lineSize;
-        initialize(height.getHeight(), lineSize, strategy);
+        initialize(strategy);
     }
 
-    private void initialize(int height, int lineSize, LineCreateStrategy strategy) {
-        for (int index = START_INDEX; index < height; index++) {
+    private void initialize(LineCreateStrategy strategy) {
+        for (int index = START_INDEX; index < height.getHeight(); index++) {
             ladder.add(new Lines(lineSize, strategy));
         }
     }

@@ -26,6 +26,18 @@ public class Lines {
         }
     }
 
+    public int move(int currentIndex) {
+        if (hasLeftLine(currentIndex)) {
+            return currentIndex - 1;
+        }
+
+        if (hasRightLine(currentIndex)) {
+            return currentIndex + 1;
+        }
+
+        return currentIndex;
+    }
+
     private boolean hasLeftLine(int index) {
         if (isLocatedStartPosition(index)) {
             return false;
@@ -35,28 +47,7 @@ public class Lines {
         return getLine(preIndex).isDrawn();
     }
 
-    public int move(int currentIndex) {
-        if (leftMove(currentIndex)) {
-            return currentIndex - 1;
-        }
-
-        if (rightMove(currentIndex)) {
-            return currentIndex + 1;
-        }
-
-        return currentIndex;
-    }
-
-    private boolean leftMove(int index) {
-        if (isLocatedStartPosition(index)) {
-            return false;
-        }
-
-        int preIndex = index - 1;
-        return getLine(preIndex).isDrawn();
-    }
-
-    private boolean rightMove(int index) {
+    private boolean hasRightLine(int index) {
         if (isLocatedFinalPosition(index)) {
             return false;
         }
