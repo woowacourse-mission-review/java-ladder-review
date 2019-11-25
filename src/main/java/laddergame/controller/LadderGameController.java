@@ -12,6 +12,7 @@ import laddergame.view.OutputView;
 import java.util.Map;
 
 import static laddergame.service.LadderGameReservedKeywords.KEYWORD_FOR_ALL_RESULTS;
+import static laddergame.service.LadderGameReservedKeywords.KEYWORD_FOR_EXITING_GAME;
 
 public class LadderGameController {
 
@@ -48,16 +49,20 @@ public class LadderGameController {
 
     private void showResults(LadderGameResult result) {
         while (true) {
+            String playerNameInput = inputView.inputPlayerNameForResult();
+            if (KEYWORD_FOR_EXITING_GAME.equals(playerNameInput)) {
+                return;
+            }
+
             try {
-                findAndShow(result);
+                findAndShow(result, playerNameInput);
             } catch (IllegalArgumentException e) {
                 outputView.showExceptionMessage(e);
             }
         }
     }
 
-    private void findAndShow(final LadderGameResult result) {
-        String playerNameInput = inputView.inputPlayerNameForResult();
+    private void findAndShow(final LadderGameResult result, final String playerNameInput) {
         if (KEYWORD_FOR_ALL_RESULTS.equals(playerNameInput)) {
             Map<String, String> allFinalResults = result.createAllFinalResults();
             outputView.showAllResultsOfPlayers(allFinalResults);

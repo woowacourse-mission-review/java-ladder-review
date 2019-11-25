@@ -23,7 +23,7 @@ public class ConsoleInputView implements InputView {
 
     @Override
     public String inputPlayerNameForResult() {
-        return inputWithMessage("결과를 보고 싶은 사람은?");
+        return inputWithMessage("결과를 보고 싶은 사람은?(all : 모든 결과, exit : 게임 종료)");
     }
 
     private String inputWithMessage(String message) {
