@@ -1,6 +1,6 @@
 package laddergame.domain.ladder;
 
-import laddergame.domain.LadderLineResult;
+import laddergame.domain.result.LadderLineResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

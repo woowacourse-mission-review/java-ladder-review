@@ -1,6 +1,7 @@
 package laddergame.domain.ladder;
 
-import laddergame.domain.LadderLineResult;
+import laddergame.domain.ladder.strategy.LadderCreationStrategy;
+import laddergame.domain.result.LadderLineResult;
 
 import java.util.ArrayList;
 import java.util.List;

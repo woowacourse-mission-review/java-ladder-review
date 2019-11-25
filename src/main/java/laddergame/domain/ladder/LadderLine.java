@@ -1,5 +1,6 @@
 package laddergame.domain.ladder;
 
+import laddergame.domain.ladder.strategy.LadderCreationStrategy;
 import laddergame.exception.LadderResultIndexNotFoundException;
 import org.apache.commons.lang3.StringUtils;
 

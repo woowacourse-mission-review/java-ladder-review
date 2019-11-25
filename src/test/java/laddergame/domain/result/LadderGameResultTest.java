@@ -1,4 +1,4 @@
-package laddergame.domain;
+package laddergame.domain.result;
 
 import laddergame.exception.LadderResultIndexNotFoundException;
 import laddergame.exception.PlayerResultNotFoundException;

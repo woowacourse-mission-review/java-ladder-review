@@ -1,10 +1,10 @@
 package laddergame.controller;
 
 import laddergame.domain.LadderGame;
-import laddergame.domain.LadderGameResult;
 import laddergame.domain.LadderHeight;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
+import laddergame.domain.result.LadderGameResult;
 import laddergame.service.LadderGameService;
 import laddergame.view.InputView;
 import laddergame.view.OutputView;

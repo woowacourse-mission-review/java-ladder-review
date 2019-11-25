@@ -4,6 +4,7 @@ import laddergame.domain.laddergoal.LadderGoal;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayer;
 import laddergame.domain.ladderplayer.LadderPlayers;
+import laddergame.domain.result.LadderGameResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

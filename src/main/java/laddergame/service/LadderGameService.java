@@ -1,12 +1,12 @@
 package laddergame.service;
 
 import laddergame.domain.LadderGame;
-import laddergame.domain.LadderGameResult;
 import laddergame.domain.LadderHeight;
 import laddergame.domain.laddergoal.LadderGoal;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayer;
 import laddergame.domain.ladderplayer.LadderPlayers;
+import laddergame.domain.result.LadderGameResult;
 
 import java.util.Arrays;
 import java.util.List;

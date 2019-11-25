@@ -1,11 +1,13 @@
 package laddergame.domain;
 
 import laddergame.domain.ladder.Ladder;
-import laddergame.domain.ladder.LadderCreationStrategy;
-import laddergame.domain.ladder.RandomLadderCreationStrategy;
+import laddergame.domain.ladder.strategy.LadderCreationStrategy;
+import laddergame.domain.ladder.strategy.RandomLadderCreationStrategy;
 import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayers;
 import laddergame.domain.name.LadderPlayerName;
+import laddergame.domain.result.LadderGameResult;
+import laddergame.domain.result.LadderLineResult;
 
 import java.util.List;
 

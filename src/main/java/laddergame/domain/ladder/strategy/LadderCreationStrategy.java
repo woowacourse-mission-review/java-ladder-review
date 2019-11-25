@@ -1,4 +1,4 @@
-package laddergame.domain.ladder;
+package laddergame.domain.ladder.strategy;
 
 public interface LadderCreationStrategy {
     boolean createCrossBar();

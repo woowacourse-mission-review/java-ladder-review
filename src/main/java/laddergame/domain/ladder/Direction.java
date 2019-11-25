@@ -1,5 +1,6 @@
 package laddergame.domain.ladder;
 
+import laddergame.domain.ladder.strategy.LadderCreationStrategy;
 import laddergame.exception.IllegalDirectionFoundException;
 
 public enum Direction {
