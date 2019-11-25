@@ -40,7 +40,9 @@ class LadderGameResultTest {
 
     @Test
     void findPlayerResultAtLineNumber_PlayerResultNotFoundException() {
-        assertThrows(PlayerResultNotFoundException.class, () -> ladderGameResult.findPlayerResultAtLineNumber(1, "pink"));
+        Exception exception = assertThrows(PlayerResultNotFoundException.class, () -> ladderGameResult.findPlayerResultAtLineNumber(1, "pink"));
+
+        assertThat(exception.getMessage()).isEqualTo(PlayerResultNotFoundException.PLAYER_RESULT_NOT_FOUND_MESSAGE);
     }
 
     @Test
