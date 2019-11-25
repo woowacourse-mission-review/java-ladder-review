@@ -4,10 +4,7 @@ import laddergame.domain.ladder.strategy.LadderCreationStrategy;
 import laddergame.exception.LadderResultIndexNotFoundException;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class LadderLine {
 
@@ -76,10 +73,7 @@ public class LadderLine {
     }
 
     private void swapWithRightIndex(final int indexOfDirection, final List<Integer> indicesOfPlayers) {
-        Integer left = indicesOfPlayers.get(indexOfDirection);
-        indicesOfPlayers.remove(indexOfDirection);
-
-        indicesOfPlayers.add(indexOfDirection + 1, left);
+        Collections.swap(indicesOfPlayers, indexOfDirection, indexOfDirection + 1);
     }
 
     private boolean isNotSameSizeWithDirections(final List<Integer> indices) {
