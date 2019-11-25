@@ -16,4 +16,8 @@ public class Player {
     public void move(Direction direction) {
         position.add(direction.next());
     }
+
+    public PlayerName getName() {
+        return name;
+    }
 }

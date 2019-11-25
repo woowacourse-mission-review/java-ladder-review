@@ -24,4 +24,8 @@ public class Ladder {
         Line currentLine = lines.get(currentHeight++);
         return currentLine.getNextAll();
     }
+
+    public ArrayList<Line> getLines() {
+        return lines;
+    }
 }

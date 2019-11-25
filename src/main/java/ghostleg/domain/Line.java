@@ -47,4 +47,8 @@ public class Line {
                 .map(Point::next)
                 .collect(Collectors.toList());
     }
+
+    public ArrayList<Point> getPoints() {
+        return points;
+    }
 }
