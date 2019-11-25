@@ -2,6 +2,8 @@ package ghostleg.view;
 
 import ghostleg.domain.Ladder;
 import ghostleg.domain.Player;
+import ghostleg.domain.Result;
+import ghostleg.domain.Reward;
 
 import java.util.List;
 
