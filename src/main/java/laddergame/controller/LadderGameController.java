@@ -11,9 +11,9 @@ import laddergame.view.OutputView;
 
 import java.util.Map;
 
-public class LadderGameController {
+import static laddergame.service.LadderGameReservedKeywords.KEYWORD_FOR_ALL_RESULTS;
 
-    private static final String KEYWORD_FOR_ALL_RESULTS = "all";
+public class LadderGameController {
 
     private final InputView inputView;
     private final OutputView outputView;

@@ -7,6 +7,7 @@ import laddergame.domain.laddergoal.LadderGoals;
 import laddergame.domain.ladderplayer.LadderPlayer;
 import laddergame.domain.ladderplayer.LadderPlayers;
 import laddergame.domain.result.LadderGameResult;
+import laddergame.exception.ReservedKeywordException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,9 +19,21 @@ public class LadderGameService {
     private static final String LADDER_GAME_NAME_DELIMITER = ",";
 
     public LadderPlayers createPlayers(final String playerNames) {
-        List<LadderPlayer> ladderPlayers = parseNames(playerNames, LadderPlayer::from);
+        List<LadderPlayer> ladderPlayerList = parseNames(playerNames, LadderPlayer::from);
 
-        return LadderPlayers.create(ladderPlayers);
+        LadderPlayers ladderPlayers = LadderPlayers.create(ladderPlayerList);
+        checkReservedKeywords(ladderPlayers);
+
+        return ladderPlayers;
+    }
+
+    private void checkReservedKeywords(final LadderPlayers ladderPlayers) {
+        List<String> allReservedKeywords = LadderGameReservedKeywords.getAllKeywords();
+        allReservedKeywords.forEach(keyword -> {
+            if (ladderPlayers.hasPlayerWithName(keyword)) {
+                throw new ReservedKeywordException(keyword);
+            }
+        });
     }
 
     public LadderGoals createGoals(final String goalNames, final int sizeOfLadderPlayers) {
