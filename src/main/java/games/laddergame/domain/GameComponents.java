@@ -1,6 +1,7 @@
 package games.laddergame.domain;
 
 import games.laddergame.exception.DuplicateNameException;
+import games.laddergame.exception.NoAvailablePlayerError;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -71,7 +72,7 @@ public class GameComponents {
         return gameComponents.stream()
                 .filter(gameComponent -> gameComponent.canParticipate(participantPosition))
                 .findAny()
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(NoAvailablePlayerError::new);
     }
 
     public List<GameComponent> getComponents() {
