@@ -17,16 +17,9 @@ class LadderTest {
     @Test
     @DisplayName("사다리 생성 테스트 사이즈 체크")
     void construct_ladder() {
-        MeetingPoint point1 = new MeetingPoint(1, true);
-        MeetingPoint point2 = new MeetingPoint(2, false);
-        MeetingPoint point3 = new MeetingPoint(3, true);
-        Row row1 = new Row(Arrays.asList(point1, point2, point3));
-        Row row2 = new Row(Arrays.asList(point1, point2, point3));
-        Row row3 = new Row(Arrays.asList(point1, point2, point3));
-        Row row4 = new Row(Arrays.asList(point1, point2, point3));
-
-        List<Row> checkRows = Arrays.asList(row1, row2, row3, row4);
-
+        MeetingBridge bridge1 = new MeetingBridge(1, true);
+        MeetingBridge bridge2 = new MeetingBridge(2, false);
+        MeetingBridge bridge3 = new MeetingBridge(3, true);
 
         Ladder ladder = new Ladder(3, 4, new LadderRowMakers(3, 4));
 
@@ -37,13 +30,13 @@ class LadderTest {
     @Test
     @DisplayName("사다리 생성 테스트 내용 체크")
     void construct_ladder2() {
-        MeetingPoint point1 = new MeetingPoint(1, true);
-        MeetingPoint point2 = new MeetingPoint(2, false);
-        MeetingPoint point3 = new MeetingPoint(3, true);
-        Row row1 = new Row(Arrays.asList(point1, point2, point3));
-        Row row2 = new Row(Arrays.asList(point1, point2, point3));
-        Row row3 = new Row(Arrays.asList(point1, point2, point3));
-        Row row4 = new Row(Arrays.asList(point1, point2, point3));
+        MeetingBridge bridge1 = new MeetingBridge(1, true);
+        MeetingBridge bridge2 = new MeetingBridge(2, false);
+        MeetingBridge bridge3 = new MeetingBridge(3, true);
+        Row row1 = new Row(Arrays.asList(bridge1, bridge2, bridge3));
+        Row row2 = new Row(Arrays.asList(bridge1, bridge2, bridge3));
+        Row row3 = new Row(Arrays.asList(bridge1, bridge2, bridge3));
+        Row row4 = new Row(Arrays.asList(bridge1, bridge2, bridge3));
 
         List<Row> checkRows = Arrays.asList(row1, row2, row3, row4);
         List<LadderRowMaker> rowMakers = Arrays.asList(() -> row1, () -> row2, () -> row3, () -> row4);
@@ -58,17 +51,17 @@ class LadderTest {
     @Test
     @DisplayName("사다리 타기 테스트")
     void climb_down_ladder_test() {
-        MeetingPoint point1 = new MeetingPoint(1, true);
-        MeetingPoint point2 = new MeetingPoint(2, false);
-        MeetingPoint point3 = new MeetingPoint(3, true);
-        MeetingPoint point4 = new MeetingPoint(4, false);
-        Row row1 = new Row(Arrays.asList(point1, point2, point3, point4));
+        MeetingBridge bridge1 = new MeetingBridge(1, true);
+        MeetingBridge bridge2 = new MeetingBridge(2, false);
+        MeetingBridge bridge3 = new MeetingBridge(3, true);
+        MeetingBridge bridge4 = new MeetingBridge(4, false);
+        Row row1 = new Row(Arrays.asList(bridge1, bridge2, bridge3, bridge4));
 
-        MeetingPoint point5 = new MeetingPoint(1, false);
-        MeetingPoint point6 = new MeetingPoint(2, true);
-        MeetingPoint point7 = new MeetingPoint(3, false);
-        MeetingPoint point8 = new MeetingPoint(4, true);
-        Row row2 = new Row(Arrays.asList(point5, point6, point7, point8));
+        MeetingBridge bridge5 = new MeetingBridge(1, false);
+        MeetingBridge bridge6 = new MeetingBridge(2, true);
+        MeetingBridge bridge7 = new MeetingBridge(3, false);
+        MeetingBridge bridge8 = new MeetingBridge(4, true);
+        Row row2 = new Row(Arrays.asList(bridge5, bridge6, bridge7, bridge8));
 
         List<LadderRowMaker> rowMakers = Arrays.asList(() -> row1, () -> row2, () -> row2, () -> row1);
         Ladder ladder = new Ladder(5, 4, new LadderRowMakers(rowMakers));

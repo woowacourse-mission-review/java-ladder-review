@@ -13,9 +13,9 @@ class RowTest {
     @Test
     @DisplayName("한 개의 ROW타기 테스트")
     void play_current_row1() {
-        MeetingPoint point1 = new MeetingPoint(1, true);
-        MeetingPoint point2 = new MeetingPoint(2, false);
-        MeetingPoint point3 = new MeetingPoint(3, true);
+        MeetingBridge point1 = new MeetingBridge(1, true);
+        MeetingBridge point2 = new MeetingBridge(2, false);
+        MeetingBridge point3 = new MeetingBridge(3, true);
         Row row = new Row(Arrays.asList(point1, point2, point3));
 
         Player player1 = new Player("java", 0);
@@ -35,9 +35,9 @@ class RowTest {
     @Test
     @DisplayName("한 개의 ROW타기 테스트")
     void play_current_row2() {
-        MeetingPoint point1 = new MeetingPoint(1, false);
-        MeetingPoint point2 = new MeetingPoint(2, true);
-        MeetingPoint point3 = new MeetingPoint(3, false);
+        MeetingBridge point1 = new MeetingBridge(1, false);
+        MeetingBridge point2 = new MeetingBridge(2, true);
+        MeetingBridge point3 = new MeetingBridge(3, false);
         Row row = new Row(Arrays.asList(point1, point2, point3));
 
         Player player1 = new Player("java", 0);

@@ -5,11 +5,11 @@ import games.laddergame.domain.GameComponents;
 
 import java.util.List;
 
-public class MeetingPoint {
+public class MeetingBridge {
     private final int position;
     private final boolean swap;
 
-    public MeetingPoint(int position, boolean swap) {
+    public MeetingBridge(int position, boolean swap) {
         if (position < 1) {
             throw new IllegalArgumentException();
         }
@@ -37,6 +37,6 @@ public class MeetingPoint {
 
     @Override
     public String toString() {
-        return "MeetingPoint{" + "swap= " + swap + "}";
+        return "MeetingBridge{" + "swap= " + swap + "}";
     }
 }

@@ -11,20 +11,20 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-class MeetingPointTest {
+class MeetingBridgeTest {
     @Test
-    @DisplayName("MeetingPoint생성 테스트1")
+    @DisplayName("MeetingBridge생성 테스트1")
     void meeting_ponint_construct_test() {
-        MeetingPoint point = new MeetingPoint(1, true);
+        MeetingBridge bridge = new MeetingBridge(1, true);
 
-        assertThat(point.getPosition()).isEqualTo(1);
-        assertThat(point.isSwap()).isTrue();
+        assertThat(bridge.getPosition()).isEqualTo(1);
+        assertThat(bridge.isSwap()).isTrue();
     }
 
     @Test
-    @DisplayName("오류, MeetingPoint생성 테스트")
+    @DisplayName("오류, MeetingBridge생성 테스트")
     void fail_meeting_ponint_construct_test() {
-        assertThrows(IllegalArgumentException.class, () -> new MeetingPoint(0, true));
+        assertThrows(IllegalArgumentException.class, () -> new MeetingBridge(0, true));
     }
 
     @Test
@@ -36,11 +36,10 @@ class MeetingPointTest {
         Player player4 = new Player("jaso", 3);
         GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
-        MeetingPoint point = new MeetingPoint(1, true);
-        point.swap(players);
+        MeetingBridge meetingBridge = new MeetingBridge(1, true);
+        meetingBridge.swap(players);
         assertThat(players.getComponentAt(0).getPosition()).isEqualTo(1);
         assertThat(players.getComponentAt(1).getPosition()).isEqualTo(0);
-
     }
 
     @Test
@@ -52,11 +51,10 @@ class MeetingPointTest {
         Player player4 = new Player("jaso", 3);
         GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
-        MeetingPoint point = new MeetingPoint(2, true);
-        point.swap(players);
+        MeetingBridge meetingBridge = new MeetingBridge(2, true);
+        meetingBridge.swap(players);
         assertThat(players.getComponentAt(1).getPosition()).isEqualTo(2);
         assertThat(players.getComponentAt(2).getPosition()).isEqualTo(1);
-
     }
 
     @Test
@@ -68,8 +66,8 @@ class MeetingPointTest {
         Player player4 = new Player("jaso", 3);
         GameComponents players = new GameComponents(Arrays.asList(player1, player2, player3, player4), true);
 
-        MeetingPoint point = new MeetingPoint(3, true);
-        point.swap(players);
+        MeetingBridge meetingBridge = new MeetingBridge(3, true);
+        meetingBridge.swap(players);
         assertThat(players.getComponentAt(2).getPosition()).isEqualTo(3);
         assertThat(players.getComponentAt(3).getPosition()).isEqualTo(2);
     }

@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class Row {
-    private List<MeetingPoint> row;
+    private List<MeetingBridge> row;
 
-    public Row(List<MeetingPoint> row) {
+    public Row(List<MeetingBridge> row) {
         this.row = row;
     }
 
@@ -33,7 +33,7 @@ public class Row {
         return Objects.hash(row);
     }
 
-    public List<MeetingPoint> getMathcingPoints() {
+    public List<MeetingBridge> getMathcingPoints() {
         return row;
     }
 }

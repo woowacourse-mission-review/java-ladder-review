@@ -1,6 +1,6 @@
 package games.laddergame.domain.ladder.ladderrowmaker;
 
-import games.laddergame.domain.ladder.MeetingPoint;
+import games.laddergame.domain.ladder.MeetingBridge;
 import games.laddergame.domain.ladder.Row;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class DefaultLadderRowMaker implements LadderRowMaker {
     @Override
     public Row createRow() {
         previousValues = new ArrayList<>();
-        List<MeetingPoint> row = IntStream.rangeClosed(1, width)
+        List<MeetingBridge> row = IntStream.rangeClosed(1, width)
                 .mapToObj(index -> createOneMeetingPoint(index))
                 .collect(Collectors.toList());
 
@@ -29,16 +29,16 @@ public class DefaultLadderRowMaker implements LadderRowMaker {
         return new Row(row);
     }
 
-    private MeetingPoint createOneMeetingPoint(int index) {
+    private MeetingBridge createOneMeetingPoint(int index) {
         boolean currentValue = random.nextBoolean();
         if (previousValues.isEmpty()) {
             previousValues.add(currentValue);
-            return new MeetingPoint(index, currentValue);
+            return new MeetingBridge(index, currentValue);
         }
         if (previousValues.get(previousValues.size() - 1)) {
             currentValue = false;
         }
         previousValues.add(currentValue);
-        return new MeetingPoint(index, currentValue);
+        return new MeetingBridge(index, currentValue);
     }
 }

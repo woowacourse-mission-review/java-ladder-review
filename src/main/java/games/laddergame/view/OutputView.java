@@ -2,7 +2,7 @@ package games.laddergame.view;
 
 import games.laddergame.domain.GameComponent;
 import games.laddergame.domain.GameResult;
-import games.laddergame.domain.ladder.MeetingPoint;
+import games.laddergame.domain.ladder.MeetingBridge;
 import games.laddergame.domain.ladder.Row;
 
 import java.util.List;
@@ -24,9 +24,9 @@ public class OutputView {
     }
 
     private void printEachMatchingPoint(Row row) {
-        List<MeetingPoint> meetingPoints = row.getMathcingPoints();
+        List<MeetingBridge> meetingBridges = row.getMathcingPoints();
         System.out.print("     |");
-        meetingPoints.forEach(meetingPoint -> {
+        meetingBridges.forEach(meetingPoint -> {
             if (meetingPoint.isSwap()) {
                 System.out.print("-----");
             } else {
