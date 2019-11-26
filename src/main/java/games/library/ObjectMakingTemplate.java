@@ -12,12 +12,12 @@ public class ObjectMakingTemplate<T> {
         return LazyHolder.INSTANCE;
     }
 
-    public List<GameComponent> createObjects(String rawData, ObjectMakingStrategy logic) {
+    public List<GameComponent> createObjects(String rawData, ObjectMakingStrategy objectMakingStrategy) {
         List<String> parsedData = CommaParser.parse(rawData);
         int max = parsedData.size() - 1;
 
         return IntStream.rangeClosed(0, max)
-                .mapToObj(index -> logic.makeObject(parsedData.get(index), index))
+                .mapToObj(index -> objectMakingStrategy.makeObject(parsedData.get(index), index))
                 .collect(Collectors.toList());
     }
 
