@@ -2,6 +2,7 @@ package games.laddergame.domain.ladder;
 
 import games.laddergame.domain.GameComponents;
 import games.laddergame.domain.Player;
+import games.laddergame.exception.MeetingBridgePositionError;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,7 @@ class MeetingBridgeTest {
     @Test
     @DisplayName("오류, MeetingBridge생성 테스트")
     void fail_meeting_ponint_construct_test() {
-        assertThrows(IllegalArgumentException.class, () -> new MeetingBridge(0, true));
+        assertThrows(MeetingBridgePositionError.class, () -> new MeetingBridge(0, true));
     }
 
     @Test

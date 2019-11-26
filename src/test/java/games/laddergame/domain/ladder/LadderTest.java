@@ -21,7 +21,7 @@ class LadderTest {
         MeetingBridge bridge2 = new MeetingBridge(2, false);
         MeetingBridge bridge3 = new MeetingBridge(3, true);
 
-        Ladder ladder = new Ladder(3, 4, new LadderRowMakers(3, 4));
+        Ladder ladder = new Ladder(4, new LadderRowMakers(3, 4));
 
         assertThat(ladder.getHeight()).isEqualTo(4);
         assertThat(ladder.getWidth()).isEqualTo(3);
@@ -41,7 +41,7 @@ class LadderTest {
         List<Row> checkRows = Arrays.asList(row1, row2, row3, row4);
         List<LadderRowMaker> rowMakers = Arrays.asList(() -> row1, () -> row2, () -> row3, () -> row4);
 
-        Ladder ladder = new Ladder(3, 4, new LadderRowMakers(rowMakers));
+        Ladder ladder = new Ladder(4, new LadderRowMakers(rowMakers));
 
         assertThat(ladder.getHeight()).isEqualTo(4);
         assertThat(ladder.getWidth()).isEqualTo(4);
@@ -64,7 +64,7 @@ class LadderTest {
         Row row2 = new Row(Arrays.asList(bridge5, bridge6, bridge7, bridge8));
 
         List<LadderRowMaker> rowMakers = Arrays.asList(() -> row1, () -> row2, () -> row2, () -> row1);
-        Ladder ladder = new Ladder(5, 4, new LadderRowMakers(rowMakers));
+        Ladder ladder = new Ladder(4, new LadderRowMakers(rowMakers));
 
         Player player1 = new Player("java", 0);
         Player player2 = new Player("ruby", 1);
