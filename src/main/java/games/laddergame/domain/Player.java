@@ -34,12 +34,12 @@ public class Player implements GameComponent {
     @Override
     public void swapWith(GameComponent otherParticipant) {
         int temporary = position;
-        this.position = otherParticipant.getPosition();
-        otherParticipant.finalizeSwap(temporary);
+        this.swap(otherParticipant.getPosition());
+        otherParticipant.swap(temporary);
     }
 
     @Override
-    public void finalizeSwap(int temporary) {
-        this.position = temporary;
+    public void swap(int destinationPosition) {
+        this.position = destinationPosition;
     }
 }

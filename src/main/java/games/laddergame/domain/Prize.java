@@ -33,7 +33,7 @@ public class Prize implements GameComponent {
     }
 
     @Override
-    public void finalizeSwap(int temporary) {
+    public void swap(int temporary) {
         throw new DoesNotSupportException();
     }
 }

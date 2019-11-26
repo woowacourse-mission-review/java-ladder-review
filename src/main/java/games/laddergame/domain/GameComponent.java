@@ -9,5 +9,5 @@ public interface GameComponent {
 
     void swapWith(GameComponent rightParticipant);
 
-    void finalizeSwap(int temporary);
+    void swap(int temporary);
 }
