@@ -29,7 +29,7 @@ public class OutputView {
         meetingBridges.forEach(meetingPoint -> {
             if (meetingPoint.isSwap()) {
                 System.out.print("-----");
-            } else {
+            } else  {
                 System.out.print("     ");
             }
             System.out.print("|");
