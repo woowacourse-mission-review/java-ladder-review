@@ -2,16 +2,18 @@ package games.laddergame.domain.ladder;
 
 import games.laddergame.domain.GameComponent;
 import games.laddergame.domain.GameComponents;
+import games.laddergame.exception.MeetingBridgePositionError;
 
 import java.util.List;
 
 public class MeetingBridge {
+    private static final int MINIMUM_POSITION = 1;
     private final int position;
     private final boolean swap;
 
     public MeetingBridge(int position, boolean swap) {
-        if (position < 1) {
-            throw new IllegalArgumentException();
+        if (position < MINIMUM_POSITION) {
+            throw new MeetingBridgePositionError();
         }
         this.position = position;
         this.swap = swap;

@@ -36,7 +36,7 @@ public class LadderGame implements Game {
         GameComponents players = registerComponents(REGISTER_PLAYERS_MESSAGE, Player::new, true);
         GameComponents prizes = registerComponents(REGISTER_PRIZES_MESSAGE, Prize::new, false);
         Height height = registerHeight();
-        Ladder ladder = new Ladder(players.size(), height.getHeight(), new LadderRowMakers(players.size(), height.getHeight()));
+        Ladder ladder = new Ladder(height.getHeight(), new LadderRowMakers(players.size(), height.getHeight()));
         GameResult gameResult = ladder.climbDownLadder(players, prizes);
         endGame(gameResult);
     }
@@ -47,7 +47,7 @@ public class LadderGame implements Game {
         outputView.printUserInquiry(userInput, gameResult.organizeResults());
     }
 
-    public GameComponents registerComponents(String message, ObjectMakingStrategy strategy, boolean isDuplicateCheckNecessary) {
+    private GameComponents registerComponents(String message, ObjectMakingStrategy strategy, boolean isDuplicateCheckNecessary) {
         GameComponents components;
         do {
             String rawData = inputView.askUserInput(message);
@@ -67,8 +67,11 @@ public class LadderGame implements Game {
     }
 
     private Height registerHeight() {
-        String rawHeight = inputView.askUserInput("사다리의 높이를 알려주십시오!");
-        Height height = new Height(rawHeight);
+        Height height;
+        do {
+            String rawHeight = inputView.askUserInput("사다리의 높이를 알려주십시오!");
+            height = new Height(rawHeight);
+        } while (height.isNotSuccessfullyMade());
         return height;
     }
 }

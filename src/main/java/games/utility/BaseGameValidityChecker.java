@@ -31,7 +31,7 @@ public class BaseGameValidityChecker {
         }
     }
 
-    public static void checkValidRacingRounds(int racingRounds) {
+    public static void checkValidQuantity(int racingRounds) {
         if (racingRounds <= GAME_BOUNDARY) {
             throw new IllegalArgumentException();
         }

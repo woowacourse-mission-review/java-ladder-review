@@ -33,7 +33,7 @@ public class Row {
         return Objects.hash(row);
     }
 
-    public List<MeetingBridge> getMathcingPoints() {
+    public List<MeetingBridge> getMeetingBridges() {
         return row;
     }
 }

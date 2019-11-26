@@ -7,6 +7,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class GameResult {
+    private static final String JOINING_DELIMIETR = "  ";
+    private static final String ALL_KEYWORD = "all";
+
     private List<GameComponent> players;
     private List<GameComponent> prizes;
     private List<Row> ladder;
@@ -36,12 +39,12 @@ public class GameResult {
                 .collect(Collectors.toList());
 
         int max = sortedPlayers.size();
-        IntStream.rangeClosed(0, max - 1)
+        IntStream.range(0, max)
                 .forEach(index ->
                         results.put(sortedPlayers.get(index).getName(), sortedPlayers.get(index).getName() + ":" + prizes.get(index).getName()));
 
-        String allResult = String.join("  ", results.values());
-        results.put("all", allResult);
+        String allResult = String.join(JOINING_DELIMIETR, results.values());
+        results.put(ALL_KEYWORD, allResult);
         return results;
     }
 }

@@ -24,7 +24,7 @@ public class OutputView {
     }
 
     private void printEachMatchingPoint(Row row) {
-        List<MeetingBridge> meetingBridges = row.getMathcingPoints();
+        List<MeetingBridge> meetingBridges = row.getMeetingBridges();
         System.out.print("     |");
         meetingBridges.forEach(meetingPoint -> {
             if (meetingPoint.isSwap()) {

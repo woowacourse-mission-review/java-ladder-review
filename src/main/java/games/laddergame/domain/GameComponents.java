@@ -33,12 +33,12 @@ public class GameComponents {
 
     private void checkDuplicateNames(List<GameComponent> gameComponents) {
         List<String> componentNames = gameComponents.stream()
-                .map(component -> component.getName())
+                .map(GameComponent::getName)
                 .collect(Collectors.toList());
 
-        Set<String> uniqueComponentNAmes = new HashSet<>(componentNames);
+        Set<String> uniqueComponentNames = new HashSet<>(componentNames);
 
-        if (uniqueComponentNAmes.size() != componentNames.size()) {
+        if (uniqueComponentNames.size() != componentNames.size()) {
             throw new DuplicateNameException();
         }
     }

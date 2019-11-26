@@ -12,9 +12,9 @@ import java.util.stream.IntStream;
 public class Ladder {
     private List<Row> ladder;
 
-    public Ladder(int width, int height, LadderRowMakers ladderRowMakers) {
+    public Ladder(int height, LadderRowMakers ladderRowMakers) {
         this.ladder = IntStream.rangeClosed(0, height - 1)
-                .mapToObj(index -> ladderRowMakers.createRowCurrentRow(index))
+                .mapToObj(ladderRowMakers::createRowCurrentRow)
                 .collect(Collectors.toList());
     }
 
@@ -30,7 +30,7 @@ public class Ladder {
         return Collections.unmodifiableList(ladder);
     }
 
-    public games.laddergame.domain.GameResult climbDownLadder(GameComponents players, GameComponents prizes) {
+    public GameResult climbDownLadder(GameComponents players, GameComponents prizes) {
         ladder.forEach(row -> row.playCurrentRow(players));
         return new GameResult(players.getComponents(), prizes.getComponents(), Collections.unmodifiableList(ladder));
     }

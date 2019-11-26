@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static games.utility.BaseGameValidityChecker.checkValidRacingRounds;
+import static games.utility.BaseGameValidityChecker.checkValidQuantity;
 
 public class RacingRounds {
     private static int WRONG_ROUNDS = 0;
@@ -15,7 +15,7 @@ public class RacingRounds {
     public RacingRounds(String rawRacingRounds) {
         try {
             int racingRounds = Integer.parseInt(rawRacingRounds);
-            checkValidRacingRounds(racingRounds);
+            checkValidQuantity(racingRounds);
             this.racingRounds = racingRounds;
         } catch (Exception e) {
             System.out.println("경기횟수는 0이상의 정수만 허용합니다!");

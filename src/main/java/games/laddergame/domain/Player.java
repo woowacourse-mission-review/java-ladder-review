@@ -1,10 +1,9 @@
 package games.laddergame.domain;
 
-
 import games.laddergame.exception.InvalidPlayerNameException;
 import games.utility.BaseGameValidityChecker;
 
-public class Player implements GameComponent, Comparable<Player> {
+public class Player implements GameComponent {
     private String name;
     private int position;
 
@@ -42,10 +41,5 @@ public class Player implements GameComponent, Comparable<Player> {
     @Override
     public void finalizeSwap(int temporary) {
         this.position = temporary;
-    }
-
-    @Override
-    public int compareTo(Player o) {
-        return Integer.compare(position, o.position);
     }
 }

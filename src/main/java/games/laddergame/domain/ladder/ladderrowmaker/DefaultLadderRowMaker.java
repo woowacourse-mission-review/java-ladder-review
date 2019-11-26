@@ -22,7 +22,7 @@ public class DefaultLadderRowMaker implements LadderRowMaker {
     public Row createRow() {
         previousValues = new ArrayList<>();
         List<MeetingBridge> row = IntStream.rangeClosed(1, width)
-                .mapToObj(index -> createOneMeetingPoint(index))
+                .mapToObj(this::createOneMeetingPoint)
                 .collect(Collectors.toList());
 
         System.out.println(row);

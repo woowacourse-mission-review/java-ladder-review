@@ -22,8 +22,4 @@ public class LadderRowMakers {
     public Row createRowCurrentRow(int index) {
         return rowMakers.get(index).createRow();
     }
-
-    public LadderRowMaker getAt(int index) {
-        return rowMakers.get(index);
-    }
 }
