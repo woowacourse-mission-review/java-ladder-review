@@ -1,4 +1,4 @@
-package games.gamelauncher;
+package games;
 
 public interface Game {
     boolean isPlayable(String gameName);

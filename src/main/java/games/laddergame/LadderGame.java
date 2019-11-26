@@ -1,6 +1,6 @@
 package games.laddergame;
 
-import games.gamelauncher.Game;
+import games.Game;
 import games.laddergame.domain.*;
 import games.laddergame.domain.ladder.Ladder;
 import games.laddergame.domain.ladder.ladderrowmaker.LadderRowMakers;
