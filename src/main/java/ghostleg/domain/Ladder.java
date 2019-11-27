@@ -9,13 +9,13 @@ public class Ladder {
     private final ArrayList<Line> lines;
     private int currentHeight;
 
-    public Ladder(LadderHeight ladderHeight, Line... lines) {
+    public Ladder(LadderHeight ladderHeight, List<Line> lines) {
         validateLadderHeight(ladderHeight, lines);
         this.lines = Lists.newArrayList(lines);
     }
 
-    private void validateLadderHeight(LadderHeight ladderHeight, Line[] lines) {
-        if (ladderHeight.getValue() != lines.length) {
+    private void validateLadderHeight(LadderHeight ladderHeight, List<Line> lines) {
+        if (ladderHeight.getValue() != lines.size()) {
             throw new IllegalArgumentException("사다리의 높이와 라인의 수가 일치해야 합니다.");
         }
     }
@@ -27,5 +27,9 @@ public class Ladder {
 
     public ArrayList<Line> getLines() {
         return lines;
+    }
+
+    public boolean end() {
+        return currentHeight == lines.size() - 1;
     }
 }
