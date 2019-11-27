@@ -1,16 +1,14 @@
 package ghostleg.view;
 
-import ghostleg.domain.Ladder;
-import ghostleg.domain.Player;
-import ghostleg.domain.Result;
-import ghostleg.domain.Reward;
+import ghostleg.domain.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface GhostLegOutputView {
-    void printPlayers(List<Player> players);
+    void printPlayers(Players players);
     void printLadder(Ladder ladder);
-    void printRewards(List<Reward> rewards);
-    void printResult(Result result);
-    void printAllResults(List<Result> results);
+    void printRewards(Rewards rewards);
+    void printResult(Reward result);
+    void printAllResults(Map<PlayerName, Reward> results);
 }

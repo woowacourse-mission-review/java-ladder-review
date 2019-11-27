@@ -4,18 +4,19 @@ import ghostleg.domain.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ConsoleOutputView implements GhostLegOutputView {
     private static final int PADDING_WIDTH = 5;
 
     @Override
-    public void printPlayers(List<Player> players) {
-        System.out.println(players.stream()
+    public void printPlayers(Players players) {
+        System.out.println(players.getPlayers().stream()
                 .map(Player::getName)
                 .map(PlayerName::getValue)
                 .map(name -> StringUtils.center(name, PADDING_WIDTH))
-                .collect(Collectors.joining())
+                .collect(Collectors.joining(" "))
         );
     }
 
@@ -28,35 +29,36 @@ public class ConsoleOutputView implements GhostLegOutputView {
     }
 
     private String lineToString(Line line) {
-        return "  |" + line.getPoints().stream()
+        List<Point> points = line.getPoints();
+        return "  |" + points.subList(0, points.size() -1).stream()
                 .map(this::pointToString)
                 .collect(Collectors.joining("|")) + "|";
     }
 
     private String pointToString(Point point) {
-        return point.next() == Direction.RIGHT ? "-----" : "     ";
+        return point.move() == Direction.RIGHT ? "-----" : "     ";
     }
 
     @Override
-    public void printRewards(List<Reward> rewards) {
-        System.out.println(rewards.stream()
+    public void printRewards(Rewards rewards) {
+        System.out.println(rewards.getRewards().stream()
                 .map(Reward::getName)
                 .map(name -> StringUtils.center(name, PADDING_WIDTH))
-                .collect(Collectors.joining())
+                .collect(Collectors.joining(" "))
         );
     }
 
     @Override
-    public void printResult(Result result) {
+    public void printResult(Reward result) {
         System.out.println("실행 결과");
-        System.out.println(result.getReward());
+        System.out.println(result.getName());
     }
 
     @Override
-    public void printAllResults(List<Result> results) {
+    public void printAllResults(Map<PlayerName, Reward> results) {
         System.out.println("실행 결과");
-        System.out.println(results.stream()
-                .map(result -> String.format("%s : %s", result.getPlayer().getName().getValue(), result.getReward().getName()))
+        System.out.println(results.entrySet().stream()
+                .map(result -> String.format("%s : %s", result.getKey().getValue(), result.getValue().getName()))
                 .collect(Collectors.joining("\n"))
         );
     }
