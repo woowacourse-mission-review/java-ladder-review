@@ -1,5 +1,7 @@
 package ghostleg.domain;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Reward {
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 10;
@@ -7,6 +9,7 @@ public class Reward {
     private final String name;
 
     public Reward(String name) {
+        name = StringUtils.trim(name);
         validateLength(name);
         this.name = name;
     }
