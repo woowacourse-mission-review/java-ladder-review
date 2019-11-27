@@ -1,5 +1,8 @@
 package ghostleg.domain;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class PlayerName {
@@ -9,6 +12,7 @@ public class PlayerName {
     private final String name;
 
     public PlayerName(String name) {
+        name = StringUtils.trim(name);
         validateLength(name);
         validateOnlyEnglishAndSpaceBar(name);
         this.name = name;
@@ -28,5 +32,18 @@ public class PlayerName {
 
     public String getValue() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerName that = (PlayerName) o;
+        return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
