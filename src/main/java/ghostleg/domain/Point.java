@@ -10,7 +10,22 @@ public class Point {
         this.right = right;
     }
 
-    public Direction next() {
+    public static Point first(boolean right) {
+        return new Point(false, right);
+    }
+
+    public Point next(boolean right) {
+        if (this.right && right) {
+            right = false;
+        }
+        return new Point(this.right, right);
+    }
+
+    public Point last() {
+        return new Point(this.right, false);
+    }
+
+    public Direction move() {
         return Direction.of(left, right);
     }
 
