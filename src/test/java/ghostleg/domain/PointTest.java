@@ -10,19 +10,19 @@ class PointTest {
     @Test
     void goLeftTest() {
         Point testPoint = new Point(true, false);
-        assertThat(testPoint.next()).isEqualTo(Direction.LEFT);
+        assertThat(testPoint.move()).isEqualTo(Direction.LEFT);
     }
 
     @Test
     void goRightTest() {
         Point testPoint = new Point(false, true);
-        assertThat(testPoint.next()).isEqualTo(Direction.RIGHT);
+        assertThat(testPoint.move()).isEqualTo(Direction.RIGHT);
     }
 
     @Test
     void goStraightTest() {
         Point testPoint = new Point(false, false);
-        assertThat(testPoint.next()).isEqualTo(Direction.STRAIGHT);
+        assertThat(testPoint.move()).isEqualTo(Direction.STRAIGHT);
     }
 
     @DisplayName("한 점의 양쪽에 모두 다리가 놓일 수 없다")

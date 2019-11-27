@@ -15,17 +15,24 @@ class LadderTest {
         NumOfPlayers numOfPlayers = new NumOfPlayers(3);
         testLadder = new Ladder(
                 new LadderHeight(2),
-                new Line(
-                        numOfPlayers,
-                        new Point(false, true),
-                        new Point(true, false),
-                        new Point(false, false)
-                ),
-                new Line(
-                        numOfPlayers,
-                        new Point(false, false),
-                        new Point(false, true),
-                        new Point(true, false)
+                Lists.newArrayList(
+                        new Line(
+                                numOfPlayers,
+                                Lists.newArrayList(
+                                        new Point(false, true),
+                                        new Point(true, false),
+                                        new Point(false, false)
+                                )
+                        ),
+                        new Line(
+                                numOfPlayers,
+                                Lists.newArrayList(
+                                        new Point(false, false),
+                                        new Point(false, true),
+                                        new Point(true, false)
+
+                                )
+                        )
                 )
         );
     }
@@ -34,10 +41,14 @@ class LadderTest {
     void illegalHeight() {
         assertThrows(IllegalArgumentException.class, () -> new Ladder(
                 new LadderHeight(100),
-                new Line(
-                        new NumOfPlayers(2),
-                        new Point(false, true),
-                        new Point(true, false)
+                Lists.newArrayList(
+                        new Line(
+                                new NumOfPlayers(2),
+                                Lists.newArrayList(
+                                        new Point(false, true),
+                                        new Point(true, false)
+                                )
+                        )
                 )
         ));
     }

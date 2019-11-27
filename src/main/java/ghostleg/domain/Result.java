@@ -1,15 +1,15 @@
 package ghostleg.domain;
 
 public class Result {
-    private final Player player;
+    private final PlayerName player;
     private final Reward reward;
 
-    public Result(Player player, Reward reward) {
+    public Result(PlayerName player, Reward reward) {
         this.player = player;
         this.reward = reward;
     }
 
-    public Player getPlayer() {
+    public PlayerName getPlayer() {
         return player;
     }
 

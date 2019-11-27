@@ -1,5 +1,6 @@
 package ghostleg.domain;
 
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,9 +14,12 @@ class LineTest {
     void setUp() {
         testLine = new Line(
                 new NumOfPlayers(3),
-                new Point(false, true),
-                new Point(true, false),
-                new Point(false, false));
+                Lists.newArrayList(
+                        new Point(false, true),
+                        new Point(true, false),
+                        new Point(false, false)
+                )
+        );
     }
 
     @Test
@@ -37,8 +41,10 @@ class LineTest {
     void invalidFirstPoint() {
         assertThrows(IllegalArgumentException.class, () -> new Line(
                 new NumOfPlayers(2),
-                new Point(true, false),
-                new Point(false, false)
+                Lists.newArrayList(
+                        new Point(true, false),
+                        new Point(false, false)
+                )
         ));
     }
 
@@ -46,8 +52,10 @@ class LineTest {
     void invalidLastPoint() {
         assertThrows(IllegalArgumentException.class, () -> new Line(
                 new NumOfPlayers(2),
-                new Point(false, false),
-                new Point(false, true)
+                Lists.newArrayList(
+                        new Point(false, false),
+                        new Point(false, true)
+                )
         ));
     }
 
@@ -55,8 +63,10 @@ class LineTest {
     void inconsistentPoints() {
         assertThrows(IllegalArgumentException.class, () -> new Line(
                 new NumOfPlayers(2),
-                new Point(false, true),
-                new Point(false, false)
+                Lists.newArrayList(
+                        new Point(false, true),
+                        new Point(false, false)
+                )
         ));
     }
 
@@ -64,8 +74,10 @@ class LineTest {
     void invalidNumOfPoints() {
         assertThrows(IllegalArgumentException.class, () -> new Line(
                 new NumOfPlayers(3),
-                new Point(false, true),
-                new Point(true, false)
+                Lists.newArrayList(
+                        new Point(false, true),
+                        new Point(true, false)
+                )
         ));
     }
 }
