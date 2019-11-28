@@ -3,6 +3,7 @@ package ladder.domain.common;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class Position {
     public static final int MIN_POSITION_BOUNDARY = 0;
@@ -11,9 +12,8 @@ public class Position {
     private static final Map<Integer, Position> CACHE = new HashMap<>();
 
     static {
-        for (int i = MIN_POSITION_BOUNDARY; i <= POSITION_CACHE_SIZE; i++) {
-            CACHE.put(i, new Position(i));
-        }
+        IntStream.range(MIN_POSITION_BOUNDARY, POSITION_CACHE_SIZE)
+                .forEach(Position::new);
     }
 
     private final int position;
