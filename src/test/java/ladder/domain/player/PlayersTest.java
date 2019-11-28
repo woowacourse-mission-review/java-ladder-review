@@ -12,7 +12,9 @@ class PlayersTest {
         String inputNames = "bedi, cu, pobi";
         Players players = Players.of(inputNames);
 
-        assertThat(players.size()).isEqualTo(3);
+        assertThat(players.getByPlayerName("bedi")).isNotNull();
+        assertThat(players.getByPlayerName("cu")).isNotNull();
+        assertThat(players.getByPlayerName("pobi")).isNotNull();
     }
 
     @Test
