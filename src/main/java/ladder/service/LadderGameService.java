@@ -18,7 +18,7 @@ public class LadderGameService {
         this.ladderFactory = ladderFactory;
     }
 
-    public Ladder createLadder(int height, int countOfPlayers) {
+    public Ladder createLadder(final int height, final int countOfPlayers) {
         return ladderFactory.create(Height.from(height), countOfPlayers);
     }
 
